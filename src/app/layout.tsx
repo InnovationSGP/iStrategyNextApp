@@ -1,6 +1,6 @@
 import React from "react";
 import "./globals.css";
-import Navigation from "./Header";
+import Navigation from "./components/Navigation";
 
 export default function RootLayout({
   children,

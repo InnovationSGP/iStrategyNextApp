@@ -9,24 +9,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryBlue: "#000051",
-        primaryPurple: "#a881af",
+        primaryBlue: "#281259",
+        primaryPurple: "#6f42c1",
         primaryGold: "#515100",
-        primaryPink: "#ff6a95",
+        primaryPink: "#C04BF2",
       },
       fontFamily: {
-        sans: [
-          '"Roboto"',
-          '"Helvetica Neue"',
-          ' "Work Sans"',
-          '"Noto Sans"',
-          "sans-serif",
-          '"Apple Color Emoji"',
-          '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
-          '"Noto Color Emoji"',
-        ],
+        sans: ["Work Sans"],
         itim: ['"Itim"', "cursive"],
+        roboto: ["Roboto"],
+        noto: ["Noto Sans NKo", "sans-serif"],
       },
     },
   },

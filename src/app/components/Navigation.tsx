@@ -18,6 +18,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Logo, LogoBrand } from "../utils/Logo";
 
 const solutions = [
   {
@@ -57,44 +58,6 @@ const callsToAction = [
   { name: "Watch Demo", href: "#", icon: PlayIcon },
   { name: "Contact Sales", href: "#", icon: PhoneIcon },
 ];
-const resources = [
-  {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "#",
-    icon: LifebuoyIcon,
-  },
-  {
-    name: "Guides",
-    description:
-      "Learn how to maximize our platform to get the most out of it.",
-    href: "#",
-    icon: BookmarkSquareIcon,
-  },
-  {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
-    href: "#",
-    icon: CalendarIcon,
-  },
-  {
-    name: "Security",
-    description: "Understand how we take your privacy seriously.",
-    href: "#",
-    icon: ShieldCheckIcon,
-  },
-];
-const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
-  {
-    id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
-    href: "#",
-  },
-  { id: 3, name: "Improve your customer experience", href: "#" },
-];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -104,35 +67,33 @@ export default function Navigation() {
   return (
     <Popover className="relative bg-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1 text-black ">
-            <span className="font-sans font-bold text-3xl">iStrategy</span>
-            {/* <img
-              className="h-8 w-auto sm:h-10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            /> */}
+        <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-between ">
+          <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black ">
+            {/* <Logo /> */}
+            <LogoBrand />
           </div>
 
           {/* This is the mobile hamburger menu */}
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryPink">
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
           {/* The above is the mobile hamburger menu */}
-          <Popover.Group as="nav" className="hidden space-x-10 md:flex">
+          <Popover.Group as="nav" className="hidden md:flex">
             <Popover className="relative">
               {({ open }) => (
                 <>
                   <Popover.Button
                     className={classNames(
                       open ? "text-gray-900" : "text-gray-500",
-                      "p-2 group inline-flex items-center bg-white font-medium hover:text-gray-900 hover:border-b-2  focus:border-b-2 focus:border-primaryBlue text-2xl"
+                      "p-2 px-6 group inline-flex items-center bg-white font-medium hover:text-gray-900  border-r-2 border-primaryPink text-xl"
                     )}
                   >
-                    <span>Consulting</span>
+                    <span className="hover:border-b-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple px-6 pb-2">
+                      Consulting
+                    </span>
                   </Popover.Button>
 
                   <Transition
@@ -154,7 +115,7 @@ export default function Navigation() {
                               className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                             >
                               <item.icon
-                                className="h-6 w-6 flex-shrink-0 text-indigo-600"
+                                className="h-6 w-6 flex-shrink-0 text-primaryPink"
                                 aria-hidden="true"
                               />
                               <div className="ml-4">
@@ -193,15 +154,19 @@ export default function Navigation() {
 
             <a
               href="#"
-              className="text-2xl p-2 font-medium text-gray-500 hover:text-gray-900 hover:border-b-2  focus:border-b-2 focus:border-primaryBlue"
+              className="text-xl p-2 px-6 font-medium text-gray-500 hover:text-gray-900 border-r-2   border-primaryPink  focus:border-primaryPurple"
             >
-              Staffing
+              <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple">
+                Staffing
+              </span>
             </a>
             <a
               href="#"
-              className="text-2xl  p-2 font-medium text-gray-500 hover:text-gray-900 hover:border-b-2  focus:border-b-2 focus:border-primaryBlue"
+              className="text-xl  p-2 px-6  font-medium text-gray-500 hover:text-gray-900 border-r-2  border-primaryPink   focus:border-primaryPurple"
             >
-              Delivery
+              <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple">
+                Delivery
+              </span>
             </a>
           </Popover.Group>
         </div>
@@ -227,7 +192,7 @@ export default function Navigation() {
                   <span className="text-2xl ">iStrategy</span>
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryPink">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -242,7 +207,7 @@ export default function Navigation() {
                       className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
                     >
                       <item.icon
-                        className="h-6 w-6 flex-shrink-0 text-indigo-600"
+                        className="h-6 w-6 flex-shrink-0 text-primaryPink"
                         aria-hidden="true"
                       />
                       <span className="ml-3 text-base font-medium text-gray-900">
@@ -257,13 +222,16 @@ export default function Navigation() {
               <div>
                 <a
                   href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryPink px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryPink"
                 >
                   Contact Us Now
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing client?{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a
+                    href="#"
+                    className="text-primaryPink hover:text-primaryPink"
+                  >
                     Sign in (coming soon)
                   </a>
                 </p>
