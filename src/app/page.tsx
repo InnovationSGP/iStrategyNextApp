@@ -1,10 +1,9 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <main>
-      <div>Hello World ISGP</div>
+      <div className="p-14 bg-red-200">Hello World ISGP - Home Page</div>
     </main>
   );
 }
