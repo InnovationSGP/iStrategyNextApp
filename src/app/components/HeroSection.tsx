@@ -16,12 +16,24 @@ export default function HeroSection() {
                 </span>
               </div>
               <div className="flex justify-between items-center p-4 border-2 border-black">
-                <div className="border-2 border-black">
-                  <span className="text-primaryBlue text-3xl">5+ years</span>{" "}
+                <div className="border-2 border-black flex flex-col items-center justify-between p-2">
+                  <span className="text-primaryBlue text-2xl font-bold">
+                    5+ years
+                  </span>{" "}
                   <span> Public Sector</span>{" "}
                 </div>
-                <div>5+ Private Sector</div>
-                <div>Resources</div>
+                <div className="border-2 border-black flex flex-col items-start justify-between p-2">
+                  <span className="text-primaryBlue text-2xl font-bold">
+                    10+
+                  </span>{" "}
+                  <span>Solutions Delivered</span>{" "}
+                </div>
+                <div className="border-2 border-black flex flex-col items-center justify-between p-2">
+                  <span className="text-primaryBlue text-2xl font-bold">
+                    E-Shaped Specialists
+                  </span>{" "}
+                  <span>Certified and Experienced</span>{" "}
+                </div>
               </div>
             </div>
 
