@@ -6,7 +6,7 @@ import ImageFunction from "../utils/ImageFunction";
 export default function HeroSection() {
   return (
     <>
-      <div className="">
+      <div>
         <div className="bg-no-repeat bg-cover bg-center md:p-16">
           <div className="flex flex-col-reverse sm:flex-row justify-between">
             <div className="flex flex-col">
@@ -15,24 +15,24 @@ export default function HeroSection() {
                   Innovate with us
                 </span>
               </div>
-              <div className="flex justify-between items-center p-4 border-2 border-black">
-                <div className="border-2 border-black flex flex-col items-center justify-between p-2">
+              <div className="flex justify-between items-start ">
+                <div className=" flex flex-col items-start justify-between pr-6 p-4 md:px-0">
                   <span className="text-primaryBlue text-2xl font-bold">
                     5+ years
                   </span>{" "}
                   <span> Public Sector</span>{" "}
                 </div>
-                <div className="border-2 border-black flex flex-col items-start justify-between p-2">
+                <div className=" flex flex-col items-start justify-between pr-6 p-4 md:px-0">
                   <span className="text-primaryBlue text-2xl font-bold">
                     10+
                   </span>{" "}
-                  <span>Solutions Delivered</span>{" "}
+                  <span>Solutions </span>{" "}
                 </div>
-                <div className="border-2 border-black flex flex-col items-center justify-between p-2">
+                <div className=" flex flex-col items-start justify-between pr-6 p-4 md:px-0">
                   <span className="text-primaryBlue text-2xl font-bold">
-                    E-Shaped Specialists
+                    10+ years
                   </span>{" "}
-                  <span>Certified and Experienced</span>{" "}
+                  <span>Experience</span>{" "}
                 </div>
               </div>
             </div>
@@ -47,13 +47,13 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="bg-secondaryPurpleLight p-2">
+        {/* <div className="bg-secondaryPurpleLight p-2">
           <div className="justify-center items-center p-4 flex flex-col md:flex-row">
             <span className=" uppercase text-2xl font-bold bg-white p-2 px-4 text-primaryBlue">
               contact Us
             </span>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
