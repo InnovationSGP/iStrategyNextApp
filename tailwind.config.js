@@ -13,6 +13,7 @@ module.exports = {
         primaryPurple: "#6f42c1",
         primaryGold: "#515100",
         primaryPink: "#C04BF2",
+        secondaryPurpleLight: "#f4e6fa",
       },
       fontFamily: {
         sans: ["Work Sans"],
