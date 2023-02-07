@@ -47,13 +47,6 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        {/* <div className="bg-secondaryPurpleLight p-2">
-          <div className="justify-center items-center p-4 flex flex-col md:flex-row">
-            <span className=" uppercase text-2xl font-bold bg-white p-2 px-4 text-primaryBlue">
-              contact Us
-            </span>
-          </div>
-        </div> */}
       </div>
     </>
   );

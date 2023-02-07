@@ -17,45 +17,45 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Logo, LogoBrand } from "../utils/Logo";
+import { LogoBrand } from "../utils/Logo";
 
 const solutions = [
   {
     name: "Delivery",
     description:
       "Get a better understanding of where your traffic is coming from.",
-    href: "#",
+    href: "/delivery",
     icon: ChartBarIcon,
   },
   {
     name: "Consulting",
     description: "Speak directly to your customers in a more meaningful way.",
-    href: "#",
+    href: "/consulting",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "IT Security",
     description: "Your customers' data will be safe and secure.",
-    href: "#",
+    href: "/security",
     icon: ShieldCheckIcon,
   },
   {
     name: "Integrations",
     description: "Connect with third-party tools that you're already using.",
-    href: "#",
+    href: "/integrations",
     icon: Squares2X2Icon,
   },
   {
     name: "Automations",
     description:
       "Build strategic funnels that will drive your customers to convert",
-    href: "#",
+    href: "/automations",
     icon: ArrowPathIcon,
   },
 ];
 const callsToAction = [
-  { name: "Watch Demo", href: "#", icon: PlayIcon },
-  { name: "Contact Sales", href: "#", icon: PhoneIcon },
+  { name: "Blog", href: "/blog", icon: PlayIcon },
+  { name: "Contact Sales", href: "/contactus", icon: PhoneIcon },
 ];
 
 function classNames(...classes: string[]) {
@@ -68,7 +68,6 @@ export default function Navigation() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-between ">
           <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black ">
-            {/* <Logo /> */}
             <LogoBrand />
           </div>
 
@@ -152,7 +151,7 @@ export default function Navigation() {
             </Popover>
 
             <a
-              href="#"
+              href="/staffing"
               className="text-xl p-2 px-6 font-medium text-gray-500 hover:text-gray-900 border-r-2   border-primaryPink  focus:border-primaryPurple"
             >
               <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple">
@@ -160,7 +159,7 @@ export default function Navigation() {
               </span>
             </a>
             <a
-              href="#"
+              href="/delivery"
               className="text-xl  p-2 px-6  font-medium text-gray-500 hover:text-gray-900 border-r-2  border-primaryPink   focus:border-primaryPurple"
             >
               <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple">
@@ -220,7 +219,7 @@ export default function Navigation() {
             <div className="space-y-6 py-6 px-5">
               <div>
                 <a
-                  href="#"
+                  href="/contactus"
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryPink px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryPink"
                 >
                   Contact Us Now
