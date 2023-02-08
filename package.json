@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress:open": "cypress open",
+    "cypress": "cypress open",
     "cypress:run": "cypress run --browser chrome",
-    "cypress:test": "cypress run -- -- record --spec cypress/e2e/tests"
+    "test": "cypress run -- -- record --spec cypress/e2e/tests"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.8",
