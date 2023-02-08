@@ -2,5 +2,5 @@
 import React from "react";
 
 export default function Staffing() {
-  return <div>staffing</div>;
+  return <div data-cy="staffing-section">Staffing Section</div>;
 }
