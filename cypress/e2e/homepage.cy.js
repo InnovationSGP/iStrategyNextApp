@@ -1,4 +1,3 @@
-export {};
 /// <reference types="cypress" />
 
 describe("Innovation Strategy Homepage", () => {
@@ -6,3 +5,4 @@ describe("Innovation Strategy Homepage", () => {
     cy.visit("/");
   });
 });
+export {};

@@ -1,4 +1,3 @@
-export {};
 /// <reference types="cypress" />
 
 context("Navigation", () => {
@@ -81,3 +80,4 @@ context("Navigation", () => {
     });
   });
 });
+export {};
