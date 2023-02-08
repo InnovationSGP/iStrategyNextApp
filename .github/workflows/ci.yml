@@ -1,4 +1,4 @@
-name: continous integration test
+name: Continous Integration Test
 on: [push]
 jobs:
   cypress-run:
