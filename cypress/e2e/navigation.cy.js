@@ -80,4 +80,3 @@ context("Navigation", () => {
     });
   });
 });
-export {};
