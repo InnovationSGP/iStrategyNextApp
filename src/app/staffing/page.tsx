@@ -6,7 +6,7 @@ import hero from "../../../public/assets/isgModelCenter.png";
 export default function Staffing() {
   return (
     <div data-cy="staffing-section">
-      <h1>Staffing</h1>
+      <h1>Staffing-checking a signed commit</h1>
       <div className="bg-no-repeat bg-cover bg-center md:p-16">
         <div className="flex flex-col-reverse sm:flex-row justify-between">
           <div className="flex flex-col">
