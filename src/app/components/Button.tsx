@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Button {
-  children: any;
+  text: any;
   txtColor: string;
   type: any;
   color: string;
@@ -14,7 +14,7 @@ interface Button {
 
 const CustomButton = (props: Button) => {
   const {
-    children,
+    text,
     size,
     space,
     txtColor,
@@ -32,10 +32,7 @@ const CustomButton = (props: Button) => {
       disabled={isDisabled}
       onClick={clickFunction}
     >
-      <p className={`${size} font-medium leading-none ${txtColor}`}>
-        {" "}
-        {children}
-      </p>
+      <p className={`${size} font-medium leading-none ${txtColor}`}> {text}</p>
     </button>
   );
 };

@@ -42,7 +42,7 @@ export default function HeroSection() {
                       type="button"
                       size="text-2xl"
                       space="py-2 px-4 m-4"
-                      children="Contact Us"
+                      text="Contact Us"
                       hoverFocus="hover:bg-gray-300"
                       clickFunction={contactCTAEvent}
                       isDisabled={false}
