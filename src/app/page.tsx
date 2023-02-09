@@ -8,8 +8,6 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <Banner />
-      <Feature />
     </main>
   );
 }
