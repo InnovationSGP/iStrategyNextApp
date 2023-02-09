@@ -1,6 +1,11 @@
-context("Visit Banner and check CTA", () => {
+context("Check Homepage CTAs", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.get("[data-cy=nav-section]").contains("iStrat").click();
+    cy.url().should("include", "/");
+  });
+
+  it("Check the Banner", () => {
     cy.get("[data-cy=banner]").contains("Learn").click();
     cy.url().should("include", "/delivery");
   });
