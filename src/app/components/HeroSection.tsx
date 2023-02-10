@@ -19,7 +19,6 @@ export default function HeroSection() {
   return (
     <>
       <div>
-        <Banner />
         <div className="dark:bg-gray-900">
           <div className="pb-2">
             <div className="mx-auto bg-gradient-to-l from-primaryBlue to-primaryPurple h-96">

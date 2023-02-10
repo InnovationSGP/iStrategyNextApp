@@ -8,7 +8,7 @@ export default function ImageFunction(props: {
   alt?: any;
   sizes?: string;
   style?: any;
-  fill?: any;
+  fill?: boolean;
 }) {
   return (
     <Image
