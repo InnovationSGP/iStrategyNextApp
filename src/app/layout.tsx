@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Banner from "./components/Banner";
 
 export default function RootLayout({
   children,
@@ -15,8 +16,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
+      <body className=" overflow-x-hidden  ">
         <Navigation />
+        <Banner />
         {children}
         <Footer />
       </body>
