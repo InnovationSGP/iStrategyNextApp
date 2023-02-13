@@ -28,6 +28,13 @@ const solutions = [
     icon: ChartBarIcon,
   },
   {
+    name: "Offshore",
+    description:
+      "Build strategic funnels that will drive your customers to convert",
+    href: "/offshore",
+    icon: ArrowPathIcon,
+  },
+  {
     name: "Consulting",
     description: "Speak directly to your customers in a more meaningful way.",
     href: "/consulting",
@@ -44,13 +51,6 @@ const solutions = [
     description: "Connect with third-party tools that you're already using.",
     href: "/integrations",
     icon: Squares2X2Icon,
-  },
-  {
-    name: "Automations",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
-    href: "/automations",
-    icon: ArrowPathIcon,
   },
 ];
 const callsToAction = [
