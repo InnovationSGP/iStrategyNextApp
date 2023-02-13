@@ -31,10 +31,10 @@ context("Navigation", () => {
     cy.url().should("include", "/integrations");
   });
 
-  it("Visit the Automations link on consulting panel", () => {
+  it("Visit the Offshore link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-    cy.get("[data-cy=consulting-panel]").contains("Automations").click();
-    cy.url().should("include", "/automation");
+    cy.get("[data-cy=consulting-panel]").contains("Offshore").click();
+    cy.url().should("include", "/offshore");
   });
 
   it("Visit the ContactUs link on consulting panel", () => {
