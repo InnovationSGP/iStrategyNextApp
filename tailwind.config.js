@@ -20,6 +20,7 @@ module.exports = {
         itim: ['"Itim"', "cursive"],
         roboto: ["Roboto"],
         noto: ["Noto Sans NKo", "sans-serif"],
+        sourceSans: ["Source Sans Pro", "sans-serif"],
       },
     },
   },

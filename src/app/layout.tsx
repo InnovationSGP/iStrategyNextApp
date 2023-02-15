@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
+
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -17,6 +20,12 @@ export default function RootLayout({
       */}
       <head />
       <body className=" overflow-x-hidden  ">
+        <Toaster
+          toastOptions={{
+            className:
+              "border-2 border-secondaryPurpleLight p-4 font-secondaryPurpleLight",
+          }}
+        />
         <Navigation />
         <Banner />
         {children}
