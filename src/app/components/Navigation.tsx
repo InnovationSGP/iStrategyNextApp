@@ -72,26 +72,27 @@ export default function Navigation() {
               <LogoBrand />
             </div>
 
-            {/* This is the mobile hamburger menu */}
             <div className="-my-2 -mr-2 md:hidden">
-              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryPink">
+              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryBlue">
                 <span className="sr-only">Open menu</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
             </div>
-            {/* The above is the mobile hamburger menu */}
-            <Popover.Group as="nav" className="hidden md:flex">
+            <Popover.Group
+              as="nav"
+              className="hidden font-sourceSans uppercase md:flex"
+            >
               <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
                       data-cy="consulting-pop"
                       className={classNames(
-                        open ? "text-gray-900" : "text-gray-500",
-                        "p-2 px-6 group inline-flex items-center bg-white font-medium hover:text-gray-900  border-r-2 border-primaryPink text-xl"
+                        open ? "text-gray-900" : "text-primaryBlue",
+                        "px-6 items-center bg-white font-medium hover:text-gray-900 focus:outline-none border-r-2 border-primaryBlue text-xl "
                       )}
                     >
-                      <span className="hover:border-b-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple px-6 pb-2">
+                      <span className="hover:border-b-2 uppercase hover:border-b-primaryBlue hover:ease-in hover:duration-300  px-6 pb-2">
                         Consulting
                       </span>
                     </Popover.Button>
@@ -99,11 +100,11 @@ export default function Navigation() {
                     <Transition
                       as={Fragment}
                       enter="transition ease-out duration-200"
-                      enterFrom="opacity-0 translate-y-1"
-                      enterTo="opacity-100 translate-y-0"
+                      enterFrom="opacity-0 "
+                      enterTo="opacity-100 "
                       leave="transition ease-in duration-150"
-                      leaveFrom="opacity-100 translate-y-0"
-                      leaveTo="opacity-0 translate-y-1"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
                     >
                       <Popover.Panel
                         data-cy="consulting-panel"
@@ -115,10 +116,10 @@ export default function Navigation() {
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                                className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
                               >
                                 <item.icon
-                                  className="h-6 w-6 flex-shrink-0 text-primaryPink"
+                                  className="h-6 w-6 flex-shrink-0 text-primaryBlue"
                                   aria-hidden="true"
                                 />
                                 <div className="ml-4">
@@ -158,18 +159,18 @@ export default function Navigation() {
               <a
                 data-cy="staffing-link"
                 href="/staffing"
-                className="text-xl p-2 px-6 font-medium text-gray-500 hover:text-gray-900 border-r-2   border-primaryPink  focus:border-primaryPurple"
+                className="text-xl px-6 font-medium text-primaryBlue hover:text-gray-900 border-r-2 border-primaryBlue focus:border-primaryBlue"
               >
-                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple">
+                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
                   Staffing
                 </span>
               </a>
               <a
                 data-cy="delivery-link"
                 href="/delivery"
-                className="text-xl  p-2 px-6  font-medium text-gray-500 hover:text-gray-900 border-r-2  border-primaryPink   focus:border-primaryPurple"
+                className="text-xl px-6  font-medium text-primaryBlue hover:text-gray-900 border-r-2  border-primaryBlue   focus:border-primaryBlue"
               >
-                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryPurple hover:ease-in hover:duration-300 border-primaryPurple focus:border-b-2 focus:border-primaryPurple">
+                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
                   Delivery
                 </span>
               </a>
@@ -180,15 +181,16 @@ export default function Navigation() {
         <Transition
           as={Fragment}
           enter="duration-200 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
+          enterFrom="opacity-0 "
+          enterTo="opacity-100 "
           leave="duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
+          leaveFrom="opacity-100 "
+          leaveTo="opacity-0 "
         >
+          {/* MOBILE */}
           <Popover.Panel
             focus
-            className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+            className="absolute z-40 inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
           >
             <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
@@ -197,7 +199,7 @@ export default function Navigation() {
                     <span className="text-2xl ">iStrategy</span>
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryPink">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryBlue">
                       <span className="sr-only">Close menu</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -212,7 +214,7 @@ export default function Navigation() {
                         className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
                       >
                         <item.icon
-                          className="h-6 w-6 flex-shrink-0 text-primaryPink"
+                          className="h-6 w-6 flex-shrink-0 text-primaryBlue"
                           aria-hidden="true"
                         />
                         <span className="ml-3 text-base font-medium text-gray-900">
@@ -227,7 +229,7 @@ export default function Navigation() {
                 <div>
                   <a
                     href="/contactus"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryPink px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryPink"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryBlue"
                   >
                     Contact Us Now
                   </a>
@@ -235,7 +237,7 @@ export default function Navigation() {
                     Existing client?{" "}
                     <a
                       href="#"
-                      className="text-primaryPink hover:text-primaryPink"
+                      className="text-primaryBlue hover:text-primaryBlue"
                     >
                       Sign in (coming soon)
                     </a>

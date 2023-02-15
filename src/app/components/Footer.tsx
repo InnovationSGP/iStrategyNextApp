@@ -5,7 +5,7 @@ const Footer = () => {
   const todaysDate = new Date().getFullYear();
 
   return (
-    <div className="mx-auto container py-16 xl:px-20 lg:px-12 sm:px-6 px-4 border-primaryPink border-t-2">
+    <div className="mx-auto mt-4 container py-16 xl:px-20 lg:px-12 sm:px-6 px-4 shadow-md border-t-2 border-gray-300 ">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 md:gap-8 gap-4">
         <div className="flex flex-col flex-shrink-0">
           <LogoBrand />
