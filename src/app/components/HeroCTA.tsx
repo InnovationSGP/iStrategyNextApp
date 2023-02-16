@@ -5,7 +5,7 @@ export function HeroCTA() {
     <div className="flex justify-center item-center bg-primaryPurple p-4 py-6 ">
       <div className="flex justify-center items-center gap-4 flex-col md:flex-row">
         <span className="text-white text-xl md:text-2xl font-bold">
-          Let's work together
+          Let us work together
         </span>
         <a
           href="/contactus"

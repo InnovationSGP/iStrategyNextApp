@@ -26,6 +26,7 @@ export const cardContent = [
     txtResource: "Get IT resources round the clock",
     buttonText: "Learn more",
     buttonURL: "/contactus",
+    assestTextResource: "test",
   },
   {
     cardIcon: (
@@ -54,6 +55,7 @@ export const cardContent = [
     txtResource: "Deliver to scope, time, and cost",
     buttonText: "Learn more",
     buttonURL: "/contactus",
+    assestTextResource: "test",
   },
   {
     cardIcon: (
@@ -80,6 +82,7 @@ export const cardContent = [
     header: "Informations Systems Auditing",
     txtResource: "Work with certified experts",
     buttonText: "Learn more",
+    assestTextResource: "test",
   },
   {
     cardIcon: (
@@ -96,6 +99,7 @@ export const cardContent = [
     txtResource: "Secure migration and business continuity",
     buttonText: "Learn more",
     buttonURL: "/contactus",
+    assestTextResource: "test",
   },
   {
     cardIcon: (
@@ -122,6 +126,7 @@ export const cardContent = [
     txtResource: "Deliver working software through continous improvement",
     buttonText: "Learn more",
     buttonURL: "/contactus",
+    assestTextResource: "test",
   },
   {
     cardIcon: (
@@ -146,5 +151,6 @@ export const cardContent = [
     txtResource: "Shift-left approach to CI/CD",
     buttonText: "Learn more",
     buttonURL: "/contactus",
+    assestTextResource: "test",
   },
 ];

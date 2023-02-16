@@ -2,10 +2,10 @@ import React from "react";
 
 interface Button {
   text: any;
-  txtColor: string;
-  type: any;
-  color: string;
-  isDisabled: boolean;
+  txtColor?: string;
+  type?: any;
+  color?: string;
+  isDisabled?: boolean;
   clickFunction: any;
   size?: string;
   space?: string;
