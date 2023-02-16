@@ -4,79 +4,81 @@ export const cardContent = [
   {
     cardIcon: (
       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="icon icon-tabler icon-tabler-headset text-green-800"
         width="44"
         height="44"
         viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <path
-          d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M11 3H13M12 7V3V7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.6569 4.92871L19.0711 6.34292M15.5355 8.46424L18.364 5.63582L15.5355 8.46424Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 11V13M17 12H21H17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.071 17.6572L17.6568 19.0714M15.5355 15.5359L18.3639 18.3643L15.5355 15.5359Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M13 21H11M12 17V21V17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6.34314 19.0713L4.92893 17.6571M8.46446 15.5358L5.63603 18.3642L8.46446 15.5358Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 13L3 11M7 12H3H7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.92896 6.34277L6.34317 4.92856M8.46449 8.46409L5.63606 5.63567L8.46449 8.46409Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M4 14v-3a8 8 0 1 1 16 0v3"></path>
+        <path d="M18 19c0 1.657 -2.686 3 -6 3"></path>
+        <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"></path>
+        <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"></path>
       </svg>
     ),
-    header: "Test Header",
-    txtResource: "Only testing this resource",
+    header: "Offshore Staffing",
+    txtResource: "Get IT resources round the clock",
+    buttonText: "Learn more",
+    buttonURL: "/contactus",
+  },
+  {
+    cardIcon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="icon icon-tabler icon-tabler-list-check text-primaryGold"
+        width="44"
+        height="44"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M3.5 5.5l1.5 1.5l2.5 -2.5"></path>
+        <path d="M3.5 11.5l1.5 1.5l2.5 -2.5"></path>
+        <path d="M3.5 17.5l1.5 1.5l2.5 -2.5"></path>
+        <path d="M11 6l9 0"></path>
+        <path d="M11 12l9 0"></path>
+        <path d="M11 18l9 0"></path>
+      </svg>
+    ),
+    header: "Project Management",
+    txtResource: "Deliver to scope, time, and cost",
+    buttonText: "Learn more",
+    buttonURL: "/contactus",
+  },
+  {
+    cardIcon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="icon icon-tabler icon-tabler-shield-lock-filled text-primaryPurple"
+        width="44"
+        height="44"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M11.998 2l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021l.115 -.007zm.002 7a2 2 0 0 0 -1.995 1.85l-.005 .15l.005 .15a2 2 0 0 0 .995 1.581v1.769l.007 .117a1 1 0 0 0 1.993 -.117l.001 -1.768a2 2 0 0 0 -1.001 -3.732z"
+          stroke-width="0"
+          fill="currentColor"
+        ></path>
+      </svg>
+    ),
+    header: "Informations Systems Auditing",
+    txtResource: "Work with certified experts",
     buttonText: "Learn more",
   },
   {
@@ -85,388 +87,64 @@ export const cardContent = [
         width="44"
         height="44"
         viewBox="0 0 24 24"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M11 3H13M12 7V3V7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.6569 4.92871L19.0711 6.34292M15.5355 8.46424L18.364 5.63582L15.5355 8.46424Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 11V13M17 12H21H17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.071 17.6572L17.6568 19.0714M15.5355 15.5359L18.3639 18.3643L15.5355 15.5359Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M13 21H11M12 17V21V17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6.34314 19.0713L4.92893 17.6571M8.46446 15.5358L5.63603 18.3642L8.46446 15.5358Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 13L3 11M7 12H3H7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.92896 6.34277L6.34317 4.92856M8.46449 8.46409L5.63606 5.63567L8.46449 8.46409Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path d="M0 8.877L2.247 5.91l8.405-3.416V.022l7.37 5.393L2.966 8.338v8.225L0 15.707zm24-4.45v14.651l-5.753 4.9-9.303-3.057v3.056l-5.978-7.416 15.057 1.798V5.415z" />
       </svg>
     ),
-    header: "Test Header",
-    txtResource: "Only testing this resource",
+    header: "Cloud Computing",
+    txtResource: "Secure migration and business continuity",
     buttonText: "Learn more",
+    buttonURL: "/contactus",
   },
   {
     cardIcon: (
       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="icon icon-tabler icon-tabler-checklist text-primaryBlue"
         width="44"
         height="44"
         viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <path
-          d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M11 3H13M12 7V3V7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.6569 4.92871L19.0711 6.34292M15.5355 8.46424L18.364 5.63582L15.5355 8.46424Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 11V13M17 12H21H17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.071 17.6572L17.6568 19.0714M15.5355 15.5359L18.3639 18.3643L15.5355 15.5359Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M13 21H11M12 17V21V17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6.34314 19.0713L4.92893 17.6571M8.46446 15.5358L5.63603 18.3642L8.46446 15.5358Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 13L3 11M7 12H3H7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.92896 6.34277L6.34317 4.92856M8.46449 8.46409L5.63606 5.63567L8.46449 8.46409Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M9.615 20h-2.615a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8"></path>
+        <path d="M14 19l2 2l4 -4"></path>
+        <path d="M9 8h4"></path>
+        <path d="M9 12h2"></path>
       </svg>
     ),
-    header: "Test Header",
-    txtResource: "Only testing this resource",
+    header: "Agile Transformation",
+    txtResource: "Deliver working software through continous improvement",
     buttonText: "Learn more",
+    buttonURL: "/contactus",
   },
   {
     cardIcon: (
       <svg
+        xmlns="http://www.w3.org/2000/svg"
         width="44"
         height="44"
         viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <path
-          d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M11 3H13M12 7V3V7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.6569 4.92871L19.0711 6.34292M15.5355 8.46424L18.364 5.63582L15.5355 8.46424Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 11V13M17 12H21H17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.071 17.6572L17.6568 19.0714M15.5355 15.5359L18.3639 18.3643L15.5355 15.5359Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M13 21H11M12 17V21V17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6.34314 19.0713L4.92893 17.6571M8.46446 15.5358L5.63603 18.3642L8.46446 15.5358Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 13L3 11M7 12H3H7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.92896 6.34277L6.34317 4.92856M8.46449 8.46409L5.63606 5.63567L8.46449 8.46409Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027"></path>
+        <path d="M8 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"></path>
+        <path d="M10 15v-2a2 2 0 1 1 4 0v2"></path>
       </svg>
     ),
-    header: "Test Header",
-    txtResource: "Only testing this resource",
+    header: "DevSecOps",
+    txtResource: "Shift-left approach to CI/CD",
     buttonText: "Learn more",
-  },
-  {
-    cardIcon: (
-      <svg
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M11 3H13M12 7V3V7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.6569 4.92871L19.0711 6.34292M15.5355 8.46424L18.364 5.63582L15.5355 8.46424Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 11V13M17 12H21H17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.071 17.6572L17.6568 19.0714M15.5355 15.5359L18.3639 18.3643L15.5355 15.5359Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M13 21H11M12 17V21V17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6.34314 19.0713L4.92893 17.6571M8.46446 15.5358L5.63603 18.3642L8.46446 15.5358Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 13L3 11M7 12H3H7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.92896 6.34277L6.34317 4.92856M8.46449 8.46409L5.63606 5.63567L8.46449 8.46409Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-    header: "Test Header",
-    txtResource: "Only testing this resource",
-    buttonText: "Learn more",
-  },
-  {
-    cardIcon: (
-      <svg
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M11 3H13M12 7V3V7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M17.6569 4.92871L19.0711 6.34292M15.5355 8.46424L18.364 5.63582L15.5355 8.46424Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M21 11V13M17 12H21H17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19.071 17.6572L17.6568 19.0714M15.5355 15.5359L18.3639 18.3643L15.5355 15.5359Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M13 21H11M12 17V21V17Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6.34314 19.0713L4.92893 17.6571M8.46446 15.5358L5.63603 18.3642L8.46446 15.5358Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 13L3 11M7 12H3H7Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.92896 6.34277L6.34317 4.92856M8.46449 8.46409L5.63606 5.63567L8.46449 8.46409Z"
-          stroke="#1F2937"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-    header: "Test Header",
-    txtResource: "Only testing this resource",
-    buttonText: "Learn more",
+    buttonURL: "/contactus",
   },
 ];

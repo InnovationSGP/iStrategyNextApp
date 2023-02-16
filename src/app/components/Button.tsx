@@ -27,7 +27,7 @@ const CustomButton = (props: Button) => {
 
   return (
     <button
-      className={`inline-flex ${size} ${space} items-start justify-start ${color} ${hoverFocus}  rounded`}
+      className={`inline-flex ${size} ${space} items-start hover:scale-105 hover:transition duration-300 justify-start ${color} ${hoverFocus}  rounded`}
       type={type}
       disabled={isDisabled}
       onClick={clickFunction}
