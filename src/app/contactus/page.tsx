@@ -2,14 +2,25 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { routes } from "@/pages/api/routes/contactRoute";
 
 function ContactUs() {
   const [show, setShow] = useState(false);
-  const { register, handleSubmit, formState: errors }: any = useForm();
+  const { register, handleSubmit, formState: errors, reset }: any = useForm();
 
-  const formSubmit = async (data: any) => {
+  const formSubmit = async (payload: any) => {
     try {
-      console.log(data);
+      const { POST_MESSAGE } = routes();
+      await POST_MESSAGE(payload);
+      await reset({
+        first: "",
+        last: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+      console.log("payload sent to db");
       toast.success("Message Sent, we will get back to you shortly", {
         duration: 4000,
         position: "top-center",
@@ -42,9 +53,10 @@ function ContactUs() {
                   className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
                   placeholder="Please input first name"
                   type="text"
+                  required
                   autoComplete="given-name"
-                  name="firstName"
-                  {...register("firstName")}
+                  name="first"
+                  {...register("first")}
                 />
               </div>
               <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
@@ -61,8 +73,8 @@ function ContactUs() {
                   placeholder="Please input last name"
                   type="text"
                   autoComplete="family-name"
-                  name="lastName"
-                  {...register("lastName")}
+                  name="last"
+                  {...register("last")}
                 />
               </div>
             </div>

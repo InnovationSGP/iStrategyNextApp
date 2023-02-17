@@ -1,0 +1,56 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-4324
+END=1649
+title=Navigation Visit the delivery link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=1459
+END=7651
+title=Navigation Visit the consulting link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=8573
+END=13849
+title=Navigation Visit the IT Security link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=14038
+END=19131
+title=Navigation Visit the Integrations link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=19606
+END=24231
+title=Navigation Visit the Offshore link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=23477
+END=28860
+title=Navigation Visit the ContactUs link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=30756
+END=34246
+title=Navigation Visit the delivery link on consulting panel
+[CHAPTER]
+TIMEBASE=1/1000
+START=30534
+END=37740
+title=Navigation Visit the staffing page
+[CHAPTER]
+TIMEBASE=1/1000
+START=40375
+END=44951
+title=Navigation Visit the delivery page
+[CHAPTER]
+TIMEBASE=1/1000
+START=44464
+END=49530
+title=Navigation cy.reload() - reload the page
+[CHAPTER]
+TIMEBASE=1/1000
+START=50654
+END=54600
+title=Navigation cy.visit() - visit a remote url
