@@ -6,7 +6,7 @@ context("Check Homepage CTAs", () => {
   });
 
   it("Check the Banner", () => {
-    cy.get("[data-cy=banner]").contains("Blog").click();
+    cy.get("[data-cy=banner]").contains("Visit the blog").click();
     cy.url().should("include", "/blog");
   });
 
