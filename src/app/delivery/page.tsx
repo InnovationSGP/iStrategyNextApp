@@ -4,10 +4,12 @@ import HeroComponent from "../components/HeroComponent";
 import heroImage from "../components/assets/automationAsset.png";
 import heroImage2 from "../components/assets/teamPNG.png";
 import ImageFunction from "../utils/ImageFunction";
+import { HeroCTA } from "../components/HeroCTA";
 export default function Delivery() {
   return (
     <div>
       <HeroComponent heroImg={heroImage} heroTxt={"Smart delivery"} />
+      <HeroCTA />
 
       <div className="p-2 mt-8 md:p-8">
         <div className="sm:w-auto bg-primaryBlue relative flex items-center justify-center h-full px-2">

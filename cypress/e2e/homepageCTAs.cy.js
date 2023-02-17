@@ -6,8 +6,8 @@ context("Check Homepage CTAs", () => {
   });
 
   it("Check the Banner", () => {
-    cy.get("[data-cy=banner]").contains("Learn").click();
-    cy.url().should("include", "/delivery");
+    cy.get("[data-cy=banner]").contains("Visit the blog").click();
+    cy.url().should("include", "/blog");
   });
 
   it("Return Home and Visit the Hero section CTA", () => {

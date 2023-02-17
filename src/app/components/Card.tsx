@@ -1,5 +1,6 @@
 import React from "react";
 import { cardContent } from "../../content/cardContent";
+import { LearnMoreModal } from "./Modal";
 
 export default function CardComponent() {
   return (
@@ -23,9 +24,11 @@ function Card(props: any) {
       <p className=" font-normal text-base leading-6 text-gray-600 my-4">
         {props.data.txtResource}{" "}
       </p>
-      <a className=" cursor-pointer text-base leading-4 font-medium text-gray-800 border-b-2 border-gray-800 hover:text-gray-600 ">
-        {props.data.buttonText}
-      </a>
+      <LearnMoreModal
+        header={props.data.header}
+        headerIcon={props.data.cardIcon}
+        content={props.data.assestTextResource}
+      />
     </div>
   );
 }
