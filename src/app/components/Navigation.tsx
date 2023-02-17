@@ -15,6 +15,11 @@ import {
   ShieldCheckIcon,
   Squares2X2Icon,
   XMarkIcon,
+  LockOpenIcon,
+  NewspaperIcon,
+  EnvelopeIcon,
+  AtSymbolIcon,
+  InboxArrowDownIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { LogoBrand } from "../../utils/Logo";
@@ -54,8 +59,9 @@ const solutions = [
   },
 ];
 const callsToAction = [
-  { name: "Blog", href: "/blog", icon: PlayIcon },
-  { name: "Contact Sales", href: "/contactus", icon: PhoneIcon },
+  { name: "Blog", href: "/blog", icon: NewspaperIcon },
+  { name: "Contact ", href: "/contactus", icon: InboxArrowDownIcon },
+  { name: "Login", href: "/secure", icon: LockOpenIcon },
 ];
 
 function classNames(...classes: string[]) {
@@ -133,12 +139,15 @@ export default function Navigation() {
                               </a>
                             ))}
                           </div>
-                          <div className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                          <div
+                            data-cy="consulting-panel-CTAs"
+                            className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8 flex items-center justify-center"
+                          >
                             {callsToAction.map((item) => (
                               <div key={item.name} className="flow-root">
                                 <a
                                   href={item.href}
-                                  className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
+                                  className="-m-3 flex items-center p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                 >
                                   <item.icon
                                     className="h-6 w-6 flex-shrink-0 text-gray-400"

@@ -39,8 +39,20 @@ context("Navigation", () => {
 
   it("Visit the ContactUs link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-    cy.get("[data-cy=consulting-panel]").contains("Contact Sales").click();
+    cy.get("[data-cy=consulting-panel-CTAs]").contains("Contact").click();
     cy.url().should("include", "/contactus");
+  });
+
+  it("Visit the Blog link on consulting panel", () => {
+    cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+    cy.get("[data-cy=consulting-panel-CTAs]").contains("Blog").click();
+    cy.url().should("include", "/blog");
+  });
+
+  it("Visit the login link on consulting panel", () => {
+    cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+    cy.get("[data-cy=consulting-panel-CTAs]").contains("Login").click();
+    cy.url().should("include", "/secure");
   });
 
   it("Visit the delivery link on consulting panel", () => {

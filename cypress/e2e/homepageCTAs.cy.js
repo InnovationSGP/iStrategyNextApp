@@ -13,7 +13,7 @@ context("Check Homepage CTAs", () => {
   it("Return Home and Visit the Hero section CTA", () => {
     cy.get("[data-cy=nav-section]").contains("iStrat").click();
     cy.url().should("include", "/");
-    cy.get("[data-cy=heroCTA]").contains("Contact Us").click();
+    cy.get("[data-cy=heroCTA]").contains("Contact").click();
     cy.url().should("include", "/contactus");
     cy.get("[data-cy=nav-section]").contains("iStrat").click();
     cy.url().should("include", "/");
