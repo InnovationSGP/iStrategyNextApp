@@ -9,7 +9,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import ImageFunction from "../utils/ImageFunction";
+import ImageFunction from "../../utils/ImageFunction";
 import devops from "../../../public/assets/devops.png";
 
 export default function Carousel() {

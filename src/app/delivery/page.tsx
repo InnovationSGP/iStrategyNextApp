@@ -3,7 +3,7 @@ import React from "react";
 import HeroComponent from "../components/HeroComponent";
 import heroImage from "../components/assets/automationAsset.png";
 import heroImage2 from "../components/assets/teamPNG.png";
-import ImageFunction from "../utils/ImageFunction";
+import ImageFunction from "../../utils/ImageFunction";
 import { HeroCTA } from "../components/HeroCTA";
 export default function Delivery() {
   return (

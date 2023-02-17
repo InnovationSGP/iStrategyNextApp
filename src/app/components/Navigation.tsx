@@ -17,7 +17,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { LogoBrand } from "../utils/Logo";
+import { LogoBrand } from "../../utils/Logo";
 
 const solutions = [
   {

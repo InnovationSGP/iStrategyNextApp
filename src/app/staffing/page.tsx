@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import ImageFunction from "../utils/ImageFunction";
+import ImageFunction from "../../utils/ImageFunction";
 import hero from "../../../public/assets/isgModelCenter.png";
 import teamPNG from "../../../public/assets/teamPNG.png";
 import HeroComponent from "../components/HeroComponent";

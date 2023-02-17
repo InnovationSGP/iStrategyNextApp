@@ -1,5 +1,5 @@
 import React from "react";
-import ImageFunction from "../utils/ImageFunction";
+import ImageFunction from "../../utils/ImageFunction";
 
 export default function HeroComponent(props: {
   heroTxt: string;

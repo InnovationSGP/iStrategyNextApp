@@ -2,7 +2,7 @@
 import React from "react";
 import bg from "../../../public/heroimage.png";
 import hero from "../../../public/assets/isgModelCenter.png";
-import ImageFunction from "../utils/ImageFunction";
+import ImageFunction from "../../utils/ImageFunction";
 import devopsImage from "../../../public/assets/devops.png";
 import Banner from "./Banner";
 import { MegaphoneIcon, XMarkIcon } from "@heroicons/react/24/outline";

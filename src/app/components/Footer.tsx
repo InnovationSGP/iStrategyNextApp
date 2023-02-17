@@ -1,5 +1,5 @@
 import React from "react";
-import { LogoBrand } from "../utils/Logo";
+import { LogoBrand } from "../../utils/Logo";
 
 const Footer = () => {
   const todaysDate = new Date().getFullYear();
