@@ -1,12 +1,40 @@
 "use client";
+import { registerRoute } from "@/pages/api/routes/registerRoute";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 export default function Register() {
   const { handleSubmit, register, reset }: any = useForm();
 
-  const handleRegister = (data: any) => {
-    console.log(data);
+  const handleRegister = async (data: any) => {
+    const { REGISTER_USER } = registerRoute();
+    if (data.password == "") toast.error("Please enter Password");
+    if (data.password2 == "") toast.error("Please enter confirm password");
+    if (data.password != data.password2) {
+      toast.error("\nPassword did not match: Please try again...");
+      return false;
+    }
+    const payload = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    };
+
+    await REGISTER_USER(payload)
+      .then((response) => {
+        reset({
+          name: "",
+          email: "",
+          password: "",
+          password2: "",
+        });
+        toast.success("Account Opened Successfully");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        return toast.error("Account already exist");
+      });
   };
   return (
     <div>
