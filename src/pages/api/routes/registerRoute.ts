@@ -10,6 +10,6 @@ interface RegistrationData {
 export const registerRoute = () => {
   const API = axios.create({ baseURL: process.env.LOCAL_ENV });
   const REGISTER_USER = (data: RegistrationData) =>
-    API.post("/api/auth/auth", data);
+    API.post("/api/auth/register", data);
   return { REGISTER_USER };
 };

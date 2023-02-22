@@ -1,10 +1,16 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
 
 export default function Secure() {
-  const signInHandler = (data: any) => {
-    console.log(data);
+  const signInHandler = async (data: any) => {
+    const res = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+    console.log(res);
   };
 
   const { handleSubmit, register, reset }: any = useForm();
@@ -33,6 +39,7 @@ export default function Secure() {
                     required
                     className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
                     autoComplete="email"
+                    placeholder="email"
                     name="email"
                     {...register("email", { required: true })}
                   />
@@ -62,12 +69,10 @@ export default function Secure() {
                 By clicking submit you agree to our terms of service, privacy
                 policy.{" "}
                 <span>
-                  {" "}
                   <a
                     href="/secure/register"
                     className="font-bold cursor-pointer hover:border-b-2 border-primaryBlue text-primaryBlue"
                   >
-                    {" "}
                     Create a Profile
                   </a>
                 </span>
