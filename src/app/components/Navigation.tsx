@@ -21,11 +21,13 @@ import {
   AtSymbolIcon,
   InboxArrowDownIcon,
   LockClosedIcon,
+  HomeIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { LogoBrand } from "../../utils/Logo";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const solutions = [
   {
@@ -74,18 +76,7 @@ function classNames(...classes: string[]) {
 export default function Navigation() {
   const session = useSession();
   const { data } = session;
-  const sessionCallToAction = [
-    {
-      name: "logout",
-      href: "/secure",
-      action: async function logout() {
-        await signOut();
-        return toast.success("Successfully Signed Out");
-      },
-      icon: LockClosedIcon,
-    },
-  ];
-
+  const router = useRouter();
   return (
     <div data-cy="nav-section">
       <Popover className="relative bg-white">
@@ -161,9 +152,19 @@ export default function Navigation() {
                             className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8 flex items-center justify-center"
                           >
                             {data?.user ? (
-                              <div>
+                              <div className="flex justify-between">
                                 <span
-                                  className="-m-3 flex items-center cursor-pointer p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                  className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                  onClick={() => router.push("/dashboard")}
+                                >
+                                  <HomeIcon
+                                    className="h-6 w-6 flex-shrink-0 text-gray-400"
+                                    aria-hidden="true"
+                                  />
+                                  <span className="ml-3">Dashboard</span>
+                                </span>
+                                <span
+                                  className="flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   onClick={async function logout() {
                                     await signOut();
                                     return toast.success(
@@ -281,7 +282,17 @@ export default function Navigation() {
                   </a>
 
                   {data?.user ? (
-                    <div>
+                    <div className="flex">
+                      <span
+                        className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                        onClick={() => router.push("/dashboard")}
+                      >
+                        <HomeIcon
+                          className="h-6 w-6 flex-shrink-0 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        <span className="ml-3">Dashboard</span>
+                      </span>
                       <span
                         className="cursor-pointer hover:border-b-2 hover:border-primaryBlue p-4 flex items-center justify-center text-primaryBlue hover:text-primaryBlue"
                         onClick={async function logout() {

@@ -7,6 +7,7 @@ import HeroSection from "./components/HomePageContent";
 export default function Home() {
   return (
     <main>
+      <Banner />
       <HeroSection />
     </main>
   );

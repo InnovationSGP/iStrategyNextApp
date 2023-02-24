@@ -26,7 +26,7 @@ export default function RootLayout({
             }}
           />
           <Navigation />
-          <Banner />
+
           {children}
           <Footer />
         </body>

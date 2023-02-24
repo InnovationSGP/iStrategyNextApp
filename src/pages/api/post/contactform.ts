@@ -8,22 +8,20 @@ export default async function post_message_to_database(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    const { email, first, last, message, phone } = req.body;
+    const { name, email, message, phone } = req.body;
 
     try {
       await mongooseConnection();
       const contactmessage = new MessageForm({
         email: email,
-        first: first,
-        last: last,
+        name: name,
         message: message,
         phone: phone,
       });
       await contactmessage.save();
       return res.json({
         email: contactmessage.email,
-        first: contactmessage.first,
-        last: contactmessage.last,
+        name: contactmessage.name,
         message: contactmessage.message,
         phone: contactmessage.phone,
       });

@@ -62,7 +62,7 @@ if (!cached) {
 export const mongooseConnection = async () => {
   try {
     const conn = await mongoose.connect(MONGO_URI);
-    console.log(`MONGOOSE CONNECTION ROUTE IS ON`);
+    console.log(`MONGOOSE CONNECTION IS TRIGGERED`);
   } catch (error) {
     console.log(error);
     process.exit(1);

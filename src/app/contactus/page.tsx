@@ -2,20 +2,19 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import axios from "axios";
-import { routes } from "@/pages/api/routes/contactRoute";
+import { routes } from "@/pages/api/routes/messagesRoutes";
+import { IncomingContactMessages } from "@/lib/types";
 
 function ContactUs() {
   const [show, setShow] = useState(false);
   const { register, handleSubmit, formState: errors, reset }: any = useForm();
 
-  const formSubmit = async (payload: any) => {
+  const formSubmit = async (payload: IncomingContactMessages) => {
     try {
       const { POST_MESSAGE } = routes();
       await POST_MESSAGE(payload);
       await reset({
-        first: "",
-        last: "",
+        name: "",
         email: "",
         phone: "",
         message: "",
@@ -39,42 +38,24 @@ function ContactUs() {
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
               Let’s chat and get a quote!
             </p>
-            <div className="md:flex items-center mt-12">
-              <div className="md:w-72 flex flex-col">
+            <div className="md:flex items-center mt-8">
+              <div className=" w-1/2 flex flex-col">
                 <label
-                  htmlFor="firstName"
+                  htmlFor="name"
                   className="text-base font-semibold leading-none text-gray-800"
                 >
-                  First
+                  Name
                 </label>
                 <input
                   tabIndex={0}
                   arial-label="Please input name"
-                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
-                  placeholder="Please input first name"
+                  className="text-base w-full leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                  placeholder="Please input name"
                   type="text"
                   required
-                  autoComplete="given-name"
-                  name="first"
-                  {...register("first")}
-                />
-              </div>
-              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
-                <label
-                  htmlFor="lastName"
-                  className="text-base font-semibold leading-none text-gray-800"
-                >
-                  Last
-                </label>
-                <input
-                  tabIndex={0}
-                  arial-label="Please input email address"
-                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
-                  placeholder="Please input last name"
-                  type="text"
-                  autoComplete="family-name"
-                  name="last"
-                  {...register("last")}
+                  autoComplete="name"
+                  name="name"
+                  {...register("name")}
                 />
               </div>
             </div>
