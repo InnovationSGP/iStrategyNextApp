@@ -20,9 +20,12 @@ import {
   EnvelopeIcon,
   AtSymbolIcon,
   InboxArrowDownIcon,
+  LockClosedIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { LogoBrand } from "../../utils/Logo";
+import { signOut, useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 const solutions = [
   {
@@ -69,6 +72,20 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navigation() {
+  const session = useSession();
+  const { data } = session;
+  const sessionCallToAction = [
+    {
+      name: "logout",
+      href: "/secure",
+      action: async function logout() {
+        await signOut();
+        return toast.success("Successfully Signed Out");
+      },
+      icon: LockClosedIcon,
+    },
+  ];
+
   return (
     <div data-cy="nav-section">
       <Popover className="relative bg-white">
@@ -143,20 +160,40 @@ export default function Navigation() {
                             data-cy="consulting-panel-CTAs"
                             className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8 flex items-center justify-center"
                           >
-                            {callsToAction.map((item) => (
-                              <div key={item.name} className="flow-root">
-                                <a
-                                  href={item.href}
-                                  className="-m-3 flex items-center p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                            {data?.user ? (
+                              <div>
+                                <span
+                                  className="-m-3 flex items-center cursor-pointer p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                  onClick={async function logout() {
+                                    await signOut();
+                                    return toast.success(
+                                      "Successfully Signed Out"
+                                    );
+                                  }}
                                 >
-                                  <item.icon
+                                  <LockClosedIcon
                                     className="h-6 w-6 flex-shrink-0 text-gray-400"
                                     aria-hidden="true"
                                   />
-                                  <span className="ml-3">{item.name}</span>
-                                </a>
+                                  <span className="ml-3">logout</span>
+                                </span>
                               </div>
-                            ))}
+                            ) : (
+                              callsToAction.map((item) => (
+                                <div key={item.name} className="flow-root">
+                                  <a
+                                    href={item.href}
+                                    className="-m-3 flex items-center p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                  >
+                                    <item.icon
+                                      className="h-6 w-6 flex-shrink-0 text-gray-400"
+                                      aria-hidden="true"
+                                    />
+                                    <span className="ml-3">{item.name}</span>
+                                  </a>
+                                </div>
+                              ))
+                            )}
                           </div>
                         </div>
                       </Popover.Panel>
@@ -234,7 +271,7 @@ export default function Navigation() {
                   </nav>
                 </div>
               </div>
-              <div className="space-y-6 py-6 px-5">
+              <div className="flex items-center justify-center space-y-6 py-6 px-5">
                 <div>
                   <a
                     href="/contactus"
@@ -242,15 +279,34 @@ export default function Navigation() {
                   >
                     Contact Us Now
                   </a>
-                  <p className="mt-6 text-center text-base font-medium text-gray-500">
-                    Existing client?{" "}
-                    <a
-                      href="#"
-                      className="text-primaryBlue hover:text-primaryBlue"
-                    >
-                      Sign in (coming soon)
-                    </a>
-                  </p>
+
+                  {data?.user ? (
+                    <div>
+                      <span
+                        className="cursor-pointer hover:border-b-2 hover:border-primaryBlue p-4 flex items-center justify-center text-primaryBlue hover:text-primaryBlue"
+                        onClick={async function logout() {
+                          await signOut();
+                          return toast.success("Successfully Signed Out");
+                        }}
+                      >
+                        <LockClosedIcon
+                          className="h-6 w-6 flex-shrink-0 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        <span className="px-2">logout</span>
+                      </span>
+                    </div>
+                  ) : (
+                    <p className="p-4 text-center text-base font-medium text-gray-500">
+                      Existing client?
+                      <a
+                        href="/secure"
+                        className="text-primaryBlue pl-2 cursor-pointer hover:border-b-2 hover:border-primaryBlue hover:text-primaryBlue"
+                      >
+                        Sign in
+                      </a>
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,16 +1,28 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { signIn, SignInResponse } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function Secure() {
+  const router = useRouter();
+
   const signInHandler = async (data: any) => {
-    const res = await signIn("credentials", {
-      email: data.email,
-      password: data.password,
-      redirect: false,
-    });
-    console.log(res);
+    try {
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+        // callbackUrl: "/dashboard",
+      }).then(({ ok, error }: any) => {
+        if (ok) router.push("/dashboard");
+        else toast.error(error);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const { handleSubmit, register, reset }: any = useForm();

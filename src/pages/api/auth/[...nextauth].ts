@@ -6,8 +6,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.JWT_SECRET_KEY,
   session: {
     strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
   },
   providers: [
     CredentialsProvider({
@@ -28,23 +30,25 @@ export const authOptions: NextAuthOptions = {
 
         if (!matchPassword) throw new Error("Incorrect Password");
 
-        const payload = { email: email, password: password };
-
-        const res = await fetch(process.env.LOCAL_ENV + "/secure", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        user = await res.json();
-
-        if (res.ok && user) return user;
-
-        if (!res.ok) throw new Error(user.message);
+        return user;
       },
     }),
   ],
   pages: {
     signIn: "/secure",
+  },
+  callbacks: {
+    async session({ session, user, token }: any) {
+      session.user = token.user;
+      return session;
+    },
+
+    async jwt({ token, user }) {
+      if (user) {
+        token.user = user;
+      }
+      return token;
+    },
   },
 };
 
