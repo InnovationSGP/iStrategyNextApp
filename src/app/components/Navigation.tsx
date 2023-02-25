@@ -28,6 +28,7 @@ import { LogoBrand } from "../../utils/Logo";
 import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const solutions = [
   {
@@ -127,7 +128,7 @@ export default function Navigation() {
                         <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                             {solutions.map((item) => (
-                              <a
+                              <Link
                                 key={item.name}
                                 href={item.href}
                                 className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
@@ -144,7 +145,7 @@ export default function Navigation() {
                                     {item.description}
                                   </p>
                                 </div>
-                              </a>
+                              </Link>
                             ))}
                           </div>
                           <div
@@ -182,7 +183,7 @@ export default function Navigation() {
                             ) : (
                               callsToAction.map((item) => (
                                 <div key={item.name} className="flow-root">
-                                  <a
+                                  <Link
                                     href={item.href}
                                     className="-m-3 flex items-center p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   >
@@ -191,7 +192,7 @@ export default function Navigation() {
                                       aria-hidden="true"
                                     />
                                     <span className="ml-3">{item.name}</span>
-                                  </a>
+                                  </Link>
                                 </div>
                               ))
                             )}
@@ -203,7 +204,7 @@ export default function Navigation() {
                 )}
               </Popover>
 
-              <a
+              <Link
                 data-cy="staffing-link"
                 href="/staffing"
                 className="text-xl px-6 font-medium text-primaryBlue hover:text-gray-900 border-r-2 border-primaryBlue focus:border-primaryBlue"
@@ -211,8 +212,8 @@ export default function Navigation() {
                 <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
                   Staffing
                 </span>
-              </a>
-              <a
+              </Link>
+              <Link
                 data-cy="delivery-link"
                 href="/delivery"
                 className="text-xl px-6  font-medium text-primaryBlue hover:text-gray-900 border-r-2  border-primaryBlue   focus:border-primaryBlue"
@@ -220,7 +221,7 @@ export default function Navigation() {
                 <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
                   Delivery
                 </span>
-              </a>
+              </Link>
             </Popover.Group>
           </div>
         </div>
@@ -255,7 +256,7 @@ export default function Navigation() {
                 <div className="mt-6">
                   <nav className="grid gap-y-8">
                     {solutions.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
@@ -267,19 +268,19 @@ export default function Navigation() {
                         <span className="ml-3 text-base font-medium text-gray-900">
                           {item.name}
                         </span>
-                      </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>
               </div>
               <div className="flex items-center justify-center space-y-6 py-6 px-5">
                 <div>
-                  <a
+                  <Link
                     href="/contactus"
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryBlue"
                   >
                     Contact Us Now
-                  </a>
+                  </Link>
 
                   {data?.user ? (
                     <div className="flex">
@@ -310,12 +311,12 @@ export default function Navigation() {
                   ) : (
                     <p className="p-4 text-center text-base font-medium text-gray-500">
                       Existing client?
-                      <a
+                      <Link
                         href="/secure"
                         className="text-primaryBlue pl-2 cursor-pointer hover:border-b-2 hover:border-primaryBlue hover:text-primaryBlue"
                       >
                         Sign in
-                      </a>
+                      </Link>
                     </p>
                   )}
                 </div>
