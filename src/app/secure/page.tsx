@@ -1,10 +1,28 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { signIn, SignInResponse } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function Secure() {
-  const signInHandler = (data: any) => {
-    console.log(data);
+  const router = useRouter();
+
+  const signInHandler = async (data: any) => {
+    try {
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+        // callbackUrl: "/dashboard",
+      }).then(({ ok, error }: any) => {
+        if (ok) router.push("/dashboard");
+        else toast.error(error);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const { handleSubmit, register, reset }: any = useForm();
@@ -33,6 +51,7 @@ export default function Secure() {
                     required
                     className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
                     autoComplete="email"
+                    placeholder="email"
                     name="email"
                     {...register("email", { required: true })}
                   />
@@ -62,12 +81,10 @@ export default function Secure() {
                 By clicking submit you agree to our terms of service, privacy
                 policy.{" "}
                 <span>
-                  {" "}
                   <a
                     href="/secure/register"
                     className="font-bold cursor-pointer hover:border-b-2 border-primaryBlue text-primaryBlue"
                   >
-                    {" "}
                     Create a Profile
                   </a>
                 </span>

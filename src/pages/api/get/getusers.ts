@@ -1,10 +1,10 @@
 import { errorHandler } from "@/utils/common";
 import { mongooseConnection } from "@/utils/mongodb";
-import { MessageForm } from "models/ContactForm";
+import { User } from "models/User";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 
-export default async function get_message_from_database(
+export default async function get_all_users(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -12,12 +12,14 @@ export default async function get_message_from_database(
     try {
       await mongooseConnection();
       const token = await getToken({ req });
-      const message = await MessageForm.find().sort({ createdAt: -1 });
-      if (!token) return errorHandler("No token found", res, 401);
-      if (!message) return errorHandler("There are no messages", res, 400);
-      return res.json(message);
+      const users = await User.find();
+      if (!users) return res.status(401).json({ msg: "No Users Added to DB" });
+      if (!token) return res.status(401).json({ msg: "Token Not Found" });
+      if (token) return res.json(users);
     } catch (error: any) {
-      res.status(500).json({ messages: error.message, trace: error.stack });
+      return res
+        .status(500)
+        .json({ messages: error.message, trace: error.stack });
     }
   } else errorHandler("Request Method Not Allowed", res);
 }

@@ -12,4 +12,8 @@ const successResponseHandler = (data: any, res: any, code = 200) => {
   });
 };
 
-export { errorHandler, successResponseHandler };
+const expiryCalculator = async (date = new Date(), hours: number) => {
+  date.setTime(date.getTime() + hours * 60 * 60 * 1000);
+  return date;
+};
+export { errorHandler, expiryCalculator, successResponseHandler };

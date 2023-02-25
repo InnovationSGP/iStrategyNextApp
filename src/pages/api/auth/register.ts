@@ -1,4 +1,4 @@
-import { errorHandler } from "@/utils/common";
+import { errorHandler, expiryCalculator } from "@/utils/common";
 import { mongooseConnection } from "@/utils/mongodb";
 import { SignJWT } from "jose";
 import { User } from "models/User";
@@ -36,10 +36,12 @@ export default async function authRouter(
       const token = await jwt.sign(payload, process.env.JWT_SECRET_KEY, {
         expiresIn: process.env.JWT_EXPIRY,
       });
+      const expiry = await expiryCalculator(new Date(), 72);
       return res.json({
         id: user.id,
         email: user.email,
         userToken: token,
+        expiry: expiry.toISOString(),
       });
     } catch (error: any) {
       res.status(500).json({ message: error.message, trace: error.stack });

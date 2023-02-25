@@ -9,6 +9,7 @@ import { MegaphoneIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Feature from "./FeatureSection";
 import CustomButton from "./Button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function HeroSection() {
   const router = useRouter();
@@ -25,27 +26,18 @@ export default function HeroSection() {
               <div className="mx-auto container w-full flex flex-col justify-center items-center">
                 <div className="flex justify-center items-center flex-col">
                   <div className="mt-20">
-                    <h2 className="lg:text-6xl md:text-5xl text-center text-4xl font-black leading-10 text-white">
-                      How we innovate
+                    <h2 className="lg:text-6xl md:text-5xl text-center text-4xl font-black p-2 leading-10 text-white">
+                      Innovate
                     </h2>
                   </div>
-                  <div className="mt-6 mx-2 md:mx-0 text-center">
-                    <p className="lg:text-lg md:text-base leading-6 text-sm  text-white">
-                      5 years, consistent quality solutions delivery
-                    </p>
-                  </div>
+
                   <div data-cy="heroCTA">
-                    <CustomButton
-                      color="bg-white"
-                      txtColor="text-primaryBlue font-bold"
-                      type="button"
-                      size="text-2xl"
-                      space="py-2 px-4 m-4"
-                      text="Contact Us"
-                      hoverFocus="hover:bg-gray-300"
-                      clickFunction={contactCTAEvent}
-                      isDisabled={false}
-                    />
+                    <Link
+                      className="bg-white mt-2 p-2 px-4 hover:scale-110 transition-all duration-300 hover:bg-gray-200 text-2xl sm:text-5xl font-bold rounded shadow-sm"
+                      href={"/contactus"}
+                    >
+                      Contact Us
+                    </Link>
                   </div>
                 </div>
               </div>
