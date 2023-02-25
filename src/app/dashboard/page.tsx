@@ -8,6 +8,8 @@ import useSWR from "swr";
 import ErrorComponent from "../components/Error";
 import { useGetMessages } from "@/pages/api/routes/messagesRoutes";
 import ReactPaginate from "react-paginate";
+import { SecureNavigation } from "./AdminPanel";
+import { ViewMessageModal } from "../components/Modal";
 
 interface SessionProps {}
 
@@ -22,35 +24,8 @@ const Session: FC<SessionProps> = () => {
 
   return (
     <div>
-      <div className="bg-primaryBlue" data-cy="session_banner">
-        <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between">
-            <div className="flex w-0 flex-1 items-center">
-              <span className="flex rounded-lg bg-primaryPurple p-2">
-                <FaceSmileIcon
-                  className="h-6 w-6 text-white"
-                  aria-hidden="true"
-                />
-              </span>
-              <p className="ml-3 truncate font-medium text-white">
-                <span className="md:hidden">Welcome {data.user.name}!</span>
-                <span className="hidden md:inline">
-                  Welcome {data.user.name}!
-                </span>
-              </p>
-            </div>
-            <div className="order-3 mt-2  flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
-              <a
-                href="/blog"
-                className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-indigo-600 shadow-sm hover:bg-indigo-50"
-              >
-                logout
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <SecureNavigation />
+      <SessionBanner data={data} />
       <div className="flex flex-col p-10 sm:flex-row">
         <div className="basis-1/2 p-4">
           <div className="   ">
@@ -67,7 +42,31 @@ const Session: FC<SessionProps> = () => {
 
 export default Session;
 
-function Badge(props: any) {
+export function SessionBanner(props: { data: any }) {
+  return (
+    <div className="bg-gray-100" data-cy="session_banner">
+      <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-between">
+          <div className="flex w-0 flex-1 items-center">
+            <span className="flex rounded-lg bg-primaryPurple p-2">
+              <FaceSmileIcon
+                className="h-6 w-6 text-white"
+                aria-hidden="true"
+              />
+            </span>
+            <p className="ml-3 truncate font-medium text-primaryBlue">
+              <span className="md:hidden">Welcome {props.data.user.name}!</span>
+              <span className="hidden md:inline">
+                Welcome {props.data.user.name}!
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+export function Badge(props: any) {
   const [show, setShow] = useState(null);
 
   return (
@@ -266,7 +265,7 @@ function Badge(props: any) {
   );
 }
 
-function Messages(props: { messages: IncomingContactMessages[] }) {
+export function Messages(props: { messages: IncomingContactMessages[] }) {
   const [show, setShow] = useState(null);
 
   // pagination
@@ -340,20 +339,26 @@ function Messages(props: { messages: IncomingContactMessages[] }) {
 }
 function EachMessage(props: { message: IncomingContactMessages }) {
   return (
-    <div className="mt-4 p-2 overflow-x-auto shadow-sm hover:bg-gray-100">
+    <div className="mt-4 p-2 overflow-x-auto shadow-sm cursor-pointer hover:bg-gray-100">
       <div className="flex justify-between">
         <div className="flex flex-col basis-2/3">
-          <h2>Received</h2>
+          <h2 className="capitalize">Message From {props.message.name}</h2>
           <span className="">
-            <span className="text-xs focus:outline-none leading-none text-green-500  rounded">
-              From: {props.message.name}
-            </span>
+            <button className="text-xs text-gray-400 hover:underline pt-1">
+              Mark as read
+            </button>
           </span>
         </div>
-        <div className="flex justify-between  items-center">
-          <button className="text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">
-            View Message
-          </button>
+        <div className="flex justify-between items-center flex-col">
+          <ViewMessageModal
+            name={props.message.name}
+            email={props.message.email}
+            content={props.message.message}
+            header={`Message From ${
+              props.message.name ? props.message.name : "Anonymous"
+            }`}
+            emailBody={"Thank you for contacting me."}
+          />
         </div>
       </div>
     </div>

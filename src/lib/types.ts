@@ -16,5 +16,5 @@ export interface IncomingContactMessages {
   name: string;
   email?: string;
   phone?: string;
-  messages?: string;
+  message?: string;
 }
