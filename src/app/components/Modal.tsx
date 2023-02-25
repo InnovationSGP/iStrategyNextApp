@@ -1,5 +1,4 @@
 import { useState, Fragment } from "react";
-import PropTypes from "prop-types";
 import CustomButton from "./Button";
 import { Dialog, Transition } from "@headlessui/react";
 import { Mailto } from "./Mailto";
@@ -150,21 +149,6 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
       </Transition>
     </>
   );
-};
-
-LearnMoreModal.protoTypes = {
-  header: PropTypes.any,
-  content: PropTypes.any,
-  agreeFunction: PropTypes.func,
-  agreeButtonColor: PropTypes.string,
-  disagreeButtonColor: PropTypes.string,
-  buttonChildren: PropTypes.string,
-  linkTagColor: PropTypes.string,
-};
-
-LearnMoreModal.defaultProps = {
-  content: "Add your Modal Content Here",
-  agreeFunction: console.log("Yes Works"),
 };
 
 interface ViewMessageModal {
