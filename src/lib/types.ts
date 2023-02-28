@@ -17,4 +17,9 @@ export interface IncomingContactMessages {
   email?: string;
   phone?: string;
   message?: string;
+  _id?: string;
+  read: boolean;
+  responded: boolean;
+  createdAt?: any;
+  updatedAt?: any;
 }

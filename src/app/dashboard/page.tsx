@@ -1,36 +1,36 @@
 "use client";
-import { IncomingContactMessages, User } from "@/lib/types";
-import { FaceSmileIcon, MegaphoneIcon } from "@heroicons/react/24/outline";
+import { IncomingContactMessages } from "@/lib/types";
+import { FaceSmileIcon } from "@heroicons/react/24/outline";
 import { useSession } from "next-auth/react";
-import { FC, useState } from "react";
+import { FC, Suspense, useState } from "react";
 import Loading from "../components/Loading";
-import useSWR from "swr";
 import ErrorComponent from "../components/Error";
-import { useGetMessages } from "@/pages/api/routes/messagesRoutes";
+import { useGetMessages, routes } from "@/pages/api/routes/messagesRoutes";
 import ReactPaginate from "react-paginate";
-import { SecureNavigation } from "./AdminPanel";
 import { ViewMessageModal } from "../components/Modal";
+import CustomSpinner from "../components/Spinner";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface SessionProps {}
 
 const Session: FC<SessionProps> = () => {
   const [show, setShow] = useState(false);
+  const { messages, isError, isLoading } = useGetMessages();
   const session = useSession();
   const { data, status } = session as any;
-  const { messages, isError } = useGetMessages();
-
-  if (status === "loading") return <Loading />;
-  if (isError || !messages) return <ErrorComponent />;
+  if (status === "loading") <Loading />;
+  if (isError) return <ErrorComponent />;
 
   return (
     <div>
-      <SecureNavigation />
-      <SessionBanner data={data} />
       <div className="flex flex-col p-10 sm:flex-row">
         <div className="basis-1/2 p-4">
-          <div className="   ">
-            <Messages messages={messages} />
-          </div>
+          <Suspense fallback={<Loading />}>
+            <div>
+              {isLoading ? <CustomSpinner /> : <Messages messages={messages} />}
+            </div>
+          </Suspense>
         </div>
         <div className="basis-1/2">
           <Badge />
@@ -55,9 +55,11 @@ export function SessionBanner(props: { data: any }) {
               />
             </span>
             <p className="ml-3 truncate font-medium text-primaryBlue">
-              <span className="md:hidden">Welcome {props.data.user.name}!</span>
+              <span className="md:hidden">
+                Welcome {props.data?.user.name}!
+              </span>
               <span className="hidden md:inline">
-                Welcome {props.data.user.name}!
+                Welcome {props.data?.user.name}!
               </span>
             </p>
           </div>
@@ -272,7 +274,7 @@ export function Messages(props: { messages: IncomingContactMessages[] }) {
   const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 5;
   const pagesVisited = pageNumber * itemsPerPage;
-  const pageCount = Math.ceil(props.messages.length / itemsPerPage);
+  const pageCount = Math.ceil(props.messages?.length / itemsPerPage);
   const changePage = ({ selected }: any) => setPageNumber(selected);
 
   const paginatedItems = props.messages
@@ -338,14 +340,75 @@ export function Messages(props: { messages: IncomingContactMessages[] }) {
   );
 }
 function EachMessage(props: { message: IncomingContactMessages }) {
+  const readMessage = async (
+    id: any,
+    data: { read: boolean; responded: boolean }
+  ) => {
+    try {
+      const { EDIT_MESSAGE } = routes();
+      await EDIT_MESSAGE(id, data);
+      await router.refresh();
+      return toast.success("Email is marked read");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const router = useRouter();
+
   return (
-    <div className="mt-4 p-2 overflow-x-auto shadow-sm cursor-pointer hover:bg-gray-100">
+    <div
+      className={`mt-4 p-4 overflow-x-auto shadow-sm cursor-pointer ${
+        props.message.read === true ? "bg-gray-300" : "bg-white"
+      }  hover:bg-gray-100`}
+    >
       <div className="flex justify-between">
         <div className="flex flex-col basis-2/3">
+          <p className="text-xs text-black"></p>
           <h2 className="capitalize">Message From {props.message.name}</h2>
-          <span className="">
-            <button className="text-xs text-gray-400 hover:underline pt-1">
-              Mark as read
+          <span className="flex gap-2">
+            <button
+              className="text-xs text-gray-400 hover:underline pt-1"
+              onClick={() => {
+                const payload = {
+                  read:
+                    props.message.read === true
+                      ? (false as boolean)
+                      : (true as boolean),
+                  responded: props.message.responded,
+                };
+                return readMessage(props.message._id, payload);
+              }}
+            >
+              {props.message.read === true ? `Unread` : "Read"}
+            </button>
+
+            <button
+              className={`text-xs font-bold text-gray-400 hover:underline pt-1 ${
+                props.message.responded === true
+                  ? " text-gray-400 cursor-not-allowed"
+                  : "text-green-600"
+              }`}
+              onClick={() => {
+                const payload = {
+                  read:
+                    props.message.responded == true
+                      ? true
+                      : props.message.responded,
+                  responded:
+                    props.message.responded === true
+                      ? (false as boolean)
+                      : (true as boolean),
+                };
+                return readMessage(props.message._id, payload);
+              }}
+              disabled={props.message.responded === true ? true : false}
+            >
+              {props.message.responded === true
+                ? `Responded ${new Date(
+                    props.message.updatedAt
+                  ).toLocaleDateString()}`
+                : "Responded?"}
             </button>
           </span>
         </div>

@@ -5,12 +5,17 @@ import { signIn, SignInResponse } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import Loading from "../components/Loading";
 
 export default function Secure() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const { status } = useSession();
 
   const signInHandler = async (data: any) => {
     try {
+      await setLoading(true);
       await signIn("credentials", {
         email: data.email,
         password: data.password,
@@ -18,7 +23,10 @@ export default function Secure() {
         // callbackUrl: "/dashboard",
       }).then(({ ok, error }: any) => {
         if (ok) router.push("/dashboard");
-        else toast.error(error);
+        else {
+          router.back();
+          toast.error(error);
+        }
       });
     } catch (error) {
       console.log(error);
@@ -28,6 +36,8 @@ export default function Secure() {
   const { handleSubmit, register, reset }: any = useForm();
   return (
     <div>
+      {loading ? <Loading /> : null}
+
       <div className="bg-gradient-to-l from-primaryBlue to-primaryPurple">
         <div className="w-full flex items-center justify-center py-4">
           <div className="relative bg-white shadow rounded py-12 lg:px-28 px-8">

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
@@ -21,6 +21,7 @@ import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Loading from "./Loading";
 
 const solutions = [
   {
@@ -70,8 +71,10 @@ export default function Navigation() {
   const session = useSession();
   const { data } = session;
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   return (
     <div data-cy="nav-section">
+      {loading ? <Loading /> : null}
       <Popover className="relative bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-between ">
@@ -159,7 +162,9 @@ export default function Navigation() {
                                 <span
                                   className="flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   onClick={async function logout() {
+                                    await setLoading(true);
                                     await signOut();
+
                                     return toast.success(
                                       "Successfully Signed Out"
                                     );
