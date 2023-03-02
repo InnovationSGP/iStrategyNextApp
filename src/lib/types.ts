@@ -23,3 +23,13 @@ export interface IncomingContactMessages {
   createdAt?: any;
   updatedAt?: any;
 }
+
+export interface BlogObject {
+  author: string;
+  date: string;
+  header: string;
+  content: string;
+  img: any;
+  _id?: string;
+  user: string;
+}

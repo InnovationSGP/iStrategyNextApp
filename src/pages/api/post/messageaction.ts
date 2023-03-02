@@ -14,8 +14,8 @@ export default async function mutate_message(
     try {
       await mongooseConnection();
       const message = await MessageForm.findOne({ _id: query.id });
-      // const token = await getToken({ req });
-      // if (!token) return errorHandler("Token is not found", res, 401);
+      const token = await getToken({ req });
+      if (!token) return errorHandler("Token is not found", res, 401);
       if (!message) return errorHandler("Message is not found", res, 401);
       const updateMessage = await MessageForm.findOneAndUpdate(
         { _id: query.id },

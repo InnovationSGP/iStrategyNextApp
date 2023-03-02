@@ -339,7 +339,8 @@ export function Messages(props: { messages: IncomingContactMessages[] }) {
     </>
   );
 }
-function EachMessage(props: { message: IncomingContactMessages }) {
+
+const EachMessage = (props: { message: IncomingContactMessages }) => {
   const readMessage = async (
     id: any,
     data: { read: boolean; responded: boolean }
@@ -426,4 +427,4 @@ function EachMessage(props: { message: IncomingContactMessages }) {
       </div>
     </div>
   );
-}
+};
