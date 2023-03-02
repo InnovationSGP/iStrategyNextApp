@@ -8,6 +8,8 @@ const MessageSchema = new Schema(
     name: { type: String, trim: true },
     message: { type: String, required: true, nullable: false, trim: true },
     phone: { type: String, trim: true },
+    read: { type: Boolean, default: false },
+    responded: { type: Boolean, default: false, required: true },
   },
   { timestamps: true }
 );

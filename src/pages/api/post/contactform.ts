@@ -17,14 +17,11 @@ export default async function post_message_to_database(
         name: name,
         message: message,
         phone: phone,
+        read: false,
+        responded: false,
       });
       await contactmessage.save();
-      return res.json({
-        email: contactmessage.email,
-        name: contactmessage.name,
-        message: contactmessage.message,
-        phone: contactmessage.phone,
-      });
+      return res.status(200).json(contactmessage);
     } catch (error: any) {
       res.status(500).json({ message: error.message, trace: error.stack });
     }

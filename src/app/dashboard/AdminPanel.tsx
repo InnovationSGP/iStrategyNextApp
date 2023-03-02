@@ -1,26 +1,50 @@
 "use client";
 import { Fragment, useState } from "react";
-import Session, { SessionBanner, Messages, Badge } from "./page";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Messages", href: "#", current: false },
-  { name: "Admins", href: "#", current: false },
-  { name: "Blogs", href: "#", current: false },
-];
+import { signOut } from "next-auth/react";
+import toast from "react-hot-toast";
+import Loading from "../components/Loading";
+import { page_routes } from "@/lib/pageRoutes";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export function SecureNavigation() {
+  const [loading, setLoading] = useState(false);
+
+  const pathname = usePathname();
+
+  const navigation = [
+    {
+      name: "Dashboard",
+      href: page_routes.dashboard,
+      current: pathname === page_routes.dashboard ? true : false,
+    },
+    {
+      name: "Messages",
+      href: page_routes.adminMessages,
+      current: pathname === page_routes.adminMessages ? true : false,
+    },
+    {
+      name: "Admins",
+      href: page_routes.manageAdmins,
+      current: pathname === page_routes.manageAdmins ? true : false,
+    },
+    {
+      name: "Manage Blogs",
+      href: page_routes.manageBlogs,
+      current: pathname === page_routes.manageBlogs ? true : false,
+    },
+  ];
   return (
     <Disclosure as="nav" className="bg-primaryBlue">
       {({ open }) => (
         <>
+          {loading ? <Loading /> : null}
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -38,25 +62,32 @@ export function SecureNavigation() {
                 <div className="hidden sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
                           item.current
                             ? "bg-primaryPurple text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "px-3 py-2 rounded-md text-sm font-medium"
+                          "px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex justify-between items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div className="px-2 flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
+                <div
+                  className="px-2 flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto"
+                  onClick={async function logout() {
+                    await setLoading(true);
+                    await signOut();
+                    return toast.success("Successfully Signed Out");
+                  }}
+                >
                   <Link
                     href="#"
                     className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-indigo-600 shadow-sm hover:bg-indigo-50"

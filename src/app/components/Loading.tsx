@@ -29,9 +29,6 @@ const Loading: FunctionComponent<LoadingProps> = () => {
 
             <div className="rounded-full bg-white w-[150px] h-[150px]" />
           </div>
-          <p className="absolute ml-14 inset-x-0 my-auto inset-y-[80px] text-base font-medium text-gray-800 text-center">
-            Loading ...
-          </p>
         </div>
       </div>
     </div>
