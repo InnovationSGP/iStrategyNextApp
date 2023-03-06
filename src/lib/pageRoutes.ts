@@ -1,8 +1,16 @@
 export const page_routes = {
   home: "/",
-  blog: "/blogs",
+  resourceCenter: "/resources",
   manageBlogs: "/dashboard/blogs",
   manageAdmins: "/dashboard/admins",
   adminMessages: "/dashboard/messages",
   dashboard: "/dashboard",
+  contactUs: "/contactus",
+  secure: "/secure",
+  Integrations: "/integrations",
+  ITSecurity: "/security",
+  Consulting: "/consulting",
+  Offshore: "/offshore",
+  Delivery: "/delivery",
+  staffing: "/staffing",
 };

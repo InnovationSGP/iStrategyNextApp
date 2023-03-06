@@ -22,45 +22,54 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Loading from "./Loading";
+import { page_routes } from "@/lib/pageRoutes";
 
 const solutions = [
   {
     name: "Delivery",
     description:
       "Get a better understanding of where your traffic is coming from.",
-    href: "/delivery",
+    href: page_routes.Delivery,
     icon: ChartBarIcon,
   },
   {
     name: "Offshore",
     description:
       "Build strategic funnels that will drive your customers to convert",
-    href: "/offshore",
+    href: page_routes.Offshore,
     icon: ArrowPathIcon,
   },
   {
     name: "Consulting",
     description: "Speak directly to your customers in a more meaningful way.",
-    href: "/consulting",
+    href: page_routes.Consulting,
     icon: CursorArrowRaysIcon,
   },
   {
     name: "IT Security",
     description: "Your customers' data will be safe and secure.",
-    href: "/security",
+    href: page_routes.ITSecurity,
     icon: ShieldCheckIcon,
   },
   {
     name: "Integrations",
     description: "Connect with third-party tools that you're already using.",
-    href: "/integrations",
+    href: page_routes.Integrations,
     icon: Squares2X2Icon,
   },
 ];
 const callsToAction = [
-  { name: "Blog", href: "/blog", icon: NewspaperIcon },
-  { name: "Contact ", href: "/contactus", icon: InboxArrowDownIcon },
-  { name: "Login", href: "/secure", icon: LockOpenIcon },
+  {
+    name: "Resource Center",
+    href: page_routes.resourceCenter,
+    icon: NewspaperIcon,
+  },
+  {
+    name: "Contact ",
+    href: page_routes.contactUs,
+    icon: InboxArrowDownIcon,
+  },
+  { name: "Login", href: page_routes.secure, icon: LockOpenIcon },
 ];
 
 function classNames(...classes: string[]) {
@@ -102,7 +111,7 @@ export default function Navigation() {
                         "px-6 items-center bg-white font-medium hover:text-gray-900 focus:outline-none border-r-2 border-primaryBlue text-xl "
                       )}
                     >
-                      <span className="hover:border-b-2 uppercase hover:border-b-primaryBlue hover:ease-in hover:duration-300  px-6 pb-2">
+                      <span className="hover:border-b-2 uppercase hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
                         Consulting
                       </span>
                     </Popover.Button>
@@ -151,7 +160,9 @@ export default function Navigation() {
                               <div className="flex justify-between">
                                 <span
                                   className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
-                                  onClick={() => router.push("/dashboard")}
+                                  onClick={() =>
+                                    router.push(page_routes.dashboard)
+                                  }
                                 >
                                   <HomeIcon
                                     className="h-6 w-6 flex-shrink-0 text-gray-400"
@@ -203,7 +214,7 @@ export default function Navigation() {
 
               <Link
                 data-cy="staffing-link"
-                href="/staffing"
+                href={page_routes.staffing}
                 className="text-xl px-6 font-medium text-primaryBlue hover:text-gray-900 border-r-2 border-primaryBlue focus:border-primaryBlue"
               >
                 <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
@@ -212,7 +223,7 @@ export default function Navigation() {
               </Link>
               <Link
                 data-cy="delivery-link"
-                href="/delivery"
+                href={page_routes.Delivery}
                 className="text-xl px-6  font-medium text-primaryBlue hover:text-gray-900 border-r-2  border-primaryBlue   focus:border-primaryBlue"
               >
                 <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
@@ -273,7 +284,7 @@ export default function Navigation() {
               <div className="flex items-center justify-center space-y-6 py-6 px-5">
                 <div>
                   <Link
-                    href="/contactus"
+                    href={page_routes.contactUs}
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryBlue"
                   >
                     Contact Us Now
@@ -283,7 +294,7 @@ export default function Navigation() {
                     <div className="flex">
                       <span
                         className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
-                        onClick={() => router.push("/dashboard")}
+                        onClick={() => router.push(page_routes.dashboard)}
                       >
                         <HomeIcon
                           className="h-6 w-6 flex-shrink-0 text-gray-400"
@@ -309,7 +320,7 @@ export default function Navigation() {
                     <p className="p-4 text-center text-base font-medium text-gray-500">
                       Existing client?
                       <Link
-                        href="/secure"
+                        href={page_routes.secure}
                         className="text-primaryBlue pl-2 cursor-pointer hover:border-b-2 hover:border-primaryBlue hover:text-primaryBlue"
                       >
                         Sign in

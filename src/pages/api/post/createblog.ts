@@ -14,7 +14,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    const { author, date, header, content, img } = req.body;
+    const { author, date, header, content, img, resource } = req.body;
 
     try {
       await mongooseConnection();
@@ -25,6 +25,7 @@ export default async function handler(
 
       const blogResource = new Blogs({
         user: userID,
+        resource: resource,
         author: author,
         date: date,
         header: header,

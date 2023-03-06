@@ -1,5 +1,6 @@
 import { MegaphoneIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { page_routes } from "../../lib/pageRoutes";
 
 export default function Banner() {
   return (
@@ -21,22 +22,13 @@ export default function Banner() {
             </p>
           </div>
           <div className="order-3 mt-2  flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
-            <a
-              href="/blog"
+            <Link
+              href={page_routes.resourceCenter}
               className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-indigo-600 shadow-sm hover:bg-indigo-50"
             >
               Visit the blog
-            </a>
+            </Link>
           </div>
-          {/* <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-            <button
-              type="button"
-              className="-mr-1 flex rounded-md p-2 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
-            >
-              <span className="sr-only">Dismiss</span>
-              <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
-            </button>
-          </div> */}
         </div>
       </div>
     </div>

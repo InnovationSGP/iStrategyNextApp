@@ -1,13 +1,17 @@
 import { features, featuresHeader } from "../../content/features";
+import { Bullet } from "./Bullet";
 
 export default function Feature() {
   return (
-    <div className="bg-white py-14 shadow-sm sm:py-14 mt-12 border-t-2 ">
+    <div className="bg-white py-14  sm:py-14 mt-12 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-lg font-semibold leading-8 tracking-tight text-primaryPurple">
-            {featuresHeader.headerBanner}
-          </h2>
+          <div className="flex flex-col items-center justify-center">
+            <Bullet text="PM Factory is Opening Soon" />
+            <h2 className="text-lg font-semibold leading-8 tracking-tight text-primaryPurple">
+              {featuresHeader.headerBanner}
+            </h2>
+          </div>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {featuresHeader.header}
           </p>

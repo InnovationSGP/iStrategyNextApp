@@ -26,10 +26,12 @@ export interface IncomingContactMessages {
 
 export interface BlogObject {
   author: string;
+  resource: string;
   date: string;
   header: string;
   content: string;
   img: any;
-  _id?: string;
+  _id: string;
   user: string;
+  published: Boolean;
 }
