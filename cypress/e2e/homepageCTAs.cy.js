@@ -1,3 +1,5 @@
+import { page_routes } from "../../src/lib/pageRoutes";
+
 context("Check Homepage CTAs", () => {
   beforeEach(() => {
     cy.visit("/");
@@ -7,7 +9,7 @@ context("Check Homepage CTAs", () => {
 
   it("Check the Banner", () => {
     cy.get("[data-cy=banner]").contains("Visit the blog").click();
-    cy.url().should("include", "/blog");
+    cy.url().should("include", page_routes.resourceCenter);
   });
 
   it("Return Home and Visit the Hero section CTA", () => {

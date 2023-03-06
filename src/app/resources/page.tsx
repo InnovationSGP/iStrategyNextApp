@@ -8,7 +8,6 @@ import { HeroCTA } from "../components/HeroCTA";
 export default function Blog() {
   return (
     <div>
-      <HeroComponent heroImg={blogPng} heroTxt={"Latest INSIGHTS"} />
       <HeroCTA />
       <BlogComponent />
     </div>

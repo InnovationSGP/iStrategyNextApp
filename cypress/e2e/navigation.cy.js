@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { page_routes } from "../../src/lib/pageRoutes";
 
 context("Navigation", () => {
   beforeEach(() => {
@@ -10,66 +11,66 @@ context("Navigation", () => {
   it("Visit the delivery link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("Delivery").click();
-    cy.url().should("include", "/delivery");
+    cy.url().should("include", page_routes.Delivery);
   });
 
   it("Visit the consulting link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("Consulting").click();
-    cy.url().should("include", "/consulting");
+    cy.url().should("include", page_routes.Consulting);
   });
 
   it("Visit the IT Security link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("IT Security").click();
-    cy.url().should("include", "/security");
+    cy.url().should("include", page_routes.ITSecurity);
   });
 
   it("Visit the Integrations link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("Integrations").click();
-    cy.url().should("include", "/integrations");
+    cy.url().should("include", page_routes.Integrations);
   });
 
   it("Visit the Offshore link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("Offshore").click();
-    cy.url().should("include", "/offshore");
+    cy.url().should("include", page_routes.Offshore);
   });
 
   it("Visit the ContactUs link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel-CTAs]").contains("Contact").click();
-    cy.url().should("include", "/contactus");
+    cy.url().should("include", page_routes.contactUs);
   });
 
   it("Visit the Blog link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-    cy.get("[data-cy=consulting-panel-CTAs]").contains("Blog").click();
-    cy.url().should("include", "/blog");
+    cy.get("[data-cy=consulting-panel-CTAs]").contains("Resources ").click();
+    cy.url().should("include", page_routes.resourceCenter);
   });
 
   it("Visit the login link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel-CTAs]").contains("Login").click();
-    cy.url().should("include", "/secure");
+    cy.url().should("include", page_routes.secure);
   });
 
   it("Visit the delivery link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("Delivery").click();
-    cy.url().should("include", "/delivery");
+    cy.url().should("include", page_routes.Delivery);
   });
 
   it("Visit the staffing page", () => {
     cy.get("[data-cy=staffing-link]").contains("Staffing").click();
-    cy.url().should("include", "/staffing");
+    cy.url().should("include", page_routes.staffing);
     cy.go("back");
   });
 
   it("Visit the delivery page", () => {
     cy.get("[data-cy=delivery-link]").contains("Delivery").click();
-    cy.url().should("include", "/delivery");
+    cy.url().should("include", page_routes.Delivery);
     cy.go("back");
   });
 
@@ -79,7 +80,7 @@ context("Navigation", () => {
   });
 
   it("cy.visit() - visit a remote url", () => {
-    cy.visit("/blog", {
+    cy.visit(page_routes.resourceCenter, {
       timeout: 50000, // increase total time for the visit to resolve
       onBeforeLoad(contentWindow) {
         // contentWindow is the remote page's window object

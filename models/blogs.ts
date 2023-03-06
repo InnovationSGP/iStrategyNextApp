@@ -7,11 +7,13 @@ const BlogSchema = new Schema(
       ref: "user",
       required: true,
     },
+    resource: { type: String, required: true },
     author: { type: String, required: true },
     date: { type: String, required: true },
     header: { type: String, required: true },
     content: { type: String, required: true },
     img: { type: String, required: true },
+    published: { type: Boolean, required: true, default: false },
   },
   {
     timestamps: true,

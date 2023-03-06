@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export function HeroCTA() {
@@ -7,12 +8,12 @@ export function HeroCTA() {
         <span className="text-white text-xl md:text-2xl font-bold">
           Let us work together
         </span>
-        <a
+        <Link
           href="/contactus"
           className="text-xl md:text-4xl font-bold shadow text-primaryBlue p-4 px-8 rounded-sm bg-white cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
         >
           Ready to Talk?
-        </a>
+        </Link>
       </div>
     </div>
   );
