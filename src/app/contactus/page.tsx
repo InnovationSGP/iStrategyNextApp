@@ -119,6 +119,7 @@ function ContactUs() {
                 />
               </div>
             </div>
+
             <p className="text-xs leading-3 text-gray-600 mt-4">
               By clicking submit you agree to our terms of service, privacy
               policy on contact you via your email or phone number (if

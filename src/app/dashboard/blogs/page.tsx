@@ -8,15 +8,51 @@ import {
   useGetBlogs,
 } from "../../../pages/api/routes/blogRoute";
 import toast from "react-hot-toast";
-import Link from "next/link";
 import ErrorComponent from "@/app/components/Error";
 import Loading from "@/app/components/Loading";
 import { BlogObject } from "../../../lib/types";
 import { EditModal, PlainModal, PublishModal } from "@/app/components/Modal";
-import Toggler from "@/app/components/Toggler";
 import { DeleteModal } from "../../components/Modal";
-import { divide } from "cypress/types/lodash";
+import dynamic from "next/dynamic";
+import RichTextArea from "@/app/components/RichTextArea";
+export const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+});
 
+const modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link"],
+    ["clean"],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
+};
+const formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+];
 interface BlogManagementProps {}
 
 const BlogManagement: FC<BlogManagementProps> = () => {
@@ -49,7 +85,8 @@ const BlogManagement: FC<BlogManagementProps> = () => {
     </div>
   );
 };
-function EachBlog(props: { blog: BlogObject }) {
+
+const EachBlog = (props: { blog: BlogObject }) => {
   const [publishState, setPublishState] = useState<Boolean>(
     props.blog.published
   );
@@ -141,12 +178,16 @@ function EachBlog(props: { blog: BlogObject }) {
       </div>
     </div>
   );
-}
+};
 
 const AddBlog: FC<BlogManagementProps> = () => {
   const { handleSubmit, register, reset } = useForm();
   const [image, setImage] = useState(null);
-  const [imageSRC, setImageSRC] = useState(null);
+  const [wysiwyg, setWysiwyg] = useState("");
+
+  const handleRichTextEditor = (e: any) => {
+    return setWysiwyg(e.target.value);
+  };
 
   const formSubmit = async (data: any) => {
     const file = data.img[0];
@@ -166,17 +207,21 @@ const AddBlog: FC<BlogManagementProps> = () => {
         author: data.author,
         date: data.date,
         header: data.header,
-        content: data.content,
+        content: wysiwyg,
         resource: data.resource,
         img: imageURL,
       };
 
-      await POST_BLOG(payload);
+      console.log(payload);
+
+      // await POST_BLOG(payload);
       toast.success("Blog is added");
     } catch (error) {
       console.log(error);
     }
   };
+
+  // console.log(wysiwyg);
 
   return (
     <>
@@ -306,6 +351,8 @@ const AddBlog: FC<BlogManagementProps> = () => {
                   required
                   {...register("content", { required: true })}
                 />
+
+                <RichTextArea value={wysiwyg} change={setWysiwyg} />
               </div>
             </div>
 

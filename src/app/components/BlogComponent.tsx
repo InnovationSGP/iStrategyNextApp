@@ -52,7 +52,7 @@ function BlogCard(props: { data: BlogObject }) {
         </h1>
         <Link
           target="_blank"
-          href={`${page_routes.resourceCenter}/${props.data._id}`}
+          href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
           className="inline-block py-4 font-bold text-primaryBlue hover:text-sky-400"
         >
           Learn more
