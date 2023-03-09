@@ -11,7 +11,12 @@ import toast from "react-hot-toast";
 import ErrorComponent from "@/app/components/Error";
 import Loading from "@/app/components/Loading";
 import { BlogObject } from "../../../lib/types";
-import { EditModal, PlainModal, PublishModal } from "@/app/components/Modal";
+import {
+  EditModal,
+  HTMLModal,
+  PlainModal,
+  PublishModal,
+} from "@/app/components/Modal";
 import { DeleteModal } from "../../components/Modal";
 import dynamic from "next/dynamic";
 import RichTextArea from "@/app/components/RichTextArea";
@@ -119,15 +124,15 @@ const EachBlog = (props: { blog: BlogObject }) => {
         <div className="py-4 sm:w-24">
           <span className="font-bold py-2 text-xl whitespace-nowrap ">
             {" "}
-            <PlainModal
+            <HTMLModal
               buttonText={props.blog.header}
-              buttonTWClasses="text-primaryBlue font-bold"
+              buttonTWClasses="text-primaryBlue font-bold capitalize"
               content={props.blog.content}
-              header="Blog Text Resource"
+              header={props.blog.header}
             />{" "}
           </span>{" "}
           by
-          <span>
+          <span className="text-xs whitespace-nowrap">
             {" "}
             {props.blog.author} -{" "}
             <span className="text-xs text-gray-600">
@@ -214,7 +219,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
 
       console.log(payload);
 
-      // await POST_BLOG(payload);
+      await POST_BLOG(payload);
       toast.success("Blog is added");
     } catch (error) {
       console.log(error);
@@ -341,7 +346,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
                     </div>
                   </div>
                 </div>
-                <textarea
+                {/* <textarea
                   className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-black"
                   tabIndex={0}
                   aria-label="leave a message"
@@ -350,7 +355,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
                   defaultValue={" "}
                   required
                   {...register("content", { required: true })}
-                />
+                /> */}
 
                 <RichTextArea value={wysiwyg} change={setWysiwyg} />
               </div>

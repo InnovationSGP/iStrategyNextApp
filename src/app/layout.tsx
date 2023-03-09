@@ -6,6 +6,8 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { SessionProvider } from "next-auth/react";
+import { Suspense } from "react";
+import Loading from "./components/Loading";
 
 export default function RootLayout({
   children,
@@ -23,7 +25,7 @@ export default function RootLayout({
         <body className=" overflow-x-hidden  ">
           <Toaster toastOptions={toastOptions} />
           <Navigation />
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
           <Footer />
         </body>
       </SessionProvider>
