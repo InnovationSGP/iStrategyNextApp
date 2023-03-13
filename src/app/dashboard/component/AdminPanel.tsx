@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import toast from "react-hot-toast";
-import Loading from "../components/Loading";
+import Loading from "../../components/Loading";
 import { page_routes } from "@/lib/pageRoutes";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
