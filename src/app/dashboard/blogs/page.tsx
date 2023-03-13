@@ -20,6 +20,7 @@ import {
 import { DeleteModal } from "../../components/Modal";
 import dynamic from "next/dynamic";
 import RichTextArea from "@/app/components/RichTextArea";
+import Image from "next/image";
 export const QuillNoSSRWrapper = dynamic(import("react-quill"), {
   ssr: false,
   loading: () => <p>Loading ...</p>,
@@ -179,7 +180,13 @@ const EachBlog = (props: { blog: BlogObject }) => {
         </div>
       </div>
       <div className=" border-l-2 border-gray-400">
-        <img src={props.blog.img} alt={props.blog.header} width="400" />{" "}
+        <Image
+          src={props.blog.img}
+          alt={props.blog.header}
+          width={400}
+          height={600}
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -318,10 +325,13 @@ const AddBlog: FC<BlogManagementProps> = () => {
                   <div className="flex items-center justify-between ml-2 gap-x-3 lg:ml-auto md:ml-auto w-full">
                     <div>
                       {image ? (
-                        <img
+                        <Image
                           className="w-24 h-10 bg-primaryBlue text-white rounded shadow"
                           src={image}
                           alt="blog resource image preview"
+                          width={400}
+                          height={600}
+                          loading="lazy"
                         />
                       ) : (
                         "Image Preview Here"
@@ -495,10 +505,13 @@ const EditBlog: FC<any> = (props: { id: string }) => {
                   <div className="flex items-center justify-between ml-2 gap-x-3 lg:ml-auto md:ml-auto w-full">
                     <div>
                       {image ? (
-                        <img
+                        <Image
                           className="w-24 h-10 bg-primaryBlue text-white rounded shadow"
                           src={image}
                           alt="blog resource image preview"
+                          width={400}
+                          height={600}
+                          loading="lazy"
                         />
                       ) : (
                         "Image Preview Here"

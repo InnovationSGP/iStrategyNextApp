@@ -11,6 +11,7 @@ import { ViewMessageModal } from "../components/Modal";
 import CustomSpinner from "../components/Spinner";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface SessionProps {}
 
@@ -76,10 +77,14 @@ export function Badge(props: any) {
       <div className="lg:max-w-[356px] md:max-w-[516px] max-w-[343px] mx-auto">
         <div className="mx-auto bg-white px-3 py-4 rounded">
           <div>
-            <img
+            <Image
               src="https://tuk-cdn.s3.amazonaws.com/can-uploader/Group%20813077.png"
               className="mx-auto"
+              width={400}
+              height={600}
+              alt="Image Icon"
             />
+            className="h-8 w-8 rounded-full"
           </div>
           <div className="lg:block hidden">
             <div className="flex justify-between items-center gap-x-4 px-8">

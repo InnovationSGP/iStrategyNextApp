@@ -2,7 +2,7 @@ import React from "react";
 function Loading() {
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-white">
         <div className="px-4 py-12">
           <div className="bg-white mx-auto flex justify-center py-12">
             <div className="relative">

@@ -14,22 +14,16 @@ context("Navigation", () => {
     cy.url().should("include", page_routes.Delivery);
   });
 
-  it("Visit the consulting link on consulting panel", () => {
-    cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-    cy.get("[data-cy=consulting-panel]").contains("Consulting").click();
-    cy.url().should("include", page_routes.Consulting);
-  });
-
   it("Visit the IT Security link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
     cy.get("[data-cy=consulting-panel]").contains("IT Security").click();
     cy.url().should("include", page_routes.ITSecurity);
   });
 
-  it("Visit the Integrations link on consulting panel", () => {
+  it("Visit the Resource Center link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-    cy.get("[data-cy=consulting-panel]").contains("Integrations").click();
-    cy.url().should("include", page_routes.Integrations);
+    cy.get("[data-cy=consulting-panel]").contains("Resource").click();
+    cy.url().should("include", page_routes.resourceCenter);
   });
 
   it("Visit the Offshore link on consulting panel", () => {

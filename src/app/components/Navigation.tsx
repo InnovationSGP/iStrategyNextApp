@@ -27,23 +27,15 @@ import { page_routes } from "@/lib/pageRoutes";
 const solutions = [
   {
     name: "Delivery",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
+    description: "Get work done, and done fast",
     href: page_routes.Delivery,
     icon: ChartBarIcon,
   },
   {
     name: "Offshore",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
+    description: "Build strategic workstreams to drive your growth",
     href: page_routes.Offshore,
     icon: ArrowPathIcon,
-  },
-  {
-    name: "Consulting",
-    description: "Speak directly to your customers in a more meaningful way.",
-    href: page_routes.Consulting,
-    icon: CursorArrowRaysIcon,
   },
   {
     name: "IT Security",
@@ -52,15 +44,15 @@ const solutions = [
     icon: ShieldCheckIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools that you're already using.",
-    href: page_routes.Integrations,
+    name: "Resources",
+    description: "View blogs, news, articles and other resources",
+    href: page_routes.resourceCenter,
     icon: Squares2X2Icon,
   },
 ];
 const callsToAction = [
   {
-    name: "Resource Center",
+    name: "Resources",
     href: page_routes.resourceCenter,
     icon: NewspaperIcon,
   },
@@ -81,12 +73,13 @@ export default function Navigation() {
   const { data } = session;
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [showOnHover, setShowOnHover] = useState(false);
+
   return (
-    <div data-cy="nav-section">
-      {loading ? <Loading /> : null}
+    <div data-cy="nav-section" className="sticky top-0 z-10 bg-white">
       <Popover className="relative bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-between ">
+          <div className="flex items-center justify-between  py-6 md:justify-between ">
             <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black ">
               <LogoBrand />
             </div>
@@ -99,16 +92,20 @@ export default function Navigation() {
             </div>
             <Popover.Group
               as="nav"
-              className="hidden font-sourceSans uppercase md:flex"
+              className="hidden font-sourceSans uppercase md:flex items-center justify-center"
             >
-              <Popover className="relative">
+              <Popover
+                onMouseEnter={() => setShowOnHover(true)}
+                onMouseLeave={() => setShowOnHover(false)}
+                className="relative"
+              >
                 {({ open }) => (
                   <>
                     <Popover.Button
                       data-cy="consulting-pop"
                       className={classNames(
                         open ? "text-gray-900" : "text-primaryBlue",
-                        "px-6 items-center bg-white font-medium hover:text-gray-900 focus:outline-none border-r-2 border-primaryBlue text-xl "
+                        "px-6 items-center bg-white font-bold hover:text-gray-900 focus:outline-none text-xl "
                       )}
                     >
                       <span className="hover:border-b-2 uppercase hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
@@ -124,6 +121,7 @@ export default function Navigation() {
                       leave="transition ease-in duration-150"
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
+                      show={showOnHover}
                     >
                       <Popover.Panel
                         data-cy="consulting-panel"
@@ -142,7 +140,7 @@ export default function Navigation() {
                                   aria-hidden="true"
                                 />
                                 <div className="ml-4">
-                                  <p className="text-base font-medium text-gray-900">
+                                  <p className="text-base  text-gray-900 uppercase font-bold">
                                     {item.name}
                                   </p>
                                   <p className="mt-1 text-sm text-gray-500">
@@ -159,19 +157,19 @@ export default function Navigation() {
                             {data?.user ? (
                               <div className="flex justify-between">
                                 <span
-                                  className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                  className=" flex items-center cursor-pointer p-4  capitalize font-bold text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   onClick={() =>
                                     router.push(page_routes.dashboard)
                                   }
                                 >
                                   <HomeIcon
-                                    className="h-6 w-6 flex-shrink-0 text-gray-400"
+                                    className="h-6 w-6 flex-shrink-0 font-bold text-black"
                                     aria-hidden="true"
                                   />
                                   <span className="ml-3">Dashboard</span>
                                 </span>
                                 <span
-                                  className="flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                  className="flex items-center cursor-pointer p-4 capitalize font-bold text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   onClick={async function logout() {
                                     await setLoading(true);
                                     await signOut();
@@ -182,7 +180,7 @@ export default function Navigation() {
                                   }}
                                 >
                                   <LockClosedIcon
-                                    className="h-6 w-6 flex-shrink-0 text-gray-400"
+                                    className="h-6 w-6 flex-shrink-0 text-black"
                                     aria-hidden="true"
                                   />
                                   <span className="ml-3">logout</span>
@@ -193,7 +191,7 @@ export default function Navigation() {
                                 <div key={item.name} className="flow-root">
                                   <Link
                                     href={item.href}
-                                    className="-m-3 flex items-center p-3  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                    className="-m-3 flex items-center p-3  capitalize font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   >
                                     <item.icon
                                       className="h-6 w-6 flex-shrink-0 text-gray-400"
@@ -215,21 +213,20 @@ export default function Navigation() {
               <Link
                 data-cy="staffing-link"
                 href={page_routes.staffing}
-                className="text-xl px-6 font-medium text-primaryBlue hover:text-gray-900 border-r-2 border-primaryBlue focus:border-primaryBlue"
+                className="text-xl px-6 font-bold text-primaryBlue hover:text-gray-900  focus:border-primaryBlue"
               >
                 <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
                   Staffing
                 </span>
               </Link>
-              <Link
-                data-cy="delivery-link"
-                href={page_routes.Delivery}
-                className="text-xl px-6  font-medium text-primaryBlue hover:text-gray-900 border-r-2  border-primaryBlue   focus:border-primaryBlue"
-              >
-                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
-                  Delivery
-                </span>
-              </Link>
+              <div className="px-4">
+                <Link
+                  href={page_routes.contactUs}
+                  className="text-md md:text-lg font-bold shadow text-white p-2 px-4 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </Popover.Group>
           </div>
         </div>

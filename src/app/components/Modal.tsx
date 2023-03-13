@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Mailto } from "./Mailto";
 import Link from "next/link";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import { page_routes } from "@/lib/pageRoutes";
 
 interface CustomModalTypes {
   header?: string;
@@ -117,6 +118,14 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
 
                   <div className="p-2">
                     <div className="text-sm text-gray-500">{content}</div>
+                    <div className="py-6 px-2">
+                      <Link
+                        href={page_routes.contactUs}
+                        className="my-2 text-md md:text-md font-bold shadow text-white p-2 px-4 rounded-md bg-primaryPurple cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
+                      >
+                        Contact Us
+                      </Link>
+                    </div>
                   </div>
 
                   <div className="m-4 flex">

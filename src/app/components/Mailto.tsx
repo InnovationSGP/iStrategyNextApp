@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export const Mailto = (props: {
@@ -13,11 +14,11 @@ export const Mailto = (props: {
   if (body) params += `${subject ? "&" : ""}body=${encodeURIComponent(body)}`;
 
   return (
-    <a
+    <Link
       className="p-2 px-4 capitalize text-white bg-primaryBlue rounded shadow hover:scale-105 "
       href={`mailto:${email}${params}`}
     >
       {children}
-    </a>
+    </Link>
   );
 };

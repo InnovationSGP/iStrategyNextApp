@@ -1,5 +1,6 @@
 "use client";
 import { registerRoute } from "@/pages/api/routes/registerRoute";
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -129,13 +130,13 @@ export default function Register() {
                 policy.{" "}
                 <span>
                   {" "}
-                  <a
+                  <Link
                     href="/secure"
                     className="font-bold cursor-pointer hover:border-b-2 border-primaryBlue text-primaryBlue"
                   >
                     {" "}
                     Return to Login
-                  </a>
+                  </Link>
                 </span>
               </p>
               <div className="flex items-center justify-center w-full">

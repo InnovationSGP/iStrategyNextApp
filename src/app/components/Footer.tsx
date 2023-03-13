@@ -5,22 +5,12 @@ const Footer = () => {
   const todaysDate = new Date().getFullYear();
 
   return (
-    <div className="mx-auto py-8 xl:px-10 lg:px-12 sm:px-6 px-4 shadow border-t-2 mt-8">
-      <section className="bg-white dark:bg-gray-900">
-        <div className="container px-6 py-6 mx-auto">
-          <div>
-            <p className="font-medium text-primaryBlue dark:text-primaryPink">
-              Contact us
-            </p>
-            <LogoBrand />
-            <p className="text-sm  text-gray-800 mt-4">
-              Copyright © {todaysDate} Innovation Strategy Group LLC
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto pt-4 shadow  mt-8">
+      <section className="bg-primaryBlue dark:bg-gray-900">
+        <div className="container px-8 py-6 mx-auto flex flex-col items-center">
+          <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3 items-center justify-items-center">
             <div>
-              <span className="inline-block p-3 text-primaryBlue rounded-full bg-primaryPink dark:bg-gray-800">
+              <span className="inline-block p-3 text-white rounded-full bg-primaryPink dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -37,19 +27,17 @@ const Footer = () => {
                 </svg>
               </span>
 
-              <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
+              <h2 className="mt-4 text-lg font-medium text-white dark:text-white">
                 Email
               </h2>
-              <p className="mt-2 text-gray-500 dark:text-gray-400">
+              <p className="mt-2 text-white">
                 Our friendly team is here to help.
               </p>
-              <p className="mt-2 text-primaryBlue dark:text-primaryPink">
-                sales@innovationsgp.com{" "}
-              </p>
+              <p className="mt-2 text-white ">sales@innovationsgp.com </p>
             </div>
 
             <div>
-              <span className="inline-block p-3 text-primaryBlue rounded-full bg-primaryPink dark:bg-gray-800">
+              <span className="inline-block p-3 text-white rounded-full bg-primaryPink dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -71,17 +59,17 @@ const Footer = () => {
                 </svg>
               </span>
 
-              <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
+              <h2 className="mt-4 text-lg font-medium text-white dark:text-white">
                 Office
               </h2>
 
-              <p className="mt-2 text-primaryBlue dark:text-primaryPink">
+              <p className="mt-2 text-white dark:text-white">
                 Remote, Kansas City, KS
               </p>
             </div>
 
             <div>
-              <span className="inline-block p-3 text-primaryBlue rounded-full bg-primaryPink dark:bg-gray-800">
+              <span className="inline-block p-3 text-white rounded-full bg-primaryPink dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -98,16 +86,18 @@ const Footer = () => {
                 </svg>
               </span>
 
-              <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
+              <h2 className="mt-4 text-lg font-medium text-white dark:text-white">
                 Phone
               </h2>
-              <p className="mt-2 text-gray-500 dark:text-gray-400">
-                Mon-Fri from 8am to 6pm.
-              </p>
-              <p className="mt-2 text-primaryBlue dark:text-primaryPink">
-                +1 (785) 925-2129
-              </p>
+              <p className="mt-2 text-white ">Mon-Fri from 8am to 6pm.</p>
+              <p className="mt-2 text-white ">+1 (785) 925-2129</p>
             </div>
+          </div>
+          <div className="flex flex-col justify-center items-center pt-12">
+            <LogoBrand textColor="text-white" />
+            <p className="text-sm  text-white mt-4">
+              Copyright © {todaysDate} Innovation Strategy Group LLC
+            </p>
           </div>
         </div>
       </section>
