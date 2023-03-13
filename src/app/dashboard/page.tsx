@@ -84,7 +84,6 @@ export function Badge(props: any) {
               height={600}
               alt="Image Icon"
             />
-            className="h-8 w-8 rounded-full"
           </div>
           <div className="lg:block hidden">
             <div className="flex justify-between items-center gap-x-4 px-8">

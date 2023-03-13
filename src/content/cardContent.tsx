@@ -60,7 +60,7 @@ export const cardContent = [
         <p className="p-2">
           Advantages of time zones: Offshore staff can take advantage of the
           differences in time zones to help your business. For example, you can
-          have an offshore team work on a project outside your company's
+          have an offshore team work on a project outside your company&apos;s
           business hours. This can speed up project completion and reduce
           turnaround time.
         </p>
@@ -72,10 +72,10 @@ export const cardContent = [
         </p>
 
         <p className="p-2">
-          Increased productivity: Offshore staffing can improve your company's
-          productivity by allowing you to focus on your core competencies while
-          delegating non-core tasks to offshore teams. This increases efficiency
-          and productivity across your business.
+          Increased productivity: Offshore staffing can improve your
+          company&apos;s productivity by allowing you to focus on your core
+          competencies while delegating non-core tasks to offshore teams. This
+          increases efficiency and productivity across your business.
         </p>
 
         <p className="p-2">

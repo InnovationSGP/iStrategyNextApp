@@ -35,7 +35,7 @@ const BlogResource: FunctionComponent<BlogResourceProps> = () => {
       setData(data[0]);
       setLoading(false);
     });
-  }, [id]);
+  }, []);
 
   return (
     <div>
