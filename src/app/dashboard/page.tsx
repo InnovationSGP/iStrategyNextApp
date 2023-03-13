@@ -15,7 +15,7 @@ import Image from "next/image";
 
 interface SessionProps {}
 
-const Session: FC<SessionProps> = () => {
+export const Session: FC<SessionProps> = () => {
   const [show, setShow] = useState(false);
   const { messages, isError, isLoading } = useGetMessages();
   const session = useSession();
@@ -40,8 +40,6 @@ const Session: FC<SessionProps> = () => {
     </div>
   );
 };
-
-export default Session;
 
 export function SessionBanner(props: { data: any }) {
   return (
@@ -69,6 +67,7 @@ export function SessionBanner(props: { data: any }) {
     </div>
   );
 }
+
 export function Badge(props: any) {
   const [show, setShow] = useState(null);
 
