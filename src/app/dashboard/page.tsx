@@ -76,15 +76,7 @@ export function Badge(props: any) {
     <div className="py-12 px-4">
       <div className="lg:max-w-[356px] md:max-w-[516px] max-w-[343px] mx-auto">
         <div className="mx-auto bg-white px-3 py-4 rounded">
-          <div>
-            <Image
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/Group%20813077.png"
-              className="mx-auto"
-              width={400}
-              height={600}
-              alt="Image Icon"
-            />
-          </div>
+          <div>Image Here</div>
           <div className="lg:block hidden">
             <div className="flex justify-between items-center gap-x-4 px-8">
               <div aria-label="one">
