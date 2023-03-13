@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Loading from "../components/Loading";
+import Link from "next/link";
 
 export default function Secure() {
   const router = useRouter();
@@ -91,12 +92,12 @@ export default function Secure() {
                 By clicking submit you agree to our terms of service, privacy
                 policy.{" "}
                 <span>
-                  <a
+                  <Link
                     href="/secure/register"
                     className="font-bold cursor-pointer hover:border-b-2 border-primaryBlue text-primaryBlue"
                   >
                     Create a Profile
-                  </a>
+                  </Link>
                 </span>
               </p>
               <div className="flex items-center justify-center w-full">

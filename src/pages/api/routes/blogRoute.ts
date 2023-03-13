@@ -13,7 +13,8 @@ export const blogsRoute: any = () => {
     API.post("/api/post/publishblog?id=" + id, data);
   const DELETE_BLOG = (id: string, data: any) =>
     API.post("/api/post/deleteblog?id=" + id, data);
-  return { POST_BLOG, EDIT_BLOG, PUBLISH_BLOG, DELETE_BLOG };
+  const GET_A_BLOG = (id: string) => API.get("/api/public/eachblog?id=" + id);
+  return { POST_BLOG, EDIT_BLOG, PUBLISH_BLOG, DELETE_BLOG, GET_A_BLOG };
 };
 
 export const UPLOAD_IMAGE = async (asset: any) => {
@@ -30,6 +31,8 @@ export const UPLOAD_IMAGE = async (asset: any) => {
 };
 
 const fetcher: any = (url: any) => fetch(url).then((res) => res.json());
+const fetcherWithParams: any = (url: string, queryParams: string) =>
+  fetch(`${url}${queryParams}`).then((res) => res.json());
 export function useGetBlogs() {
   const { data, error, isLoading } = useSWR(`/api/get/blogs`, fetcher);
   return {
@@ -40,20 +43,18 @@ export function useGetBlogs() {
 }
 export function useGetBlogs_Public() {
   const { data, error, isLoading } = useSWR(`/api/public/blogs`, fetcher);
-  const { data: eachblog } = useSWR(`/api/public/eachblog`, fetcher);
+  return { blogs: data, isLoading, isError: error };
+}
+
+export function useGetEachBlog_Public(id: any) {
+  const { data, error, isLoading } = useSWR(
+    `/api/public/eachblog?id=`,
+    fetcherWithParams("/api/public/eachblog?id=", id)
+  );
   return {
-    eachblog: eachblog,
+    eachblog: data,
     blogs: data,
     isLoading,
     isError: error,
   };
 }
-
-// export function useGetEachBlog_Public() {
-//   const { data, error, isLoading } = useSWR(`/api/public/eachblog`, fetcher);
-//   return {
-//     blogs: data,
-//     isLoading,
-//     isError: error,
-//   };
-// }

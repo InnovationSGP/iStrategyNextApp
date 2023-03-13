@@ -8,15 +8,57 @@ import {
   useGetBlogs,
 } from "../../../pages/api/routes/blogRoute";
 import toast from "react-hot-toast";
-import Link from "next/link";
 import ErrorComponent from "@/app/components/Error";
 import Loading from "@/app/components/Loading";
 import { BlogObject } from "../../../lib/types";
-import { EditModal, PlainModal, PublishModal } from "@/app/components/Modal";
-import Toggler from "@/app/components/Toggler";
+import {
+  EditModal,
+  HTMLModal,
+  PlainModal,
+  PublishModal,
+} from "@/app/components/Modal";
 import { DeleteModal } from "../../components/Modal";
-import { divide } from "cypress/types/lodash";
+import dynamic from "next/dynamic";
+import RichTextArea from "@/app/components/RichTextArea";
+import Image from "next/image";
+export const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+});
 
+const modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link"],
+    ["clean"],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
+};
+const formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+];
 interface BlogManagementProps {}
 
 const BlogManagement: FC<BlogManagementProps> = () => {
@@ -49,7 +91,8 @@ const BlogManagement: FC<BlogManagementProps> = () => {
     </div>
   );
 };
-function EachBlog(props: { blog: BlogObject }) {
+
+const EachBlog = (props: { blog: BlogObject }) => {
   const [publishState, setPublishState] = useState<Boolean>(
     props.blog.published
   );
@@ -82,15 +125,15 @@ function EachBlog(props: { blog: BlogObject }) {
         <div className="py-4 sm:w-24">
           <span className="font-bold py-2 text-xl whitespace-nowrap ">
             {" "}
-            <PlainModal
+            <HTMLModal
               buttonText={props.blog.header}
-              buttonTWClasses="text-primaryBlue font-bold"
+              buttonTWClasses="text-primaryBlue font-bold capitalize"
               content={props.blog.content}
-              header="Blog Text Resource"
+              header={props.blog.header}
             />{" "}
           </span>{" "}
           by
-          <span>
+          <span className="text-xs whitespace-nowrap">
             {" "}
             {props.blog.author} -{" "}
             <span className="text-xs text-gray-600">
@@ -137,16 +180,26 @@ function EachBlog(props: { blog: BlogObject }) {
         </div>
       </div>
       <div className=" border-l-2 border-gray-400">
-        <img src={props.blog.img} alt={props.blog.header} width="400" />{" "}
+        <Image
+          src={props.blog.img}
+          alt={props.blog.header}
+          width={400}
+          height={600}
+          loading="lazy"
+        />
       </div>
     </div>
   );
-}
+};
 
 const AddBlog: FC<BlogManagementProps> = () => {
   const { handleSubmit, register, reset } = useForm();
   const [image, setImage] = useState(null);
-  const [imageSRC, setImageSRC] = useState(null);
+  const [wysiwyg, setWysiwyg] = useState("");
+
+  const handleRichTextEditor = (e: any) => {
+    return setWysiwyg(e.target.value);
+  };
 
   const formSubmit = async (data: any) => {
     const file = data.img[0];
@@ -166,10 +219,12 @@ const AddBlog: FC<BlogManagementProps> = () => {
         author: data.author,
         date: data.date,
         header: data.header,
-        content: data.content,
+        content: wysiwyg,
         resource: data.resource,
         img: imageURL,
       };
+
+      console.log(payload);
 
       await POST_BLOG(payload);
       toast.success("Blog is added");
@@ -177,6 +232,8 @@ const AddBlog: FC<BlogManagementProps> = () => {
       console.log(error);
     }
   };
+
+  // console.log(wysiwyg);
 
   return (
     <>
@@ -268,10 +325,13 @@ const AddBlog: FC<BlogManagementProps> = () => {
                   <div className="flex items-center justify-between ml-2 gap-x-3 lg:ml-auto md:ml-auto w-full">
                     <div>
                       {image ? (
-                        <img
+                        <Image
                           className="w-24 h-10 bg-primaryBlue text-white rounded shadow"
                           src={image}
                           alt="blog resource image preview"
+                          width={400}
+                          height={600}
+                          loading="lazy"
                         />
                       ) : (
                         "Image Preview Here"
@@ -296,7 +356,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
                     </div>
                   </div>
                 </div>
-                <textarea
+                {/* <textarea
                   className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-black"
                   tabIndex={0}
                   aria-label="leave a message"
@@ -305,7 +365,9 @@ const AddBlog: FC<BlogManagementProps> = () => {
                   defaultValue={" "}
                   required
                   {...register("content", { required: true })}
-                />
+                /> */}
+
+                <RichTextArea value={wysiwyg} change={setWysiwyg} />
               </div>
             </div>
 
@@ -443,10 +505,13 @@ const EditBlog: FC<any> = (props: { id: string }) => {
                   <div className="flex items-center justify-between ml-2 gap-x-3 lg:ml-auto md:ml-auto w-full">
                     <div>
                       {image ? (
-                        <img
+                        <Image
                           className="w-24 h-10 bg-primaryBlue text-white rounded shadow"
                           src={image}
                           alt="blog resource image preview"
+                          width={400}
+                          height={600}
+                          loading="lazy"
                         />
                       ) : (
                         "Image Preview Here"

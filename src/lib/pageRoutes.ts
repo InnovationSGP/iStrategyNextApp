@@ -7,7 +7,6 @@ export const page_routes = {
   dashboard: "/dashboard",
   contactUs: "/contactus",
   secure: "/secure",
-  Integrations: "/integrations",
   ITSecurity: "/security",
   Consulting: "/consulting",
   Offshore: "/offshore",

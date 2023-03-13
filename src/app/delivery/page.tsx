@@ -5,6 +5,8 @@ import heroImage from "../components/assets/automationAsset.png";
 import heroImage2 from "../components/assets/teamPNG.png";
 import ImageFunction from "../../utils/ImageFunction";
 import { HeroCTA } from "../components/HeroCTA";
+import { BlogCarousel } from "../resources/content/page";
+import { Feature2 } from "../components/FeatureSection";
 export default function Delivery() {
   return (
     <div>
@@ -40,8 +42,8 @@ export default function Delivery() {
           </div>
         </div>
       </div>
-
-      {/* card section */}
+      <Feature2 />
+      <BlogCarousel />
     </div>
   );
 }

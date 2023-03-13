@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Banner from "./components/Banner";
-import Feature from "./components/FeatureSection";
+import Feature, { Feature2 } from "./components/FeatureSection";
 import Footer from "./components/Footer";
 import HeroComponent from "./components/HeroComponent";
 import blogPng from "./components/assets/blogPNG.png";
 import { HeroCTA } from "./components/HeroCTA";
+import { BlogCarousel } from "./resources/content/page";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       <HeroComponent heroImg={blogPng} heroTxt={"Latest TECHNOLOGIES"} />
       <HeroCTA />
       <Feature />
+      <Feature2 />
+      <BlogCarousel />
     </main>
   );
 }

@@ -1,3 +1,5 @@
+import { page_routes } from "@/lib/pageRoutes";
+import Link from "next/link";
 import React from "react";
 
 export const cardContent = [
@@ -26,7 +28,65 @@ export const cardContent = [
     txtResource: "Get IT resources round the clock",
     buttonText: "Learn more",
     buttonURL: "/contactus",
-    assestTextResource: "test",
+    assestTextResource: (
+      <div>
+        <h1 className="font-bold py-4">What is Offshore Staffing ?</h1>
+        <p className="p-2">
+          Offshore staffing refers to the process of hiring employees or teams
+          from another country or region to work remotely for a company.
+          Offshore staffing offers many benefits, including:{" "}
+        </p>
+
+        <p className="p-2">
+          Savings measures: Offshore staff can help companies significantly
+          reduce their labor costs. You can hire the best staff and teams from
+          countries with lower labor costs, leading to significant cost savings.{" "}
+        </p>
+
+        <p className="p-2">
+          Access to a larger talent pool: Offshore staffing gives companies
+          access to a larger talent pool of highly skilled professionals not
+          available locally. This helps you find and hire the best talent for
+          your business, regardless of location.{" "}
+        </p>
+
+        <p className="p-2">
+          Greater flexibility: Offshore staffing gives companies more
+          flexibility in managing their workforce. Easily scale your team up or
+          down based on business needs without worrying about long-term
+          commitments.{" "}
+        </p>
+
+        <p className="p-2">
+          Advantages of time zones: Offshore staff can take advantage of the
+          differences in time zones to help your business. For example, you can
+          have an offshore team work on a project outside your company's
+          business hours. This can speed up project completion and reduce
+          turnaround time.
+        </p>
+        <p className="p-2">
+          {" "}
+          Reduced overhead: Offshore staffing helps reduce the overhead
+          associated with hiring and managing local teams. This includes costs
+          such as office space, equipment and incidentals.
+        </p>
+
+        <p className="p-2">
+          Increased productivity: Offshore staffing can improve your company's
+          productivity by allowing you to focus on your core competencies while
+          delegating non-core tasks to offshore teams. This increases efficiency
+          and productivity across your business.
+        </p>
+
+        <p className="p-2">
+          {" "}
+          Overall, offshore staffing can provide organizations with many
+          benefits such as reduced costs, access to a larger talent pool,
+          increased flexibility, time zone benefits, reduced overhead, and
+          increased productivity. 
+        </p>
+      </div>
+    ),
   },
   {
     cardIcon: (

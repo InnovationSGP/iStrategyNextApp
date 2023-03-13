@@ -4,38 +4,24 @@ import React from "react";
 
 import backImage from "../components/assets/teamPNG.png";
 import devopsImage from "../../../public/assets/devops.png";
+import Feature from "../components/FeatureSection";
+import { BlogCarousel } from "../resources/content/page";
+import { HeroCTA, PrimaryCTA } from "../components/HeroCTA";
+import { Testimonial } from "../components/Testimonial";
+import OffshorePNG from "../../../public/assets/offshorestaff.png";
+import { OffshoreHero } from "../components/OffshoreHero";
 
 export default function Offshore() {
   return (
     <div>
-      {" "}
-      <div className="p-2 mt-8 md:p-8 ">
-        <div className="sm:w-auto bg-primaryBlue relative flex items-center justify-center h-full px-2">
-          <ImageFunction
-            alt={"team hero image"}
-            imageURL={backImage}
-            fill
-            sizes="100vw"
-            style={{
-              objectFit: "cover",
-            }}
-          />
-          <div className="bg-white h-full w-full md:p-10 relative flex items-center justify-center">
-            <div className="leading-4 sm:w-3/6 w-5/6 flex items-center justify-center ">
-              <h2 className="text-xl sm:text-2xl p-4 items-center text-center uppercase font-bold">
-                Continous Improvement
-              </h2>
-              <div>
-                <ImageFunction
-                  imageURL={devopsImage}
-                  height={350}
-                  alt="picture of a devops logo"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>{" "}
+      <OffshoreHero
+        heroImg={OffshorePNG}
+        heroText="Innovate Faster With Our Offshore Teams."
+      />
+      <Feature />
+      <Testimonial />
+      <PrimaryCTA />
+      <BlogCarousel />
     </div>
   );
 }

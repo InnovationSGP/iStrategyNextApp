@@ -7,34 +7,47 @@ import {
 
 export const features = [
   {
-    name: "Push to deploy",
+    name: "Deploy fast",
     description:
-      "Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.",
+      "Use Continuous Integration and Continuous Deployment (CI/CD) tools, automate your testing, optimize your code, monitor your deployment, have viable rollback plans, use a cloud-based platform ",
     icon: CloudArrowUpIcon,
   },
   {
-    name: "SSL certificates",
+    name: "Secure delivery",
     description:
-      "Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.",
+      "Manage risks and compliance during while delivering to business and user satisfactoion  ",
     icon: LockClosedIcon,
   },
   {
-    name: "Simple queues",
+    name: "Agile lifecycles",
     description:
-      "Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.",
+      "Discover the work, identify the minimum viable product (MVP), breakdown the epics into SMART user stories, backlog the work, refine the backlog, play the stories, demo the work, inspect and adapt via retros, accept,  deploy, and release the work. Rinse and Repeat",
     icon: ArrowPathIcon,
   },
   {
-    name: "Advanced security",
+    name: "User inteface and User experience",
     description:
-      "Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.",
+      "Collaborate with value stream contributors to identify needs of the target audience and address needs using a user-centered design approach",
     icon: FingerPrintIcon,
   },
 ];
 
 export const featuresHeader = {
-  headerBanner: "Deploy faster",
-  header: " Everything you need to deploy your app",
+  headerBanner: "Agile Transformation | Quality Delivery",
+  header: " Our Services that help you grow faster",
   subHeading:
-    "Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at.  In mi viverra elit nunc.",
+    " Successful completion of your project with a high degree of excellence in its scope, timeline, budget, and expected outcomes. ",
 };
+
+export const features2list = [
+  { id: 1, feature: "Offshore project management" },
+  { id: 2, feature: "24/7 resource availability" },
+  { id: 3, feature: "Business continuity at the highest level" },
+  { id: 4, feature: "Best practices in UI/UX" },
+  { id: 5, feature: "Agile Transformation and Delivery" },
+  {
+    id: 6,
+    feature: "Modern methods and techniques for traditional project management",
+  },
+  { id: 7, feature: "Cybersecurity | Auditing | PM" },
+];
