@@ -1,7 +1,7 @@
 "use client";
 import { useGetMessages } from "@/pages/api/routes/messagesRoutes";
 import { useSession } from "next-auth/react";
-import BlogComponent from "../components/BlogComponent";
+import BlogComponent from "../resources/content/BlogComponent";
 import ErrorComponent from "../components/Error";
 import Loading from "../components/Loading";
 import { SecureNavigation } from "./component/AdminPanel";

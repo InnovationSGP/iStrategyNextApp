@@ -63,9 +63,8 @@ const Footer = () => {
                 Office
               </h2>
 
-              <p className="mt-2 text-white dark:text-white">
-                Remote, Kansas City, KS
-              </p>
+              <p className="mt-2 text-white dark:text-white">Remote,</p>
+              <p className="mt-2 text-white ">Kansas City, KS</p>
             </div>
 
             <div>

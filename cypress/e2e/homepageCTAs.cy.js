@@ -7,11 +7,6 @@ context("Link Homepage through Logo", () => {
     cy.url().should("include", "/");
   });
 
-  it("Check the Banner", () => {
-    cy.get("[data-cy=banner]").contains("Resource Center").click();
-    cy.url().should("include", page_routes.resourceCenter);
-  });
-
   it("Return Home and Visit the Hero section CTA", () => {
     cy.get("[data-cy=nav-section]").contains("iStrat").click();
     cy.url().should("include", "/");

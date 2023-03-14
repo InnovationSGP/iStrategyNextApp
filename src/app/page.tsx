@@ -10,7 +10,7 @@ import { BlogCarousel } from "./resources/content/BlogCarousel";
 export default function Home() {
   return (
     <main>
-      <Banner />
+      {/* <Banner /> */}
       <HeroComponent heroImg={blogPng} heroTxt={"Latest TECHNOLOGIES"} />
       <HeroCTA />
       <Feature />

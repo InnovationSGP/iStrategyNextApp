@@ -115,7 +115,24 @@ export const cardContent = [
     txtResource: "Deliver to scope, time, and cost",
     buttonText: "Learn more",
     buttonURL: "/contactus",
-    assestTextResource: "test",
+    assestTextResource: (
+      <div className="p-2">
+        <p className=" text-md text-center font-bold py-2">
+          Falling behind schedule, going over budget, or not meeting
+          expectations? Do you feel like you're spinning the wheels trying to
+          handle everything yourself??
+        </p>
+        <p>
+          Our team of experts has the skills and experience to plan, organize
+          and execute your project accurately and efficiently. We work with you
+          to create a bespoke project management plan to meet your specific
+          needs, whether it's a new product launch, new system implementation,
+          or managing a complex tech project. With our help, you can stay on
+          track, meet deadlines, and reach your goals. And best of all, you can
+          be sure your project is in safe hands. So why wait?
+        </p>
+      </div>
+    ),
   },
   {
     cardIcon: (
@@ -142,7 +159,17 @@ export const cardContent = [
     header: "Informations Systems Auditing",
     txtResource: "Work with certified experts",
     buttonText: "Learn more",
-    assestTextResource: "test",
+    assestTextResource: (
+      <div className="p-2">
+        <p>
+          Our team of experts has the skills and expertise to ensure system
+          safety, compliance and efficiency. We work with you to assess your
+          current system and identify vulnerabilities and risks. From there,
+          develop a comprehensive plan to address any issues and implement best
+          practices to protect your data.
+        </p>
+      </div>
+    ),
   },
   {
     cardIcon: (
@@ -159,7 +186,17 @@ export const cardContent = [
     txtResource: "Secure migration and business continuity",
     buttonText: "Learn more",
     buttonURL: "/contactus",
-    assestTextResource: "test",
+    assestTextResource: (
+      <div className="p-2">
+        <p>
+          Our team of experts has the skills and expertise to ensure system
+          safety, compliance and efficiency. We work with you to assess your
+          current system and identify vulnerabilities and risks. From there,
+          develop a comprehensive plan to address any issues and implement best
+          practices to protect your data.
+        </p>
+      </div>
+    ),
   },
   {
     cardIcon: (
@@ -186,7 +223,21 @@ export const cardContent = [
     txtResource: "Deliver working software through continous improvement",
     buttonText: "Learn more",
     buttonURL: "/contactus",
-    assestTextResource: "test",
+    assestTextResource: (
+      <div className="p-2">
+        <p>
+          We specialize in helping companies like yours adopt Agile
+          methodologies so that you can work smarter, faster and more
+          collaboratively than ever before.{" "}
+          <p className="py-2">
+            With our help, you can break down silos, streamline processes, and
+            create a culture of innovation and continuous improvement. Respond
+            quickly to changing market demands, speed time to market, and
+            improve profitability.
+          </p>
+        </p>
+      </div>
+    ),
   },
   {
     cardIcon: (
@@ -211,6 +262,21 @@ export const cardContent = [
     txtResource: "Shift-left approach to CI/CD",
     buttonText: "Learn more",
     buttonURL: "/contactus",
-    assestTextResource: "test",
+    assestTextResource: (
+      <div className="p-2">
+        <p>
+          Introducing DevSecOps - the ultimate solution for secure and efficient
+          software development. Our DevSecOps service combines development,
+          security, and operations best practices to create a streamlined,
+          secure, and efficient development process.{" "}
+          <p className="py-2">
+            With our help, you can build security into every step of your
+            development cycle, ensuring your application is secure from the
+            moment it's built. Deploy faster with fewer errors and confidence
+            that your application is secure.
+          </p>
+        </p>
+      </div>
+    ),
   },
 ];

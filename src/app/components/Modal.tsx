@@ -82,7 +82,7 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-3/5 max-w-5xl mt-24 transform overflow-hidden rounded-sm bg-white p-4 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-4.5/5 sm:w-4/5 max-w-5xl mt-20 transform overflow-hidden rounded-sm bg-white p-4 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -108,7 +108,7 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
                     </div>
                     <div className="p-2">
                       {headerIcon}
-                      <p className=" text-xl text-gray-800 font-semibold leading-5 mt-6">
+                      <p className="px-2 text-xl text-gray-800 font-semibold leading-5 mt-6">
                         {header}
                       </p>
                     </div>
@@ -117,7 +117,7 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
                   {/* //Content Section */}
 
                   <div className="p-2">
-                    <div className="text-sm text-gray-500">{content}</div>
+                    <div className="text-sm text-black">{content}</div>
                     <div className="py-6 px-2">
                       <Link
                         href={page_routes.contactUs}

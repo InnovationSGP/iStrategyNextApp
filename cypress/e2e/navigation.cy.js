@@ -68,7 +68,7 @@ context("Navigation", () => {
   });
 
   it("cy.visit() - visit a remote url", () => {
-    cy.visit(page_routes.resourceCenter, {
+    cy.visit(page_routes.contactUs, {
       timeout: 50000, // increase total time for the visit to resolve
       onBeforeLoad(contentWindow) {
         // contentWindow is the remote page's window object

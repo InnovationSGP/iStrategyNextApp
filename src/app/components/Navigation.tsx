@@ -104,11 +104,11 @@ export default function Navigation() {
                     <Popover.Button
                       data-cy="consulting-pop"
                       className={classNames(
-                        open ? "text-gray-900" : "text-primaryBlue",
+                        open ? "text-gray-900" : "text-gray-600",
                         "px-6 items-center bg-white font-bold hover:text-gray-900 focus:outline-none text-xl "
                       )}
                     >
-                      <span className="hover:border-b-2 uppercase hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
+                      <span className="hover:border-b-2 capitalize hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
                         Consulting
                       </span>
                     </Popover.Button>
@@ -213,18 +213,21 @@ export default function Navigation() {
               <Link
                 data-cy="staffing-link"
                 href={page_routes.staffing}
-                className="text-xl px-6 font-bold text-primaryBlue hover:text-gray-900  focus:border-primaryBlue"
+                className="text-xl px-6 font-bold text-gray-600 hover:text-gray-900 capitalize focus:border-primaryBlue"
               >
                 <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
                   Staffing
                 </span>
               </Link>
-              <div className="px-4">
+              <div>
                 <Link
+                  data-cy="contact-link"
                   href={page_routes.contactUs}
-                  className="text-md md:text-lg font-bold shadow text-white p-2 px-4 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300 whitespace-nowrap"
+                  className="text-xl px-6 font-bold text-gray-600 hover:text-gray-900 capitalize focus:border-primaryBlue"
                 >
-                  Contact Us
+                  <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
+                    Contact Us
+                  </span>
                 </Link>
               </div>
             </Popover.Group>
