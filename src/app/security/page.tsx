@@ -8,7 +8,7 @@ import { OffshoreHero } from "../components/OffshoreHero";
 import Feature from "../components/FeatureSection";
 import { Testimonial } from "../components/Testimonial";
 import { PrimaryCTA } from "../components/HeroCTA";
-import { BlogCarousel } from "../resources/content/page";
+import { BlogCarousel } from "../resources/content/BlogCarousel";
 
 export default function Security() {
   return (

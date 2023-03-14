@@ -21,10 +21,6 @@ import { DeleteModal } from "../../components/Modal";
 import dynamic from "next/dynamic";
 import RichTextArea from "@/app/components/RichTextArea";
 import Image from "next/image";
-export const QuillNoSSRWrapper = dynamic(import("react-quill"), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-});
 
 const modules = {
   toolbar: [
@@ -233,8 +229,6 @@ const AddBlog: FC<BlogManagementProps> = () => {
     }
   };
 
-  // console.log(wysiwyg);
-
   return (
     <>
       <div className="container">
@@ -356,16 +350,6 @@ const AddBlog: FC<BlogManagementProps> = () => {
                     </div>
                   </div>
                 </div>
-                {/* <textarea
-                  className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-black"
-                  tabIndex={0}
-                  aria-label="leave a message"
-                  role="textbox"
-                  placeholder="Start typing here ..."
-                  defaultValue={" "}
-                  required
-                  {...register("content", { required: true })}
-                /> */}
 
                 <RichTextArea value={wysiwyg} change={setWysiwyg} />
               </div>

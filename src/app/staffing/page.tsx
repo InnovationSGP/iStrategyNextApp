@@ -5,7 +5,7 @@ import teamPNG from "../../../public/assets/teamPNG.png";
 import HeroComponent from "../components/HeroComponent";
 import CardComponent from "../components/Card";
 import { PrimaryCTA } from "../components/HeroCTA";
-import { BlogCarousel } from "../resources/content/page";
+import { BlogCarousel } from "../resources/content/BlogCarousel";
 import { Feature2 } from "../components/FeatureSection";
 
 export default function Staffing() {

@@ -5,7 +5,7 @@ import heroImage from "../components/assets/automationAsset.png";
 import heroImage2 from "../components/assets/teamPNG.png";
 import ImageFunction from "../../utils/ImageFunction";
 import { HeroCTA } from "../components/HeroCTA";
-import { BlogCarousel } from "../resources/content/page";
+import { BlogCarousel } from "../resources/content/BlogCarousel";
 import { Feature2 } from "../components/FeatureSection";
 export default function Delivery() {
   return (

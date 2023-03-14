@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import HeroComponent from "./components/HeroComponent";
 import blogPng from "./components/assets/blogPNG.png";
 import { HeroCTA } from "./components/HeroCTA";
-import { BlogCarousel } from "./resources/content/page";
+import { BlogCarousel } from "./resources/content/BlogCarousel";
 
 export default function Home() {
   return (

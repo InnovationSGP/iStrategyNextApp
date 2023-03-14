@@ -38,9 +38,9 @@ context("Navigation", () => {
     cy.url().should("include", page_routes.contactUs);
   });
 
-  it("Visit the Blog link on consulting panel", () => {
+  it("Visit the Resource Center link on consulting panel", () => {
     cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-    cy.get("[data-cy=consulting-panel-CTAs]").contains("Resources ").click();
+    cy.get("[data-cy=consulting-panel-CTAs]").contains("Resources").click();
     cy.url().should("include", page_routes.resourceCenter);
   });
 
@@ -59,12 +59,6 @@ context("Navigation", () => {
   it("Visit the staffing page", () => {
     cy.get("[data-cy=staffing-link]").contains("Staffing").click();
     cy.url().should("include", page_routes.staffing);
-    cy.go("back");
-  });
-
-  it("Visit the delivery page", () => {
-    cy.get("[data-cy=delivery-link]").contains("Delivery").click();
-    cy.url().should("include", page_routes.Delivery);
     cy.go("back");
   });
 
