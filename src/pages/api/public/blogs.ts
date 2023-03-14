@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      await mongooseConnection();
+      const connect = await mongooseConnection();
       const blogs = await Blogs.find({ published: true }).sort({
         createdAt: -1,
       });

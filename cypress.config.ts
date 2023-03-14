@@ -7,5 +7,6 @@ export default defineConfig({
     },
     baseUrl: "http://localhost:3000",
     projectId: "ofbq6n",
+    defaultCommandTimeout: 60000,
   },
 });

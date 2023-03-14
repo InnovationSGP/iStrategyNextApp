@@ -222,7 +222,7 @@ export default function Navigation() {
               <div className="px-4">
                 <Link
                   href={page_routes.contactUs}
-                  className="text-md md:text-lg font-bold shadow text-white p-2 px-4 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
+                  className="text-md md:text-lg font-bold shadow text-white p-2 px-4 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300 whitespace-nowrap"
                 >
                   Contact Us
                 </Link>

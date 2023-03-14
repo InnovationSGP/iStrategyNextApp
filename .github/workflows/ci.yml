@@ -10,6 +10,8 @@ jobs:
       # and run all Cypress tests
       - name: End to End Testing
         uses: cypress-io/github-action@v5
+        run: touch env.local
+          echo NEXTAUTH_SECRET=${{secrets.NEXTAUTH_SECRET}} >> .env.local
         with:
           build: npm run build
           start: npm run start

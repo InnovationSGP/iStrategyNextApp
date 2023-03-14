@@ -11,7 +11,7 @@ export default async function handler(
   const { query }: any = req;
   if (req.method === "GET") {
     try {
-      await mongooseConnection();
+      const connect: any = await mongooseConnection();
       const blogs = await Blogs.find({ _id: query.id, published: true });
       if (!blogs) return res.status(401).json({ msg: "Blog not found" });
       return res.json(blogs);
