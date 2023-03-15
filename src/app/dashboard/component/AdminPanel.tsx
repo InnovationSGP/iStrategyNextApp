@@ -7,7 +7,7 @@ import { signOut } from "next-auth/react";
 import toast from "react-hot-toast";
 import Loading from "../../components/Loading";
 import { page_routes } from "@/lib/pageRoutes";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 
 function classNames(...classes: string[]) {
@@ -18,6 +18,7 @@ export function SecureNavigation() {
   const [loading, setLoading] = useState(false);
 
   const pathname = usePathname();
+  const router = useRouter();
 
   const navigation = [
     {
@@ -86,6 +87,7 @@ export function SecureNavigation() {
                   onClick={async function logout() {
                     await setLoading(true);
                     await signOut();
+                    await router.push("/");
                     return toast.success("Successfully Signed Out");
                   }}
                 >

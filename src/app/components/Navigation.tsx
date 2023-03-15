@@ -185,6 +185,7 @@ export default function Navigation() {
                                   onClick={async function logout() {
                                     await setLoading(true);
                                     await signOut();
+                                    await router.push("/");
                                     return toast.success(
                                       "Successfully Signed Out"
                                     );
@@ -317,6 +318,7 @@ export default function Navigation() {
                         className="cursor-pointer hover:border-b-2 hover:border-primaryBlue p-4 flex items-center justify-center text-primaryBlue hover:text-primaryBlue"
                         onClick={async function logout() {
                           await signOut();
+                          await router.push("/");
                           return toast.success("Successfully Signed Out");
                         }}
                       >
