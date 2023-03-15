@@ -75,7 +75,9 @@ export default function Navigation() {
       setNavBarScroll(false);
     }
   };
-  window.addEventListener("scroll", changeNavbarColor);
+
+  if (typeof window !== undefined)
+    window.addEventListener("scroll", changeNavbarColor);
 
   return (
     <div
