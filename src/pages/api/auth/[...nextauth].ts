@@ -6,7 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.SECRET,
+  secret: "Anything-Here",
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60,
@@ -36,7 +36,6 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     signIn: "/secure",
-    signOut: "/",
   },
   callbacks: {
     async session({ session, user, token }: any) {
