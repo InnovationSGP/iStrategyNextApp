@@ -184,8 +184,9 @@ export default function Navigation() {
                                   className="flex items-center cursor-pointer p-4 capitalize font-bold text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   onClick={async function logout() {
                                     await setLoading(true);
-                                    await signOut({ callbackUrl: "/" });
-                                    await router.push("/");
+                                    await signOut({
+                                      callbackUrl: page_routes.secure,
+                                    });
                                     return toast.success(
                                       "Successfully Signed Out"
                                     );
@@ -317,8 +318,9 @@ export default function Navigation() {
                       <span
                         className="cursor-pointer hover:border-b-2 hover:border-primaryBlue p-4 flex items-center justify-center text-primaryBlue hover:text-primaryBlue"
                         onClick={async function logout() {
-                          await signOut({ callbackUrl: "/" });
-                          router.push("/");
+                          await signOut({
+                            callbackUrl: page_routes.secure,
+                          });
                           return toast.success("Successfully Signed Out");
                         }}
                       >

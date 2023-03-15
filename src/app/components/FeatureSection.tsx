@@ -54,7 +54,7 @@ export default function Feature() {
 export function Feature2() {
   return (
     <div className="p-8">
-      <section className="px-8 py-20 mx-auto max-w-7xl text-white p-8 rounded-2xl overflow-hidden shadow-sm bg-gray-100 border-2 border-white  bg-opacity-80 backdrop-filter backdrop-blur-lg ">
+      <section className="px-8 py-20 mx-auto max-w-7xl text-white p-8 rounded-2xl overflow-hidden shadow-sm bg-gray-100 border-2 border-white bg-opacity-80 backdrop-filter backdrop-blur-lg ">
         <div className="grid items-center grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-32 gap-x-10 lg:gap-x-24 ">
           <div className="">
             <h2 className="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-center py-8 text-black sm:text-left md:text-4xl">

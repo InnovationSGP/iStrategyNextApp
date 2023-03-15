@@ -6,8 +6,8 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useState } from "react";
-import Loading from "../components/Loading";
 import Link from "next/link";
+import Loading from "../loading";
 
 export default function Secure() {
   const router = useRouter();
