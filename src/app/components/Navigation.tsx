@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
@@ -76,8 +76,9 @@ export default function Navigation() {
     }
   };
 
-  if (typeof window !== undefined)
-    window.addEventListener("scroll", changeNavbarColor);
+  useEffect(() => {
+    return window.addEventListener("scroll", changeNavbarColor);
+  }, []);
 
   return (
     <div
