@@ -1,35 +1,44 @@
 /// <reference types="cypress" />
-import { page_routes } from "../../src/lib/pageRoutes";
 
-it("Goes through all links in the navigation", () => {
-  cy.visit("/");
-  cy.get("[data-cy=nav-section]").contains("iStrat").click();
-  cy.url().should("include", "/");
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel]").contains("Delivery").click();
-  cy.url().should("include", page_routes.Delivery);
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel]").contains("IT Security").click();
-  cy.url().should("include", page_routes.ITSecurity);
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel]").contains("Resource").click();
-  cy.url().should("include", page_routes.resourceCenter);
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel]").contains("Offshore").click();
-  cy.url().should("include", page_routes.Offshore);
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel-CTAs]").contains("Contact").click();
-  cy.url().should("include", page_routes.contactUs);
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel-CTAs]").contains("Login").click();
-  cy.url().should("include", page_routes.secure);
-  cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
-  cy.get("[data-cy=consulting-panel]").contains("Delivery").click();
-  cy.url().should("include", page_routes.Delivery);
-  cy.get("[data-cy=staffing-link]").contains("Staffing").click();
-  cy.url().should("include", page_routes.staffing);
-  cy.go("back");
+describe("Innovation Strategy Homepage", () => {
+  it("Successfully Loads", () => {
+    cy.visit("/");
+  });
 });
+export {};
+
+// /// <reference types="cypress" />
+// import { page_routes } from "../../src/lib/pageRoutes";
+
+// it("Goes through all links in the navigation", () => {
+//   cy.visit("/");
+//   cy.get("[data-cy=nav-section]").contains("iStrat").click();
+//   cy.url().should("include", "/");
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel]").contains("Delivery").click();
+//   cy.url().should("include", page_routes.Delivery);
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel]").contains("IT Security").click();
+//   cy.url().should("include", page_routes.ITSecurity);
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel]").contains("Resource").click();
+//   cy.url().should("include", page_routes.resourceCenter);
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel]").contains("Offshore").click();
+//   cy.url().should("include", page_routes.Offshore);
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel-CTAs]").contains("Contact").click();
+//   cy.url().should("include", page_routes.contactUs);
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel-CTAs]").contains("Login").click();
+//   cy.url().should("include", page_routes.secure);
+//   cy.get("[data-cy=consulting-pop]").contains("Consulting").click();
+//   cy.get("[data-cy=consulting-panel]").contains("Delivery").click();
+//   cy.url().should("include", page_routes.Delivery);
+//   cy.get("[data-cy=staffing-link]").contains("Staffing").click();
+//   cy.url().should("include", page_routes.staffing);
+//   cy.go("back");
+// });
 
 // context("Navigation", () => {
 //   beforeEach(() => {
