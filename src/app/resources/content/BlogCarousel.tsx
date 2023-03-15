@@ -4,6 +4,7 @@ import { BlogObject } from "../../../lib/types";
 import Link from "next/link";
 import { page_routes } from "@/lib/pageRoutes";
 import { BlogCarouselCard } from "./BlogCarouselCard";
+import Loading from "@/app/loading";
 
 export const BlogCarousel = () => {
   const { blogs, isLoading, isError } = useGetBlogs_Public();
@@ -13,13 +14,15 @@ export const BlogCarousel = () => {
         Recent Resources{" "}
       </h2>
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
-        {blogs || blogs?.length > 0
-          ? blogs
-              .slice(0, 3)
-              .map((blog: BlogObject) => (
-                <BlogCarouselCard data={blog} key={blog._id} />
-              ))
-          : "No recent blogs"}
+        {blogs || blogs?.length > 0 ? (
+          blogs
+            .slice(0, 3)
+            .map((blog: BlogObject) => (
+              <BlogCarouselCard data={blog} key={blog._id} />
+            ))
+        ) : (
+          <Loading />
+        )}
       </div>
       <div className="text-center pt-8 flex justify-end ">
         <Link

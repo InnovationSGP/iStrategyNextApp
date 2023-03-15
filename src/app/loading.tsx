@@ -4,7 +4,7 @@ function Loading() {
     <>
       <div className="bg-white">
         <div className="px-4 py-12">
-          <div className="bg-white mx-auto flex justify-center py-12">
+          <div className="bg-white mx-auto flex justify-center items-center py-12">
             <div className="relative">
               <svg
                 width={180}

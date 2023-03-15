@@ -51,16 +51,8 @@ const solutions = [
   },
 ];
 const callsToAction = [
-  {
-    name: "Resources",
-    href: page_routes.resourceCenter,
-    icon: NewspaperIcon,
-  },
-  {
-    name: "Contact ",
-    href: page_routes.contactUs,
-    icon: InboxArrowDownIcon,
-  },
+  { name: "Resources", href: page_routes.resourceCenter, icon: NewspaperIcon },
+  { name: "Contact ", href: page_routes.contactUs, icon: InboxArrowDownIcon },
   { name: "Login", href: page_routes.secure, icon: LockOpenIcon },
 ];
 
@@ -75,8 +67,25 @@ export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const [showOnHover, setShowOnHover] = useState(false);
 
+  const [navBarScroll, setNavBarScroll] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setNavBarScroll(true);
+    } else {
+      setNavBarScroll(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
+
   return (
-    <div data-cy="nav-section" className="sticky top-0 z-10 bg-white">
+    <div
+      data-cy="nav-section"
+      className={`sticky top-0 z-10 bg-white ${
+        navBarScroll
+          ? " border-b-2 border-primaryPurple transition-all duration-300"
+          : ""
+      }`}
+    >
       <Popover className="relative bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between  py-6 md:justify-between ">
@@ -173,7 +182,6 @@ export default function Navigation() {
                                   onClick={async function logout() {
                                     await setLoading(true);
                                     await signOut();
-
                                     return toast.success(
                                       "Successfully Signed Out"
                                     );
