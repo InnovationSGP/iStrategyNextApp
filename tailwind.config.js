@@ -16,11 +16,11 @@ module.exports = {
         secondaryPurpleLight: "#f4e6fa",
       },
       fontFamily: {
-        sans: ["Work Sans"],
+        sans: ["Source Sans Pro"],
         itim: ['"Itim"', "cursive"],
         roboto: ["Roboto"],
         noto: ["Noto Sans NKo", "sans-serif"],
-        sourceSans: ["Source Sans Pro", "sans-serif"],
+        sourceSans: ["Work Sans", "sans-serif"],
       },
     },
   },

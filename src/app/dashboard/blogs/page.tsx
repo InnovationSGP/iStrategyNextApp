@@ -233,8 +233,8 @@ const AddBlog: FC<BlogManagementProps> = () => {
     <>
       <div className="container">
         <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="md:flex  mt-8 p-6 flex-col">
-            <div className=" w-1/2 flex flex-col py-2">
+          <div className="md:flex p-6 flex-col">
+            <div className=" w-full flex flex-col py-2">
               <label
                 htmlFor="author"
                 className="text-base font-semibold leading-none text-gray-800 py-2"
@@ -252,7 +252,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
                 {...register("author")}
               />
             </div>
-            <div className=" w-1/2 flex flex-col py-2">
+            <div className=" w-full flex flex-col py-2">
               <label
                 htmlFor="resource"
                 className="text-base font-semibold leading-none text-gray-800 py-2"
@@ -270,7 +270,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
                 {...register("resource")}
               />
             </div>
-            <div className=" w-1/2 flex flex-col py-2">
+            <div className=" w-full flex flex-col py-2">
               <label
                 htmlFor="date"
                 className="text-base font-semibold leading-none text-gray-800 py-2"
@@ -290,9 +290,9 @@ const AddBlog: FC<BlogManagementProps> = () => {
             </div>
           </div>
 
-          <div className="p-6">
+          <div className="px-6 ">
             {/* text area */}
-            <div className=" w-1/2 flex flex-col">
+            <div className=" w-full flex flex-col">
               <label
                 htmlFor="header"
                 className="text-base font-semibold leading-none text-gray-800 py-2"
@@ -302,7 +302,7 @@ const AddBlog: FC<BlogManagementProps> = () => {
               <input
                 tabIndex={0}
                 arial-label="Please input name"
-                className="text-base w-full leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700  bg-white border rounded border-gray-200 placeholder-gray-100"
+                className="text-base w-full leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700  bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
                 placeholder="header"
                 type="text"
                 required
@@ -404,7 +404,7 @@ const EditBlog: FC<any> = (props: { id: string }) => {
       <div className="container">
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="md:flex  mt-8 p-6 flex-col">
-            <div className=" w-1/2 flex flex-col py-2">
+            <div className=" w-full flex flex-col py-2">
               <label
                 htmlFor="author"
                 className="text-base font-semibold leading-none text-gray-800 py-2"

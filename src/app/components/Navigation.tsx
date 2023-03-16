@@ -67,6 +67,8 @@ export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const [showOnHover, setShowOnHover] = useState(false);
 
+  const closeModal = () => (setShowOnHover: any) => !showOnHover;
+
   const [navBarScroll, setNavBarScroll] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -104,7 +106,7 @@ export default function Navigation() {
             </div>
             <Popover.Group
               as="nav"
-              className="hidden font-sourceSans uppercase md:flex items-center justify-center"
+              className="hidden font-sourceSans capitalize md:flex items-center justify-center"
             >
               <Popover
                 onMouseEnter={() => setShowOnHover(true)}
@@ -153,7 +155,7 @@ export default function Navigation() {
                                   aria-hidden="true"
                                 />
                                 <div className="ml-4">
-                                  <p className="text-base  text-gray-900 uppercase font-bold">
+                                  <p className="text-base  text-gray-900 capitalize font-bold">
                                     {item.name}
                                   </p>
                                   <p className="mt-1 text-sm text-gray-500">
@@ -206,7 +208,7 @@ export default function Navigation() {
                                   <Link
                                     onClick={() => setShowOnHover(false)}
                                     href={item.href}
-                                    className="-m-3 flex items-center p-3  capitalize font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                    className="-m-3 flex items-center p-3 font-bold capitalize text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   >
                                     <item.icon
                                       className="h-6 w-6 flex-shrink-0 text-gray-400"
@@ -240,7 +242,7 @@ export default function Navigation() {
                   href={page_routes.contactUs}
                   className="text-xl px-6 font-bold text-gray-600 hover:text-gray-900 capitalize focus:border-primaryBlue"
                 >
-                  <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
+                  <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue whitespace-nowrap">
                     Contact Us
                   </span>
                 </Link>
@@ -261,13 +263,15 @@ export default function Navigation() {
           {/* MOBILE */}
           <Popover.Panel
             focus
-            className="absolute z-40 inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+            className={`absolute z-40 inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden`}
           >
             <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-2xl ">iStrategy</span>
+                    <span className="text-lg ">
+                      <LogoBrand />
+                    </span>
                   </div>
                   <div className="-mr-2">
                     <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryBlue">
@@ -276,19 +280,19 @@ export default function Navigation() {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className="mt-6">
+                <div className="mt-12">
                   <nav className="grid gap-y-8">
                     {solutions.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
+                        className="-m-3 flex font-bold items-center rounded-md p-3 hover:bg-gray-50"
                       >
                         <item.icon
                           className="h-6 w-6 flex-shrink-0 text-primaryBlue"
                           aria-hidden="true"
                         />
-                        <span className="ml-3 text-base font-medium text-gray-900">
+                        <span className="ml-3 text-base text-gray-900">
                           {item.name}
                         </span>
                       </Link>
@@ -308,7 +312,7 @@ export default function Navigation() {
                   {data?.user ? (
                     <div className="flex">
                       <span
-                        className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                        className=" flex items-center cursor-pointer p-4 capitalize font-bold text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                         onClick={() => router.push(page_routes.dashboard)}
                       >
                         <HomeIcon
@@ -334,7 +338,7 @@ export default function Navigation() {
                       </span>
                     </div>
                   ) : (
-                    <p className="p-4 text-center text-base font-medium text-gray-500">
+                    <p className="p-4 text-center text-base capitalize font-bold text-gray-500">
                       Existing client?
                       <Link
                         href={page_routes.secure}
