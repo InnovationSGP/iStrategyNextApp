@@ -9,7 +9,6 @@ import { useGetBlogs_Public } from "../../../pages/api/routes/blogRoute";
 import { BlogObject } from "../../../lib/types";
 import Link from "next/link";
 import { page_routes } from "@/lib/pageRoutes";
-import CustomSpinner from "../../components/Spinner";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
@@ -22,6 +21,7 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { HeroCTA } from "@/app/components/HeroCTA";
+import Loading from "@/app/loading";
 
 const BlogComponent = () => {
   const blogContent = blogResource.slice(0, 3);
@@ -55,7 +55,7 @@ const BlogComponent = () => {
             ?.slice(1)
             ?.map((blog: BlogObject) => <BlogCard key={blog._id} data={blog} />)
         ) : (
-          <CustomSpinner />
+          <Loading />
         )}
       </div>
     </section>

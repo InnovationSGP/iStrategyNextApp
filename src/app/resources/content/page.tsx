@@ -1,13 +1,11 @@
 "use client";
 import { FunctionComponent, Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import Loading from "@/app/components/Loading";
 import { useGetEachBlog_Public } from "../../../pages/api/routes/blogRoute";
 import ErrorComponent from "@/app/components/Error";
 import LockClosedIcon from "@heroicons/react/24/outline/LockClosedIcon";
 import ServerIcon from "@heroicons/react/24/outline/ServerIcon";
 import { CloudArrowUpIcon } from "@heroicons/react/24/outline";
-import CustomSpinner from "@/app/components/Spinner";
 import { BlogObject } from "../../../lib/types";
 import { blogsRoute } from "../../../pages/api/routes/blogRoute";
 import { HeroCTA } from "../../components/HeroCTA";
@@ -15,6 +13,7 @@ import Link from "next/link";
 import ImageFunction from "@/utils/ImageFunction";
 import Image from "next/image";
 import { BlogCarousel } from "./BlogCarousel";
+import Loading from "@/app/loading";
 
 interface BlogResourceProps {}
 
@@ -36,8 +35,8 @@ const BlogResource: FunctionComponent<BlogResourceProps> = () => {
 
   return (
     <div>
-      <Suspense fallback={<CustomSpinner />}>
-        {loading ? <CustomSpinner /> : <Content blog={data} />}
+      <Suspense fallback={<Loading />}>
+        {loading ? <Loading /> : <Content blog={data} />}
       </Suspense>
     </div>
   );
@@ -57,7 +56,7 @@ function Content(props: { blog: BlogObject }) {
           </div>
         </div>
 
-        <article>
+        <article className="p-4">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div className="order-2 h-64 md:order-1 md:h-full">
               <Image

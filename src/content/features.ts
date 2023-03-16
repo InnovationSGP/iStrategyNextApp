@@ -45,9 +45,4 @@ export const features2list = [
   { id: 3, feature: "Business continuity at the highest level" },
   { id: 4, feature: "Best practices in UI/UX" },
   { id: 5, feature: "Agile Transformation and Delivery" },
-  {
-    id: 6,
-    feature: "Modern methods and techniques for traditional project management",
-  },
-  { id: 7, feature: "Cybersecurity | Auditing | PM" },
 ];

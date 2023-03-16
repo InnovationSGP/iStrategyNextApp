@@ -143,6 +143,7 @@ export default function Navigation() {
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                             {solutions.map((item) => (
                               <Link
+                                onClick={() => setShowOnHover(false)}
                                 key={item.name}
                                 href={item.href}
                                 className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
@@ -203,6 +204,7 @@ export default function Navigation() {
                               callsToAction.map((item) => (
                                 <div key={item.name} className="flow-root">
                                   <Link
+                                    onClick={() => setShowOnHover(false)}
                                     href={item.href}
                                     className="-m-3 flex items-center p-3  capitalize font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   >

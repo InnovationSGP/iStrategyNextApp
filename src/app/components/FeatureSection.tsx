@@ -7,6 +7,7 @@ import {
 import { Bullet } from "./Bullet";
 import { page_routes } from "@/lib/pageRoutes";
 import Image from "next/image";
+import feature2PNG from "../../../public/assets/teamPNG.png";
 
 export default function Feature() {
   return (
@@ -56,14 +57,10 @@ export function Feature2() {
     <div className="p-8">
       <section className="px-8 py-20 mx-auto max-w-7xl text-white p-8 rounded-2xl overflow-hidden shadow-sm bg-gray-100 border-2 border-white bg-opacity-80 backdrop-filter backdrop-blur-lg ">
         <div className="grid items-center grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-32 gap-x-10 lg:gap-x-24 ">
-          <div className="">
+          <div className="flex flex-col md:items-start items-center ">
             <h2 className="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-center py-8 text-black sm:text-left md:text-4xl">
               Innovating Together
             </h2>
-            {/* <p className="mb-6 text-lg text-center text-white sm:text-left md:text-xl">
-              Let's build a relationship based on innovative ideas leading to
-              highly valuable outcomes and value for you.
-            </p> */}
             <Link
               href={page_routes.contactUs}
               className="my-2 text-xl md:text-2xl font-bold shadow text-white p-4 px-6 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
@@ -71,7 +68,7 @@ export function Feature2() {
               Contact Us
             </Link>
           </div>
-          <div className="flex flex-col flex-grow space-y-5">
+          <div className="flex flex-col flex-grow space-y-5 uppercase font-bold">
             {features2list.map((feature) => (
               <Feature2ListItem data={feature} key={feature.id} />
             ))}

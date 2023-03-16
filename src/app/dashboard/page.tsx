@@ -1,12 +1,11 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { FC, Suspense } from "react";
-import Loading from "../components/Loading";
 import ErrorComponent from "../components/Error";
 import { useGetMessages } from "@/pages/api/routes/messagesRoutes";
-import CustomSpinner from "../components/Spinner";
 import { Badge } from "./component/Badge";
 import { Messages } from "./component/Messages";
+import Loading from "../loading";
 
 const Session: FC<any> = () => {
   const { messages, isError, isLoading } = useGetMessages();
@@ -21,7 +20,7 @@ const Session: FC<any> = () => {
         <div className="basis-1/2 p-4">
           <Suspense fallback={<Loading />}>
             <div>
-              {isLoading ? <CustomSpinner /> : <Messages messages={messages} />}
+              {isLoading ? <Loading /> : <Messages messages={messages} />}
             </div>
           </Suspense>
         </div>

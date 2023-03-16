@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="mx-auto pt-4 shadow  mt-8">
       <section className="bg-primaryBlue dark:bg-gray-900">
         <div className="container px-8 py-6 mx-auto flex flex-col items-center">
-          <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3 items-center justify-items-center">
+          <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3 items-center ">
             <div>
               <span className="inline-block p-3 text-white rounded-full bg-primaryPink dark:bg-gray-800">
                 <svg
