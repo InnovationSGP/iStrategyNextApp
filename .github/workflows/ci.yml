@@ -10,12 +10,12 @@ jobs:
       # and run all Cypress tests
       - name: End to End Testing
         env:
-          MONGO_URI: ${{secrets.MONGO_URI }}
-          NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET }}
-          JWT_SECRET_KEY: ${{secrets.JWT_SECRET_KEY }}
-          JWT_EXPIRY: ${{secrets.JWT_EXPIRY }}
-          CLOUDINARY_URL: ${{secrets.CLOUDINARY_URL }}
-          SECRET: ${{secrets.SECRET }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+          JWT_EXPIRY: ${{ secrets.JWT_EXPIRY }}
+          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+          SECRET: ${{ secrets.SECRET }}
 
         uses: cypress-io/github-action@v5
         with:

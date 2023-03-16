@@ -6,6 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
+  // site: process.env.NEXTAUTH_URL,
   secret: process.env.SECRET,
   session: {
     strategy: "jwt",
