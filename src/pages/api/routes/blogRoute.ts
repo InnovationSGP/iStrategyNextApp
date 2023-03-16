@@ -5,7 +5,7 @@ export const blogsRoute: any = () => {
   const options: AxiosRequestConfig = {
     headers: { "Content-Type": "multipart/form-data" },
   };
-  const API = axios.create({ baseURL: process.env.LOCAL_ENV });
+  const API = axios.create({ baseURL: process.env.NEXTAUTH_URL });
   const POST_BLOG = (data: any) => API.post("/api/post/createblog", data);
   const EDIT_BLOG = (id: string, data: any) =>
     API.post("/api/post/editblog?id=" + id, data);
