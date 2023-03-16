@@ -37,6 +37,7 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     signIn: "/secure",
+    signOut: "/secure",
   },
   callbacks: {
     async session({ session, user, token }: any) {
