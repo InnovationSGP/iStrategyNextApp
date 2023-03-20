@@ -11,7 +11,7 @@ import feature2PNG from "../../../public/assets/teamPNG.png";
 
 export default function Feature() {
   return (
-    <div className="bg-white py-14  sm:py-14 mt-12 ">
+    <div className="bg-white py-14  sm:py-14 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <div className="flex flex-col items-center justify-center">

@@ -31,32 +31,30 @@ const BlogComponent = () => {
   const { blogs, isLoading, isError } = useGetBlogs_Public();
 
   return (
-    <section className="px-4 py-6">
-      <div className="text-center  py-8">
-        <h1 className="text-4xl font-bold text-gray-800 capitalize lg:text-3xl dark:text-white ">
-          From the blog
-        </h1>
-
-        <p className="max-w-lg mx-auto mt-4 text-gray-500">
-          Find news about us, articles related to the services we provide, and
-          other resources on our services.
+    <section className="px-4 pt-6 flex flex-col justify-center items-center">
+      <div className="p-6  container">
+        <p className="py-2 text-primaryPurple font-bold text-2xl">
+          Feature Resource
         </p>
-      </div>
-      {blogs?.slice(0, 1).map((blog: BlogObject) => (
-        <BlogFeatureCard data={blog} key={blog._id} />
-      ))}
-      <div className="py-4">
-        <HeroCTA />
+
+        {blogs?.slice(0, 1).map((blog: BlogObject) => (
+          <BlogFeatureCard data={blog} key={blog._id} />
+        ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 py-4 xl:grid-cols-3">
-        {blogs || blogs?.length > 0 ? (
-          blogs
-            ?.slice(1)
-            ?.map((blog: BlogObject) => <BlogCard key={blog._id} data={blog} />)
-        ) : (
-          <Loading />
-        )}
+      <div className="px-6 pt-4 container">
+        <p className=" py-2 text-primaryPurple font-bold text-2xl">Resources</p>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 py-4 xl:grid-cols-3 justify-items-center  ">
+          {blogs || blogs?.length > 0 ? (
+            blogs
+              ?.slice(1)
+              ?.map((blog: BlogObject) => (
+                <BlogCard key={blog._id} data={blog} />
+              ))
+          ) : (
+            <Loading />
+          )}
+        </div>
       </div>
     </section>
   );
@@ -65,8 +63,8 @@ export default BlogComponent;
 
 function BlogFeatureCard(props: { data: BlogObject }) {
   return (
-    <section className="w-full px-4 py-4 mx-auto max-w-8xl md:w-4/5">
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+    <section className="w-full shadow ">
+      {/* <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
         <div className="col-span-1 md:col-span-2 lg:col-span-2 xl:col-span-3">
           <Link
             href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
@@ -108,6 +106,48 @@ function BlogFeatureCard(props: { data: BlogObject }) {
                   month: "long",
                   day: "numeric",
                 })}
+              </p>
+            </div>
+          </Link>
+        </div>
+      </div> */}
+
+      <div className="grid items-center grid-cols-1 md:grid-cols-2">
+        <div className="order-2 h-64 md:order-1 md:h-full">
+          <Image
+            src={props.data?.img}
+            className="object-cover w-full h-full bg-center"
+            alt={`Picture of ${props.data?.img}`}
+            width={400}
+            height={600}
+          />
+        </div>
+        <div className="order-1 w-full px-4 py-12 mx-auto text-left md:w-3/4 md:py-48 md:order-2 md:px-0">
+          <p className="mb-3 text-gray-500">
+            <time>
+              {new Date(props.data?.date).toLocaleDateString(undefined, {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </p>
+          <h1
+            className="mb-5 text-3xl font-bold cursor-pointer hover:text-primaryPurple text-gray-900 md:leading-tight md:text-4xl capitalize"
+            itemProp="headline"
+            title={props.data?.header}
+          >
+            {props.data?.header}
+          </h1>
+          <Link
+            className="flex items-center text-gray-700"
+            href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
+          >
+            <div className="avatar"></div>
+            <div className="ml-2">
+              <p className="text-sm font-semibold text-gray-800 capitalize">
+                {props.data?.author}
               </p>
             </div>
           </Link>
