@@ -7,14 +7,15 @@ import CardComponent from "../components/Card";
 import { PrimaryCTA } from "../components/HeroCTA";
 import { BlogCarousel } from "../resources/content/BlogCarousel";
 import { Feature2 } from "../components/FeatureSection";
+import HeroComponent2 from "../components/HeroComponentSecondary";
 
 export default function Staffing() {
   return (
     <div data-cy="staffing-section">
-      <HeroComponent heroTxt="Build Inspiring TEAMS" heroImg={teamPNG} />
+      <HeroComponent2 />
+      {/* <HeroComponent heroTxt="Build Inspiring TEAMS" heroImg={teamPNG} /> */}
       <CardComponent />
       <PrimaryCTA />
-      <Feature2 />
       <BlogCarousel />
     </div>
   );

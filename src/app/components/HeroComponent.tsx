@@ -17,7 +17,7 @@ export default function HeroComponent(props: {
             objectFit: "cover",
           }}
         />
-        <div className=" absolute m-8 bg-white p-6 md:p-6 w-2/4">
+        <div className=" absolute m-8 bg-white p-6 md:p-6 ">
           <span className="sm:text-xl text-2xl md:text-3xl lg:text-5xl font-bold leading-4 text-primaryBlue ">
             {props.heroTxt}
           </span>

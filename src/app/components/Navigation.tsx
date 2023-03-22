@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { forwardRef } from "react";
 import { Fragment, useState, useEffect } from "react";
-import { Popover, Transition } from "@headlessui/react";
+import { Disclosure, Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -15,6 +15,7 @@ import {
   InboxArrowDownIcon,
   LockClosedIcon,
   HomeIcon,
+  PresentationChartBarIcon,
 } from "@heroicons/react/24/outline";
 import { LogoBrand } from "../../utils/Logo";
 import { signOut, useSession } from "next-auth/react";
@@ -42,6 +43,12 @@ const solutions = [
     description: "Your customers' data will be safe and secure.",
     href: page_routes.ITSecurity,
     icon: ShieldCheckIcon,
+  },
+  {
+    name: "Staffing",
+    description: "Leverage our offshore resources",
+    href: page_routes.staffing,
+    icon: PresentationChartBarIcon,
   },
   {
     name: "Resources",
@@ -82,6 +89,17 @@ export default function Navigation() {
     return window.addEventListener("scroll", changeNavbarColor);
   }, []);
 
+  const MyLink = forwardRef((props: any, ref) => {
+    let { href, children, ...rest } = props;
+    return (
+      <Link href={href}>
+        <a ref={ref} {...rest}>
+          {children}
+        </a>
+      </Link>
+    );
+  });
+
   return (
     <div
       data-cy="nav-section"
@@ -92,8 +110,8 @@ export default function Navigation() {
       }`}
     >
       <Popover className="relative bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between  py-6 md:justify-between ">
+        <div className="mx-auto px-6">
+          <div className="flex items-center justify-between py-6 md:justify-between ">
             <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black ">
               <LogoBrand />
             </div>
@@ -227,15 +245,6 @@ export default function Navigation() {
                 )}
               </Popover>
 
-              <Link
-                data-cy="staffing-link"
-                href={page_routes.staffing}
-                className="text-xl px-6 font-bold text-gray-600 hover:text-gray-900 capitalize focus:border-primaryBlue"
-              >
-                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
-                  Staffing
-                </span>
-              </Link>
               <div>
                 <Link
                   data-cy="contact-link"
@@ -258,7 +267,7 @@ export default function Navigation() {
           enterTo="opacity-100 "
           leave="duration-100 ease-in"
           leaveFrom="opacity-100 "
-          leaveTo="opacity-0 "
+          leaveTo="opacity-0"
         >
           {/* MOBILE */}
           <Popover.Panel
@@ -268,11 +277,10 @@ export default function Navigation() {
             <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-lg ">
-                      <LogoBrand />
-                    </span>
-                  </div>
+                  <span className="text-lg ">
+                    <LogoBrand />
+                  </span>
+
                   <div className="-mr-2">
                     <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryBlue">
                       <span className="sr-only">Close menu</span>
@@ -283,9 +291,9 @@ export default function Navigation() {
                 <div className="mt-12">
                   <nav className="grid gap-y-8">
                     {solutions.map((item) => (
-                      <Link
+                      <Popover.Button
+                        onClick={() => router.push(item.href)}
                         key={item.name}
-                        href={item.href}
                         className="-m-3 flex font-bold items-center rounded-md p-3 hover:bg-gray-50"
                       >
                         <item.icon
@@ -295,7 +303,7 @@ export default function Navigation() {
                         <span className="ml-3 text-base text-gray-900">
                           {item.name}
                         </span>
-                      </Link>
+                      </Popover.Button>
                     ))}
                   </nav>
                 </div>
@@ -306,7 +314,7 @@ export default function Navigation() {
                     href={page_routes.contactUs}
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryBlue"
                   >
-                    Contact Us Now
+                    Contact us
                   </Link>
 
                   {data?.user ? (
