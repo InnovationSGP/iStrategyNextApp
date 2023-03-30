@@ -6,12 +6,13 @@ import HeroComponent from "./components/HeroComponent";
 import blogPng from "./components/assets/blogPNG.png";
 import { HeroCTA } from "./components/HeroCTA";
 import { BlogCarousel } from "./resources/content/BlogCarousel";
+import HeroFeature from "./components/HeroFeatureComponent";
+import featurePNG from "../../public/assets/backgroundImg.png";
 
 export default function Home() {
   return (
     <main>
-      <Banner />
-      <HeroComponent heroImg={blogPng} heroTxt={"Latest TECHNOLOGIES"} />
+      <HeroComponent heroImg={blogPng} heroTxt={"Person-Centered DELIVERY"} />
       <HeroCTA />
       <Feature />
       <Feature2 />

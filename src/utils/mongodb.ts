@@ -4,15 +4,15 @@ import mongoose from "mongoose";
 const MONGO_URI: any = process.env.MONGO_URI;
 const MONGO_DB = process.env.MONGODB_DB;
 
-let cachedClient: MongoClient;
-let cachedDb: Db;
+// let cachedClient: MongoClient;
+// let cachedDb: Db;
 
-let { mongo }: any = global;
-let cached = mongo;
+// let { mongo }: any = global;
+// let cached = mongo;
 
-if (!cached) {
-  cached = mongo = { conn: null, promise: null };
-}
+// if (!cached) {
+//   cached = mongo = { conn: null, promise: null };
+// }
 
 // export async function mongoDBConnection() {
 //   // check the cached.

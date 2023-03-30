@@ -13,7 +13,7 @@ export function OffshoreHero(props: any) {
         </h1>
         <Link
           href={page_routes.contactUs}
-          className="my-2 text-xl md:text-2xl font-bold shadow text-white p-4 px-8 rounded-md bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
+          className="my-2 text-xl md:text-2xl font-bold shadow text-white py-4 px-8 rounded-xl bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
         >
           Contact Us
         </Link>

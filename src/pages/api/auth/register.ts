@@ -3,6 +3,7 @@ import { mongooseConnection } from "@/utils/mongodb";
 import { SignJWT } from "jose";
 import { User } from "models/User";
 import { NextApiRequest, NextApiResponse } from "next";
+import { getToken } from "next-auth/jwt";
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -18,6 +19,9 @@ export default async function authRouter(
       if (user) {
         return errorHandler("User email is already registered", res, 400);
       }
+      const sessionToken = await getToken({ req });
+      if (!sessionToken) return errorHandler("Token is not found", res, 401);
+
       user = new User({
         name: name,
         email: email,

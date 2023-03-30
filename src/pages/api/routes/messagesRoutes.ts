@@ -3,7 +3,7 @@ import axios from "axios";
 import useSWR from "swr";
 
 export const routes: any = () => {
-  const API = axios.create({ baseURL: process.env.LOCAL_ENV });
+  const API = axios.create({ baseURL: process.env.NEXTAUTH_URL });
   const POST_MESSAGE = (data: any) => API.post("/api/post/contactform", data);
   const EDIT_MESSAGE = (id: string, data: any) =>
     API.post("/api/post/messageaction?id=" + id, data);

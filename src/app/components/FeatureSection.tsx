@@ -7,10 +7,12 @@ import {
 import { Bullet } from "./Bullet";
 import { page_routes } from "@/lib/pageRoutes";
 import Image from "next/image";
+import feature2PNG from "../../../public/assets/teamPNG.png";
+import feature2PNG2 from "../../../public/assets/isgModel.png";
 
 export default function Feature() {
   return (
-    <div className="bg-white py-14  sm:py-14 mt-12 ">
+    <div className="bg-white py-14  sm:py-14 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <div className="flex flex-col items-center justify-center">
@@ -53,45 +55,63 @@ export default function Feature() {
 
 export function Feature2() {
   return (
-    <div className="p-8">
-      <section className="px-8 py-20 mx-auto max-w-7xl text-white p-8 rounded-2xl overflow-hidden shadow-sm bg-gray-100 border-2 border-white  bg-opacity-80 backdrop-filter backdrop-blur-lg ">
-        <div className="grid items-center grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-32 gap-x-10 lg:gap-x-24 ">
-          <div className="">
-            <h2 className="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-center py-8 text-black sm:text-left md:text-4xl">
-              Innovating Together
-            </h2>
-            {/* <p className="mb-6 text-lg text-center text-white sm:text-left md:text-xl">
-              Let's build a relationship based on innovative ideas leading to
-              highly valuable outcomes and value for you.
-            </p> */}
-            <Link
-              href={page_routes.contactUs}
-              className="my-2 text-xl md:text-2xl font-bold shadow text-white p-4 px-6 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300"
-            >
-              Contact Us
-            </Link>
+    <div className="p-4">
+      <div className=" px-6 mx-auto">
+        <section className="mb-8 text-gray-800 text-center lg:text-left">
+          <div className="sm:px-6 py-12 md:px-12">
+            <div className="mx-auto xl:px-8">
+              <div className="grid lg:grid-cols-2 place-items-center">
+                <div className="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
+                  <div className="relative block rounded-lg shadow-lg px-6 pt-12 pb-6 md:px-12 lg:-mr-14 z-1 bg-opacity-30 backdrop-filter backdrop-blur-lg">
+                    <h2 className="text-3xl font-bold mb-6">
+                      Why are we great for you?
+                    </h2>
+                    <p className="text-gray-500 mb-6">
+                      We offer the following services at a high level, driving
+                      business delivery and change.
+                    </p>
+
+                    <div className="grid md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-x-6">
+                      {features2list.map((feature) => (
+                        <Feature2ListItem data={feature} key={feature.id} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="md:mb-12 lg:mb-0 delay-[300ms] duration-[600ms] taos:scale-[0.6] taos:opacity-0"
+                  data-taos-offset="400"
+                >
+                  <Image
+                    src={feature2PNG2}
+                    className="w-full rounded-lg shadow-lg rotate-lg-6"
+                    alt="Feature 2 Hero"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col flex-grow space-y-5">
-            {features2list.map((feature) => (
-              <Feature2ListItem data={feature} key={feature.id} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
 function Feature2ListItem(props: any) {
   return (
-    <div className="flex items-start">
-      <svg
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        className="flex-none w-5 h-5 mt-1 mr-2 text-black"
-      >
-        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
-      </svg>
-      <p className="text-lg text-black">{props.data.feature}</p>
+    <div className="mb-6">
+      <p className="flex items-center">
+        <svg
+          className="w-4 h-4 mr-2 text-gray-900"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+        >
+          <path
+            fill="currentColor"
+            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+          ></path>
+        </svg>
+        {props.data.feature}
+      </p>
     </div>
   );
 }

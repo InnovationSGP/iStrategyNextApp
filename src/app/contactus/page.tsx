@@ -31,15 +31,15 @@ function ContactUs() {
   };
 
   return (
-    <div className="bg-gradient-to-l from-primaryBlue to-primaryPurple">
+    <div className="">
       <div className="w-full flex items-center justify-center py-4">
-        <div className="relative bg-white shadow rounded py-12 lg:px-28 px-8">
+        <div className="relative bg-white drop-shadow-md rounded py-12 lg:px-28 px-8">
           <form onSubmit={handleSubmit(formSubmit)}>
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
-              Let’s chat and get a quote!
+              Let’s chat!
             </p>
             <div className="md:flex items-center mt-8">
-              <div className=" w-1/2 flex flex-col">
+              <div className=" w-4/5 flex flex-col">
                 <label
                   htmlFor="name"
                   className="text-base font-semibold leading-none text-gray-800"

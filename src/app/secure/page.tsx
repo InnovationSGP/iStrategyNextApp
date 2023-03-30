@@ -6,8 +6,8 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useState } from "react";
-import Loading from "../components/Loading";
 import Link from "next/link";
+import Loading from "../loading";
 
 export default function Secure() {
   const router = useRouter();
@@ -21,12 +21,11 @@ export default function Secure() {
         email: data.email,
         password: data.password,
         redirect: false,
-        // callbackUrl: "/dashboard",
       }).then(({ ok, error }: any) => {
         if (ok) router.push("/dashboard");
         else {
-          router.back();
           toast.error(error);
+          setLoading(false);
         }
       });
     } catch (error) {
@@ -39,16 +38,16 @@ export default function Secure() {
     <div>
       {loading ? <Loading /> : null}
 
-      <div className="bg-gradient-to-l from-primaryBlue to-primaryPurple">
-        <div className="w-full flex items-center justify-center py-4">
-          <div className="relative bg-white shadow rounded py-12 lg:px-28 px-8">
+      <div className="">
+        <div className="w-full flex items-center justify-center py-8">
+          <div className="relative bg-white shadow rounded py-8 lg:px-28 px-8">
             <form onSubmit={handleSubmit(signInHandler)}>
               <p className="p-4 md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
                 Employee Sign In
               </p>
 
               <div className="flex flex-col items-center">
-                <div className="p-4 flex flex-col w-4/5">
+                <div className="p-4 flex flex-col w-full">
                   <label
                     htmlFor="email"
                     className="text-base font-semibold leading-none text-gray-800"
@@ -67,7 +66,7 @@ export default function Secure() {
                     {...register("email", { required: true })}
                   />
                 </div>
-                <div className="p-4 flex flex-col w-4/5">
+                <div className="p-4 flex flex-col w-full">
                   <label
                     htmlFor="password"
                     className="text-base font-semibold leading-none text-gray-800"
@@ -88,7 +87,7 @@ export default function Secure() {
                 </div>
               </div>
               <div></div>
-              <p className="text-xs leading-3 text-gray-600 mt-4">
+              {/* <p className="text-xs leading-3 text-gray-600 mt-4">
                 By clicking submit you agree to our terms of service, privacy
                 policy.{" "}
                 <span>
@@ -99,7 +98,7 @@ export default function Secure() {
                     Create a Profile
                   </Link>
                 </span>
-              </p>
+              </p> */}
               <div className="flex items-center justify-center w-full">
                 <button
                   className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-indigo-700 rounded hover:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none"

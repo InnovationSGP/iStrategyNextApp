@@ -3,7 +3,7 @@ export interface User {
   email: string;
   password: string;
   admin?: boolean;
-  id?: string;
+  _id?: string;
 }
 
 interface RegistrationData {

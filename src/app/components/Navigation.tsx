@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
-import { Fragment, useState } from "react";
-import { Popover, Transition } from "@headlessui/react";
+import React, { forwardRef } from "react";
+import { Fragment, useState, useEffect } from "react";
+import { Disclosure, Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -15,6 +15,7 @@ import {
   InboxArrowDownIcon,
   LockClosedIcon,
   HomeIcon,
+  PresentationChartBarIcon,
 } from "@heroicons/react/24/outline";
 import { LogoBrand } from "../../utils/Logo";
 import { signOut, useSession } from "next-auth/react";
@@ -44,6 +45,12 @@ const solutions = [
     icon: ShieldCheckIcon,
   },
   {
+    name: "Staffing",
+    description: "Leverage our offshore resources",
+    href: page_routes.staffing,
+    icon: PresentationChartBarIcon,
+  },
+  {
     name: "Resources",
     description: "View blogs, news, articles and other resources",
     href: page_routes.resourceCenter,
@@ -51,16 +58,8 @@ const solutions = [
   },
 ];
 const callsToAction = [
-  {
-    name: "Resources",
-    href: page_routes.resourceCenter,
-    icon: NewspaperIcon,
-  },
-  {
-    name: "Contact ",
-    href: page_routes.contactUs,
-    icon: InboxArrowDownIcon,
-  },
+  { name: "Resources", href: page_routes.resourceCenter, icon: NewspaperIcon },
+  { name: "Contact ", href: page_routes.contactUs, icon: InboxArrowDownIcon },
   { name: "Login", href: page_routes.secure, icon: LockOpenIcon },
 ];
 
@@ -75,11 +74,44 @@ export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const [showOnHover, setShowOnHover] = useState(false);
 
+  const closeModal = () => (setShowOnHover: any) => !showOnHover;
+
+  const [navBarScroll, setNavBarScroll] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setNavBarScroll(true);
+    } else {
+      setNavBarScroll(false);
+    }
+  };
+
+  useEffect(() => {
+    return window.addEventListener("scroll", changeNavbarColor);
+  }, []);
+
+  const MyLink = forwardRef((props: any, ref) => {
+    let { href, children, ...rest } = props;
+    return (
+      <Link href={href}>
+        <a ref={ref} {...rest}>
+          {children}
+        </a>
+      </Link>
+    );
+  });
+
   return (
-    <div data-cy="nav-section" className="sticky top-0 z-10 bg-white">
+    <div
+      data-cy="nav-section"
+      className={`sticky top-0 z-10 bg-white ${
+        navBarScroll
+          ? " border-b-2 border-primaryPurple transition-all duration-300"
+          : ""
+      }`}
+    >
       <Popover className="relative bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between  py-6 md:justify-between ">
+        <div className="mx-auto px-6">
+          <div className="flex items-center justify-between py-6 md:justify-between ">
             <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black ">
               <LogoBrand />
             </div>
@@ -92,7 +124,7 @@ export default function Navigation() {
             </div>
             <Popover.Group
               as="nav"
-              className="hidden font-sourceSans uppercase md:flex items-center justify-center"
+              className="hidden font-sourceSans capitalize md:flex items-center justify-center"
             >
               <Popover
                 onMouseEnter={() => setShowOnHover(true)}
@@ -104,11 +136,11 @@ export default function Navigation() {
                     <Popover.Button
                       data-cy="consulting-pop"
                       className={classNames(
-                        open ? "text-gray-900" : "text-primaryBlue",
+                        open ? "text-gray-900" : "text-gray-600",
                         "px-6 items-center bg-white font-bold hover:text-gray-900 focus:outline-none text-xl "
                       )}
                     >
-                      <span className="hover:border-b-2 uppercase hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
+                      <span className="hover:border-b-2 capitalize hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
                         Consulting
                       </span>
                     </Popover.Button>
@@ -131,6 +163,7 @@ export default function Navigation() {
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                             {solutions.map((item) => (
                               <Link
+                                onClick={() => setShowOnHover(false)}
                                 key={item.name}
                                 href={item.href}
                                 className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
@@ -140,7 +173,7 @@ export default function Navigation() {
                                   aria-hidden="true"
                                 />
                                 <div className="ml-4">
-                                  <p className="text-base  text-gray-900 uppercase font-bold">
+                                  <p className="text-base  text-gray-900 capitalize font-bold">
                                     {item.name}
                                   </p>
                                   <p className="mt-1 text-sm text-gray-500">
@@ -172,8 +205,9 @@ export default function Navigation() {
                                   className="flex items-center cursor-pointer p-4 capitalize font-bold text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   onClick={async function logout() {
                                     await setLoading(true);
-                                    await signOut();
-
+                                    await signOut({
+                                      callbackUrl: page_routes.secure,
+                                    });
                                     return toast.success(
                                       "Successfully Signed Out"
                                     );
@@ -190,8 +224,9 @@ export default function Navigation() {
                               callsToAction.map((item) => (
                                 <div key={item.name} className="flow-root">
                                   <Link
+                                    onClick={() => setShowOnHover(false)}
                                     href={item.href}
-                                    className="-m-3 flex items-center p-3  capitalize font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                                    className="-m-3 flex items-center p-3 font-bold capitalize text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                                   >
                                     <item.icon
                                       className="h-6 w-6 flex-shrink-0 text-gray-400"
@@ -210,21 +245,15 @@ export default function Navigation() {
                 )}
               </Popover>
 
-              <Link
-                data-cy="staffing-link"
-                href={page_routes.staffing}
-                className="text-xl px-6 font-bold text-primaryBlue hover:text-gray-900  focus:border-primaryBlue"
-              >
-                <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue">
-                  Staffing
-                </span>
-              </Link>
-              <div className="px-4">
+              <div>
                 <Link
+                  data-cy="contact-link"
                   href={page_routes.contactUs}
-                  className="text-md md:text-lg font-bold shadow text-white p-2 px-4 rounded-lg bg-primaryBlue cursor-pointer hover:bg-gray-100 hover:text-black hover:scale-105 transform ease-in-out duration-300 whitespace-nowrap"
+                  className="text-xl px-6 font-bold text-gray-600 hover:text-gray-900 capitalize focus:border-primaryBlue"
                 >
-                  Contact Us
+                  <span className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue whitespace-nowrap">
+                    Contact Us
+                  </span>
                 </Link>
               </div>
             </Popover.Group>
@@ -238,19 +267,20 @@ export default function Navigation() {
           enterTo="opacity-100 "
           leave="duration-100 ease-in"
           leaveFrom="opacity-100 "
-          leaveTo="opacity-0 "
+          leaveTo="opacity-0"
         >
           {/* MOBILE */}
           <Popover.Panel
             focus
-            className="absolute z-40 inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+            className={`absolute z-40 inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden`}
           >
             <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-2xl ">iStrategy</span>
-                  </div>
+                  <span className="text-lg ">
+                    <LogoBrand />
+                  </span>
+
                   <div className="-mr-2">
                     <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primaryBlue">
                       <span className="sr-only">Close menu</span>
@@ -258,22 +288,22 @@ export default function Navigation() {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className="mt-6">
+                <div className="mt-12">
                   <nav className="grid gap-y-8">
                     {solutions.map((item) => (
-                      <Link
+                      <Popover.Button
+                        onClick={() => router.push(item.href)}
                         key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
+                        className="-m-3 flex font-bold items-center rounded-md p-3 hover:bg-gray-50"
                       >
                         <item.icon
                           className="h-6 w-6 flex-shrink-0 text-primaryBlue"
                           aria-hidden="true"
                         />
-                        <span className="ml-3 text-base font-medium text-gray-900">
+                        <span className="ml-3 text-base text-gray-900">
                           {item.name}
                         </span>
-                      </Link>
+                      </Popover.Button>
                     ))}
                   </nav>
                 </div>
@@ -284,13 +314,13 @@ export default function Navigation() {
                     href={page_routes.contactUs}
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-primaryBlue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primaryBlue"
                   >
-                    Contact Us Now
+                    Contact us
                   </Link>
 
                   {data?.user ? (
                     <div className="flex">
                       <span
-                        className=" flex items-center cursor-pointer p-4  lowercase font-medium text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
+                        className=" flex items-center cursor-pointer p-4 capitalize font-bold text-gray-900 hover:bg-gray-100  hover:border-b-2 border-primaryBlue"
                         onClick={() => router.push(page_routes.dashboard)}
                       >
                         <HomeIcon
@@ -302,7 +332,9 @@ export default function Navigation() {
                       <span
                         className="cursor-pointer hover:border-b-2 hover:border-primaryBlue p-4 flex items-center justify-center text-primaryBlue hover:text-primaryBlue"
                         onClick={async function logout() {
-                          await signOut();
+                          await signOut({
+                            callbackUrl: page_routes.secure,
+                          });
                           return toast.success("Successfully Signed Out");
                         }}
                       >
@@ -314,7 +346,7 @@ export default function Navigation() {
                       </span>
                     </div>
                   ) : (
-                    <p className="p-4 text-center text-base font-medium text-gray-500">
+                    <p className="p-4 text-center text-base capitalize font-bold text-gray-500">
                       Existing client?
                       <Link
                         href={page_routes.secure}
