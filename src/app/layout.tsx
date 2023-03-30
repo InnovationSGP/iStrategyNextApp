@@ -24,9 +24,13 @@ export default function RootLayout({
       <SessionProvider>
         <body className=" overflow-x-hidden  ">
           <Toaster toastOptions={toastOptions} />
-          <Navigation />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-          <Footer />
+          <Suspense fallback={<Loading />}>
+            <Navigation />
+
+            {children}
+
+            <Footer />
+          </Suspense>
         </body>
       </SessionProvider>
     </html>

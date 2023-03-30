@@ -12,10 +12,8 @@ import featurePNG from "../../public/assets/backgroundImg.png";
 export default function Home() {
   return (
     <main>
-      {/* <Banner /> */}
       <HeroComponent heroImg={blogPng} heroTxt={"Person-Centered DELIVERY"} />
       <HeroCTA />
-
       <Feature />
       <Feature2 />
       <BlogCarousel />

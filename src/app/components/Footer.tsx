@@ -95,7 +95,8 @@ const Footer = () => {
           <div className="flex flex-col justify-center items-center pt-12">
             <LogoBrand textColor="text-white" />
             <p className="text-sm  text-white mt-4">
-              Copyright © {todaysDate} Innovation Strategy Group LLC
+              Copyright © {todaysDate} Innovation Strategy Group LLC dba
+              Stratewise
             </p>
           </div>
         </div>

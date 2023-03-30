@@ -14,6 +14,7 @@ module.exports = {
         primaryGold: "#515100",
         primaryPink: "#C04BF2",
         secondaryPurpleLight: "#f4e6fa",
+        secondaryBackground: "#dceee0",
       },
       fontFamily: {
         sans: ["Source Sans Pro"],
