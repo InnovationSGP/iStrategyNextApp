@@ -6,7 +6,6 @@ import {
 import {Bullet} from "./Bullet";
 import {page_routes} from "@/lib/pageRoutes";
 import Image from "next/image";
-import feature2PNG2 from "../../../public/assets/isgModel.png";
 import React from "react";
 import image2 from "../../../public/assets/standup.png";
 import image3 from "../../../public/assets/devops.jpeg";
