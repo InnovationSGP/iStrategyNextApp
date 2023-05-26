@@ -96,7 +96,7 @@ const Footer = () => {
                         <LogoBrand footer/>
                         <p className="text-sm  text-white mt-4">
                             Copyright © {todaysDate} Innovation Strategy Group LLC dba
-                            InnovationSGP
+                            InnovationSGP.
                         </p>
                     </div>
                 </div>
