@@ -10,10 +10,10 @@ module.exports = {
         extend: {
             colors: {
                 primaryBlue: "#050950",
-                primaryPurple: "#249BB7",
+                primaryPurple: "#2451B7",
                 primaryGold: "#B78A24",
-                primaryPink: "#2451B7",
-                secondaryPurpleLight: "#2451B7",
+                primaryPink: "#4124B7",
+                secondaryPurpleLight: "#249BB7",
                 secondaryBackground: "#dceee0",
             },
             fontFamily: {
@@ -35,6 +35,8 @@ module.exports = {
 
 
 // stratewise colors
+
+//2451B7
 // colors: {
 //   primaryBlue: "#281259",
 //       primaryPurple: "#6f42c1",

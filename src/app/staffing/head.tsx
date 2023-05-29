@@ -7,6 +7,8 @@ export default function Head() {
                 name="description"
                 content="Providing resources that help you innovate"
             />
+            <link rel="icon" href="/ISGicon.png"/>
+
         </>
     );
 }
