@@ -6,18 +6,17 @@ import {
 import {Bullet} from "./Bullet";
 import {page_routes} from "@/lib/pageRoutes";
 import Image from "next/image";
-import feature2PNG2 from "../../../public/assets/isgModel.png";
 import React from "react";
 import image2 from "../../../public/assets/standup.png";
 import image3 from "../../../public/assets/devops.jpeg";
 
 export default function Feature() {
     return (
-        <div className="bg-white py-14  sm:py-14 ">
+        <div className="bg-white my-14 py-14 sm:py-14">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:text-center">
                     <div className="flex flex-col items-center justify-center">
-                        <Bullet text="PM Factory is Opening Soon"/>
+                        <Bullet text={featuresHeader.bulletText}/>
                         <h2 className="text-lg font-semibold leading-8 tracking-tight text-primaryPurple">
                             {featuresHeader.headerBanner}
                         </h2>
@@ -29,13 +28,13 @@ export default function Feature() {
                         {featuresHeader.subHeading}
                     </p>
                 </div>
-                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                <div className="mx-auto mt-8 max-w-2xl sm:mt-8 lg:mt-8 lg:max-w-4xl">
                     <dl className="grid max-w-xl grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                         {features.map((feature) => (
                             <div key={feature.name} className="relative pl-16">
                                 <dt className="text-base font-semibold leading-7 text-gray-900">
                                     <div
-                                        className="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primaryPurple">
+                                        className="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primaryBlue">
                                         <feature.icon
                                             className="h-6 w-6 text-white"
                                             aria-hidden="true"
@@ -58,7 +57,7 @@ export default function Feature() {
 export function Feature2() {
     return (
 
-        <div className="p-2 py-12 sm:p-4 bg-primaryBlue overflow-hidden shadow-lg shadow-fuchsia-500 ">
+        <div className="my-14 p-2 py-12 sm:p-4 bg-primaryBlue overflow-hidden shadow-sm shadow-blue-500 ">
             <div className="flex flex-col sm:flex-row items-center justify-between">
                 <div className=" ">
                     <div
@@ -67,12 +66,12 @@ export function Feature2() {
                             <h1 className="mb-6 mb-6 text-4xl md:text-5xl xl:text-7xl font-bold leading-tight text-white">
                                 Successful completion of your project with a high degree of{" "}
                                 <span
-                                    className="bg-gradient-to-r from-purple-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">excellence</span>
+                                    className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">excellence</span>
                             </h1>
                             <div className='py-4'>
                                 <Link
                                     href={page_routes.contactUs}
-                                    className="rounded-full bg-primaryBlue text-white border-2 border-fuchsia-500 py-4 px-8 text-3xl cursor-pointer hover:bg-primaryPurple hover:scale-105 transform ease-in-out duration-300 font-bold whitespace-nowrap"
+                                    className="rounded-full bg-primaryBlue text-white border-2 border-sky-500 py-4 px-8 text-3xl cursor-pointer hover:bg-primaryPurple hover:scale-105 transform ease-in-out duration-300 font-bold whitespace-nowrap"
                                 >
                                     Contact Us
                                 </Link>
