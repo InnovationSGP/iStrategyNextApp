@@ -25,6 +25,25 @@ export const LogoBrand = (props: any) => {
         );
     }
 
+
+    if (props.mobile) {
+        return (
+            <Link
+                data-cy="logo"
+                href={"/"}
+                className={`p-2 cursor-pointer ${props.textColor}`}
+            >
+                <Image
+                    src={navLogWhite}
+                    width={200}
+                    height={400}
+                    alt="mobile logo"
+                />
+
+            </Link>
+        );
+    }
+
     return (
         <Link
             data-cy="logo"
