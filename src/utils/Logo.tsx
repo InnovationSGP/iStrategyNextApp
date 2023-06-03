@@ -34,7 +34,7 @@ export const LogoBrand = (props: any) => {
                 className={`p-2 cursor-pointer ${props.textColor}`}
             >
                 <Image
-                    src={navLogWhite}
+                    src={navLog}
                     width={200}
                     height={400}
                     alt="mobile logo"

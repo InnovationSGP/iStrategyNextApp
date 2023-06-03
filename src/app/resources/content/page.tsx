@@ -1,16 +1,9 @@
 "use client";
 import {FunctionComponent, Suspense, useEffect, useState} from "react";
 import {useRouter, useSearchParams, usePathname} from "next/navigation";
-import {useGetEachBlog_Public} from "../../../pages/api/routes/blogRoute";
-import ErrorComponent from "@/app/components/Error";
-import LockClosedIcon from "@heroicons/react/24/outline/LockClosedIcon";
-import ServerIcon from "@heroicons/react/24/outline/ServerIcon";
-import {CloudArrowUpIcon} from "@heroicons/react/24/outline";
-import {BlogObject} from "../../../lib/types";
-import {blogsRoute} from "../../../pages/api/routes/blogRoute";
-import {HeroCTA} from "../../components/HeroCTA";
+import {BlogObject} from "@/lib/types";
+import {blogsRoute} from "@/pages/api/routes/blogRoute";
 import Link from "next/link";
-import ImageFunction from "@/utils/ImageFunction";
 import Image from "next/image";
 import {BlogCarousel} from "./BlogCarousel";
 import Loading from "@/app/loading";
@@ -105,10 +98,8 @@ function Content(props: { blog: BlogObject }) {
                         </main>
                     </section>
                 </article>
-                <div className="pt-2">
-                    <HeroCTA/>
-                </div>
-                <div className="shawdow pt-8">
+
+                <div className="shawdow ">
                     <BlogCarousel/>
                 </div>
             </div>

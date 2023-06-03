@@ -110,7 +110,8 @@ export default function Navigation() {
             <Popover className="relative bg-white">
                 <div className="mx-auto px-6">
                     <div className="flex items-center justify-between py-6 md:justify-between ">
-                        <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black ">
+                        <div className="flex justify-start items-center lg:w-0 lg:flex-1 text-black"
+                             onClick={() => setShowOnHover(false)}>
                             <LogoBrand/>
                         </div>
 
@@ -293,9 +294,9 @@ export default function Navigation() {
                             className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
                             <div className="px-5 pt-5 pb-6">
                                 <div className="flex items-center justify-between">
-                  <span className="text-lg ">
-                    <LogoBrand mobile/>
-                  </span>
+                                    <div className="p-2 cursor-pointer">
+                                        <LogoBrand mobile/>
+                                    </div>
 
                                     <div className="-mr-2">
                                         <Popover.Button
@@ -327,14 +328,17 @@ export default function Navigation() {
                             </div>
                             <div className="flex items-center justify-center space-y-6 py-4 px-2">
                                 <div>
-                                    <div className='flex flex-row space-x-2'><Link
-                                        href={page_routes.contactUs}
-                                        className=" leading whitespace-nowrap flex w-full items-center justify-center px-4 py-2 text-base font-medium text-primaryBlue shadow-sm hover:underline"
-                                    >
-                                        Contact us
-                                    </Link>
+                                    <div className='flex flex-row space-x-2'>
+                                        <Link
+                                            onClick={() => setShowOnHover(false)}
+                                            href={page_routes.contactUs}
+                                            className=" leading whitespace-nowrap flex w-full items-center justify-center px-4 py-2 text-base font-medium text-primaryBlue shadow-sm hover:underline"
+                                        >
+                                            Contact us
+                                        </Link>
 
                                         <Link
+                                            onClick={() => setShowOnHover(false)}
                                             href={page_routes.about}
                                             className="flex w-full items-center justify-center px-4 py-2 text-base font-medium text-primaryBlue shadow-sm hover:underline"
                                         >
