@@ -13,9 +13,11 @@ export const features = [
         icon: CloudArrowUpIcon,
     },
     {
-        name: "Secure delivery",
+        name: "Project Management and delivery",
         description:
-            "Manage risks and compliance during while delivering to business and user satisfactoion  ",
+            "We are a strategic hub, providing support, guidance, and resources to our subsidiary\n" +
+            "companies. With a long-term investment perspective, we foster\n" +
+            "growth, innovation, and operational excellence across our portfolio.",
         icon: LockClosedIcon,
     },
     {

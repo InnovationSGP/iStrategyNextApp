@@ -8,7 +8,11 @@ import {BlogCarousel} from "./resources/content/BlogCarousel";
 export default function Home() {
     return (
         <main>
-            <HeroComponent heroImg={blogPng} heroTxt={"Person-Centered DELIVERY"}/>
+            <HeroComponent heroImg={blogPng} headerText={"What we do"} heroTxt={"We are a strategic hub, providing\n" +
+                "                            support, guidance, and\n" +
+                "                            resources to our subsidiary\n" +
+                "                            companies. With a long-term investment perspective, we foster\n" +
+                "                            growth, innovation, and operational excellence across our portfolio."}/>
             <HeroCTA/>
             <Feature/>
             <Feature2/>

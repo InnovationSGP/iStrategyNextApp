@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import {page_routes} from "../../lib/pageRoutes";
+import {page_routes} from "@/lib/pageRoutes";
 
 export function HeroCTA() {
     return (
