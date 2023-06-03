@@ -11,7 +11,10 @@ import {Feature2} from "../components/FeatureSection";
 export default function Delivery() {
     return (
         <div>
-            <HeroComponent heroImg={heroImage3} heroTxt={"Quality Project & Product DELIVERY"}/>
+            <HeroComponent heroImg={heroImage3} headerText={"Gain a competitive advantage"} heroTxt={"Enhancing" +
+                " customer experiences,\n" +
+                "                improving talent development, and adjusting day-to-day\n" +
+                "                operations to gain a competitive advantage for our clients"}/>
             <HeroCTA/>
 
             <div className="p-2 my-14 md:p-8">
