@@ -7,8 +7,9 @@ import Image from "next/image";
 export function BlogCarouselCard(props: { data: BlogObject }) {
     return (
         <div className="w-full shadow">
-            <Link href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}>
+            <Link href={`${page_routes.resourceCenter}/content?id=${props.data._id}`} target="_blank">
                 <Image
+
                     src={props.data.img}
                     className="object-cover w-full h-56 mb-5 bg-center rounded"
                     alt={props.data.header}
@@ -20,6 +21,7 @@ export function BlogCarouselCard(props: { data: BlogObject }) {
             <div className="p-4">
                 <h2 className="mb-2 text-lg font-semibold text-primaryBlue">
                     <Link
+                        target="_blank"
                         href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
                         className="text-primaryBlue hover:text-primaryPurple capitalize"
                     >
@@ -29,6 +31,7 @@ export function BlogCarouselCard(props: { data: BlogObject }) {
 
                 <p className="mb-3 text-sm font-normal text-gray-500">
                     <Link
+                        target="_blank"
                         href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
                         className="font-medium text-primaryBlue hover:text-primaryPurple"
                     >

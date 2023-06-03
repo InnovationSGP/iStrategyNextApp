@@ -8,8 +8,8 @@ function ContactUs(props: any) {
 
     return (
         <div className="">
-            <div className="w-full flex items-center justify-center py-4">
-                <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
+            <div className="w-full flex items-center justify-center">
+                <div className="container 2xl:mx-auto lg:py-16 lg:px-14 md:py-12 md:px-6 py-9 px-4">
                     <p className="font-normal text-md leading-3 text-primaryBlue hover:text-indigo-800 cursor-pointer pb-4">About
                         Us</p>
                     <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
