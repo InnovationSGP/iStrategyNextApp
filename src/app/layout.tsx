@@ -8,31 +8,33 @@ import {Toaster} from "react-hot-toast";
 import {SessionProvider} from "next-auth/react";
 import {Suspense} from "react";
 import Loading from "./components/Loading";
+import {ApolloProvider} from "@apollo/client";
+import {client} from "../lib/apollo"
 
 export default function RootLayout({
-                                     children,
+                                       children,
                                    }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  const toastOptions = {
-    className:
-        "border-2 border-secondaryPurpleLight p-4 font-secondaryPurpleLight",
-  };
-  return (
-      <html lang="en">
-      <head/>
-      <SessionProvider>
-        <body className=" overflow-x-hidden  ">
-        <Toaster toastOptions={toastOptions}/>
+    const toastOptions = {
+        className:
+            "border-2 border-secondaryPurpleLight p-4 font-secondaryPurpleLight",
+    };
+    return (
+        <html lang="en">
+        <head/>
+        <SessionProvider>
+            <body className=" overflow-x-hidden  ">
+            <Toaster toastOptions={toastOptions}/>
 
-        <Navigation/>
-        <Suspense fallback={<Loading/>}>
-          {children}
-        </Suspense>
-        <Footer/>
+            <Navigation/>
+            <Suspense fallback={<Loading/>}>
+                {children}
+            </Suspense>
+            <Footer/>
 
-        </body>
-      </SessionProvider>
-      </html>
-  );
+            </body>
+        </SessionProvider>
+        </html>
+    );
 }

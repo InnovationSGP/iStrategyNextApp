@@ -9,19 +9,20 @@ export const LogoBrand = (props: any) => {
 
     if (props.footer) {
         return (
-            <Link
-                data-cy="logo"
-                href={"/"}
-                className={`text-5xl font-itim p-2 cursor-pointer ${props.textColor}`}
-            >
-                <Image
-                    src={navLogWhite}
-                    width={400}
-                    height={600}
-                    alt="hero image"
-                />
+            <div className='p-2 bg-white'>
+                <Link
+                    data-cy="logo"
+                    href={"/"}
+                    className={`cursor-pointer`}
+                >
+                    <Image
+                        src={navLogWhite}
+                        width={200}
+                        height={400}
+                        alt="hero image"
+                    />
 
-            </Link>
+                </Link></div>
         );
     }
 

@@ -5,9 +5,12 @@ import Link from "next/link";
 import {page_routes} from "@/lib/pageRoutes";
 import {BlogCarouselCard} from "./BlogCarouselCard";
 import Loading from "@/app/components/Loading";
+import {Wordpress_Posts_All} from "@/pages/api/get/wpBlogs";
 
 export const BlogCarousel = () => {
     const {blogs} = useGetBlogs_Public();
+    const {data, error, isLoading} = Wordpress_Posts_All()
+    console.log(data)
     return (
         <section className="my-14 px-4 py-4 mx-auto bg-white flex flex-col justify-center items-center">
             <h2 className="mb-2 text-3xl font-extrabold leading-tight text-primaryBlue py-4 items-center text-center">
