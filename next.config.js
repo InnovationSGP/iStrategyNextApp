@@ -8,7 +8,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: ["res.cloudinary.com", "www.wordpress.innovationsgp.com"],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
