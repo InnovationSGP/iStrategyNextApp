@@ -20,7 +20,7 @@ export const BlogCarousel = () => {
         Recent Resources{" "}
       </h2>
       {posts || posts?.length > 0 ? (
-        <div className="flex flex-col sm:flex-row md:flex-row items-center justify-between space-x-2 text-primaryBlue">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
           {posts.slice(0, 3).map((post: any) => (
             <PostCarouselCard post={post} key={post.databaseId} />
           ))}
