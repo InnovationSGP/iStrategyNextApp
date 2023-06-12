@@ -3,6 +3,7 @@ import { BlogObject } from "@/lib/types";
 import Link from "next/link";
 import { page_routes } from "@/lib/pageRoutes";
 import Image from "next/image";
+import { useWordpressSinglePost } from "../../../lib/gqlQueries";
 
 // export function BlogCarouselCard({ data }: any) {
 //   return (
@@ -48,6 +49,9 @@ import Image from "next/image";
 // }
 
 export function PostCarouselCard({ post }: any) {
+  //   const { singlePost, loading } = useWordpressSinglePost();
+  //   console.log(singlePost);
+
   return (
     <div className="">
       <div className="w-full">

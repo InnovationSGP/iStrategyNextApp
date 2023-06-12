@@ -13,7 +13,7 @@ import { useWordpressPosts } from "@/lib/gqlQueries";
 export const BlogCarousel = () => {
   const { blogs } = useGetBlogs_Public();
   const { posts, loading } = useWordpressPosts();
-  console.log(posts);
+
   return (
     <section className="my-14 px-4 py-4 mx-auto bg-white flex flex-col justify-center items-center">
       <h2 className="mb-2 text-3xl font-extrabold leading-tight text-primaryBlue py-4 items-center text-center">
