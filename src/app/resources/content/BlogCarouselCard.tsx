@@ -49,9 +49,6 @@ import { useWordpressSinglePost } from "../../../lib/gqlQueries";
 // }
 
 export function PostCarouselCard({ post }: any) {
-  //   const { singlePost, loading } = useWordpressSinglePost();
-  //   console.log(singlePost);
-
   return (
     <div className="">
       <div className="w-full">

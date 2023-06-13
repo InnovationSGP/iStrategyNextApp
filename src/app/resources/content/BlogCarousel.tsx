@@ -9,10 +9,12 @@ import { Wordpress_Posts_All } from "@/pages/api/get/wpBlogs";
 import { gql, useQuery } from "@apollo/client";
 import { useApollo } from "@/lib/apollo";
 import { useWordpressPosts } from "@/lib/gqlQueries";
+import { useWordpressSinglePost } from "../../../lib/gqlQueries";
 
 export const BlogCarousel = () => {
-  const { blogs } = useGetBlogs_Public();
+  // const { blogs } = useGetBlogs_Public();
   const { posts, loading } = useWordpressPosts();
+  const { singlePost } = useWordpressSinglePost(9);
 
   return (
     <section className="my-14 px-4 py-4 mx-auto bg-white flex flex-col justify-center items-center">
