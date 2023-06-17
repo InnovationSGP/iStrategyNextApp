@@ -57,12 +57,12 @@ const GET_SINGLE_POST = gql`
   }
 `;
 
-export function useWordpressSinglePost(id: Number) {
+export function useSinglePost(id: any) {
   const { data, loading } = useQuery(GET_SINGLE_POST, {
     variables: { id },
   });
   return {
-    singlePost: data?.posts?.nodes,
+    data: data?.post,
     loading,
   };
 }

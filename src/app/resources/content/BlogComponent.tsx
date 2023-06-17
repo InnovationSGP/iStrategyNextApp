@@ -5,7 +5,7 @@ import Link from "next/link";
 import { page_routes } from "@/lib/pageRoutes";
 import Image from "next/image";
 
-import { useWordpressPosts } from "@/lib/gqlQueries";
+import { useSinglePost, useWordpressPosts } from "@/lib/gqlQueries";
 import { PostCarouselCard } from "./BlogCarouselCard";
 import Loading from "@/app/components/Loading";
 
@@ -45,6 +45,8 @@ const BlogComponent = () => {
 export default BlogComponent;
 
 function PostTrendingNow({ post }: any) {
+  // const { singlePost } = useSinglePost(post.databaseId);
+  // console.log(singlePost);
   return (
     <section className="w-full border border-b-2 border-gray-300 p-4 shadow-sm">
       <div>
