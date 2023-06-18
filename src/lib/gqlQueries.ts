@@ -25,6 +25,7 @@ const GET_POSTS = gql`
         }
         title
         status
+        excerpt
       }
     }
   }
@@ -53,6 +54,7 @@ const GET_SINGLE_POST = gql`
           link
         }
       }
+      excerpt
     }
   }
 `;

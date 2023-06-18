@@ -32,7 +32,7 @@ export function PostCarouselCard({ post }: any) {
           <p
             className="w-3/4 py-2 text-ellipsis text-gray-400 font-normal text-sm"
             dangerouslySetInnerHTML={{
-              __html: `${post.content.slice(0, 150)}...`,
+              __html: `${post.excerpt}`,
             }}
           />
 

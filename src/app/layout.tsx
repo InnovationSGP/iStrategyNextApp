@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import "./globals.css";
+import "./wordpress.css";
 import "react-quill/dist/quill.snow.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
