@@ -1,190 +1,165 @@
 import React from "react";
-import {useGetBlogs_Public} from "@/pages/api/routes/blogRoute";
-import {BlogObject} from "@/lib/types";
+import { useGetBlogs_Public } from "@/pages/api/routes/blogRoute";
+import { BlogObject } from "@/lib/types";
 import Link from "next/link";
-import {page_routes} from "@/lib/pageRoutes";
+import { page_routes } from "@/lib/pageRoutes";
 import Image from "next/image";
 
-import Loading from "@/app/loading";
+import { useSinglePost, useWordpressPosts } from "@/lib/gqlQueries";
+import { PostCarouselCard } from "./BlogCarouselCard";
+import Loading from "@/app/components/Loading";
 
 const BlogComponent = () => {
-    const {blogs, isLoading, isError} = useGetBlogs_Public();
+  const { blogs, isLoading, isError } = useGetBlogs_Public();
+  const { posts, loading } = useWordpressPosts();
 
-    return (
-        <section className="px-4 pt-6 flex flex-col justify-center items-center">
-            <div className="p-6  container">
-                <p className="py-2 text-primaryPurple font-bold text-2xl">
-                    Feature Resource
-                </p>
+  return (
+    <section className="px-4 pt-6 flex flex-col justify-center items-center">
+      <div className="p-6  container">
+        <p className="py-4 text-primaryBlue font-bold text-4xl ">
+          Trending Now
+        </p>
 
-                {blogs?.slice(0, 1).map((blog: BlogObject) => (
-                    <BlogFeatureCard data={blog} key={blog._id}/>
-                ))}
+        {posts?.slice(0, 1).map((post: any) => (
+          <PostTrendingNow post={post} key={post.databaseId} />
+        ))}
+      </div>
+
+      <div className="px-6 pt-4 container  ">
+        <p className=" py-4 text-primaryBlue font-bold text-4xl">Blogs</p>
+        <div className="">
+          {posts || posts?.length > 0 ? (
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
+              {posts.map((post: any) => (
+                <PostSectionCard post={post} key={post.databaseId} />
+              ))}
             </div>
-
-            <div className="px-6 pt-4 container">
-                <p className=" py-2 text-primaryPurple font-bold text-2xl">Resources</p>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 py-4 xl:grid-cols-3 justify-items-center  ">
-                    {blogs || blogs?.length > 0 ? (
-                        blogs
-                            ?.slice(1)
-                            ?.map((blog: BlogObject) => (
-                                <BlogCard key={blog._id} data={blog}/>
-                            ))
-                    ) : (
-                        <Loading/>
-                    )}
-                </div>
-            </div>
-
-
-        </section>
-    );
+          ) : (
+            <Loading />
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };
 export default BlogComponent;
 
-function BlogFeatureCard(props: { data: BlogObject }) {
-    return (
-        <section className="w-full shadow ">
-
-            <div>
-                <div className="grid items-center grid-cols-1 md:grid-cols-2 hover:bg-gray-200 hover:cursor-pointer">
-                    <div className="order-2 h-64 md:order-1 md:h-full">
-                        <Image
-                            src={props.data?.img}
-                            className="object-cover w-full h-full bg-center"
-                            alt={`Picture of ${props.data?.img}`}
-                            width={400}
-                            height={600}
-                        />
-                    </div>
-                    <div className="order-1 w-full px-4 py-12 mx-auto text-left md:w-3/4 md:py-48 md:order-2 md:px-0">
-                        <p className="mb-3 text-gray-500">
-                            <time>
-                                {new Date(props.data?.date).toLocaleDateString(undefined, {
-                                    weekday: "long",
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                })}
-                            </time>
-                        </p>
-                        <h1
-                            className="mb-5 text-3xl font-bold cursor-pointer hover:text-primaryPurple text-gray-900 md:leading-tight md:text-4xl capitalize"
-                            itemProp="headline"
-                            title={props.data?.header}
-                        >
-                            {props.data?.header}
-                        </h1>
-                        <Link
-                            target="_blank"
-                            className="flex items-center text-gray-700"
-                            href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
-                        >
-                            <div className="avatar"></div>
-                            <div className="ml-2">
-                                <p className="text-sm font-semibold text-gray-800 capitalize">
-                                    {props.data?.author}
-                                </p>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-
-
-            {/*<div className="lg:w-1/2">*/}
-            {/*    <div>*/}
-            {/*        <Image*/}
-            {/*            src={props.data?.img}*/}
-            {/*            className="lg:w-full w-auto"*/}
-            {/*            alt={`Picture of ${props.data?.img}`}*/}
-            {/*            width={800}*/}
-            {/*            height={600}*/}
-
-            {/*        />*/}
-            {/*    </div>*/}
-
-            {/*    <div className="mt-8 lg:mb-0 mb-8">*/}
-            {/*        <h1 className="f-m-m text-2xl font-semibold leading-7">{props.data?.header}</h1>*/}
-            {/*        <p className="text-base f-m-m leading-loose mt-2">{props.data?.content?.slice(0, 50)}</p>*/}
-            {/*        <div className="mt-6">*/}
-            {/*            <Link href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}>*/}
-            {/*                <p className="text-indigo-700 underline text-base font-semibold f-m-m">Read*/}
-            {/*                    More</p>*/}
-            {/*            </Link>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-        </section>
-    );
-}
-
-function BlogCard(props: { data: BlogObject }) {
-    return (
-        <div className="cursor-pointer  shadow hover:scale-105 transition ease-in-out bg-white">
+function PostTrendingNow({ post }: any) {
+  // const { singlePost } = useSinglePost(post.databaseId);
+  // console.log(singlePost);
+  return (
+    <section className="w-full border border-b-2 border-gray-300 p-4 shadow-sm">
+      <div>
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center ">
+          <Link
+            href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+          >
             <Image
-                className="object-cover object-center w-full h-64 lg:h-80"
-                src={props.data.img}
-                alt="Blog Card Image"
-                width={600}
-                height={450}
-                loading="lazy"
+              src={post.featuredImage?.node.link}
+              className="object-cover shadow-sm w-full mb-5 bg-center rounded"
+              alt={post.title}
+              loading="lazy"
+              width={800}
+              height={1200}
             />
+          </Link>
+          <div className="py-4 sm:px-8">
+            <h2 className="mb-2 text-2xl text-primaryBlue w-3/4 font-bold leading-6">
+              <Link
+                href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+                className="text-primaryBlue uppercase transition-all ease-in duration-300 hover:underline hover:text-primaryPurple"
+              >
+                {post.title}
+              </Link>
+            </h2>
 
-            <div className="p-6 flex items-start  justify-center flex-col ">
-        <span className="flex items-center justify-center text-gray-500 capitalize tracking-wider font-bold ">
-          {props.data.resource ? props.data.resource : "Resource"}
-        </span>
-                <Link
-                    target="_blank"
-                    href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}
-                    className="mt-2 pb-4 text-xl capitalize text-center font-semibold text-primaryBlue hover:text-primaryPurple"
-                >
-                    {props.data.header}
-                </Link>
-            </div>
-            <div className="flex justify-between items-center">
-        <span className="text-xs p-4">
-          Published:{" "}
-            {new Date(props.data.date).toLocaleDateString(undefined, {
+            <p className="mb-3 text-sm font-normal text-gray-500">
+              <Link
+                href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+                className="font-medium text-primaryBlue hover:text-primaryPurple"
+              >
+                {post.author.node.firtName}
+              </Link>{" "}
+              {new Date(post.date).toLocaleDateString(undefined, {
                 weekday: "long",
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-            })}
-        </span>
-            </div>
+              })}
+            </p>
+            <h2 className="mb-2 text-lg text-primaryBlue w-3/4 font-normal leading-6">
+              <Link
+                href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+                className="text-primaryBlue uppercase transition-all ease-in duration-300 hover:underline hover:text-primaryPurple "
+              ></Link>
+            </h2>
+          </div>
         </div>
-
-        // <div className="lg:flex items-start mb-8">
-        //     <Image
-        //         className="object-cover object-center w-full h-64 lg:h-80"
-        //         src={props.data.img}
-        //         alt="Blog Card Image"
-        //         width={60}
-        //         height={80}
-        //         loading="lazy"
-        //     />
-        //     <div className="lg:ml-6">
-        //         <Link target="_blank"
-        //               href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}>
-        //             <h1 className="f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8"> {props.data.header} </h1>
-        //         </Link>
-        //
-        //         <p className="text-base f-m-m leading-loose mt-2">{props.data.content?.slice(0, 50)}</p>
-        //         <div className="mt-4">
-        //             <Link target="_blank"
-        //                   href={`${page_routes.resourceCenter}/content?id=${props.data._id}`}>
-        //                 <p className="text-indigo-700 underline text-base font-semibold f-m-m">Read
-        //                     More</p>
-        //             </Link>
-        //         </div>
-        //     </div>
-        // </div>
-    );
+      </div>
+    </section>
+  );
 }
 
+function PostSectionCard({ post }: any) {
+  return (
+    <div className="">
+      <div className="w-full">
+        <Link
+          href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+        >
+          <Image
+            src={post.featuredImage?.node.link}
+            className="object-cover shadow-sm w-full mb-5 bg-center rounded"
+            alt={post.title}
+            loading="lazy"
+            width={300}
+            height={400}
+          />
+        </Link>
+        <div className="py-4">
+          <h2 className="mb-2 text-lg text-primaryBlue w-3/4 font-semibold leading-6">
+            <Link
+              href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+              className="text-primaryBlue uppercase transition-all ease-in duration-300 hover:underline hover:text-primaryPurple "
+            >
+              {post.title}
+            </Link>
+          </h2>
+
+          <p
+            className="w-3/4 py-2 text-ellipsis text-gray-400 font-normal text-sm"
+            dangerouslySetInnerHTML={{
+              __html: `${post.excerpt}...`,
+            }}
+          />
+
+          <p className="mb-3 text-sm font-normal text-gray-500">
+            <Link
+              href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+              className="font-medium text-primaryBlue hover:text-primaryPurple"
+            >
+              {post.author.node.firtName}
+            </Link>{" "}
+            {new Date(post.date).toLocaleDateString(undefined, {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
+          <h2 className="mb-2 text-lg text-primaryBlue w-3/4 font-normal leading-6">
+            <Link
+              href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
+              className="text-primaryBlue uppercase transition-all ease-in duration-300 hover:underline hover:text-primaryPurple "
+            >
+              read more
+            </Link>
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // function OurBlogs() {
 //     const {blogs, isLoading, isError} = useGetBlogs_Public();
