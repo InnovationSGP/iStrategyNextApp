@@ -103,7 +103,7 @@ export default function Navigation() {
       data-cy="nav-section"
       className={`sticky top-0 z-10 bg-white shadow-sm ${
         navBarScroll
-          ? " border-b-2 border-secondaryBackground transition-all duration-300"
+          ? " border-b-2 border-primaryBlue transition-all duration-300"
           : ""
       }`}
     >

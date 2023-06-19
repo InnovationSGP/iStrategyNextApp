@@ -15,9 +15,9 @@ export const BlogCarousel = () => {
   const { posts, loading } = useWordpressPosts();
 
   return (
-    <section className="my-14 px-4 py-4 mx-auto bg-white flex flex-col justify-center items-center">
+    <section className="my-4 px-4 py-4 mx-auto bg-white flex flex-col justify-center items-center">
       <h2 className="mb-2 text-3xl font-extrabold leading-tight text-primaryBlue py-4 items-center text-center">
-        Recent Resources{" "}
+        Recent Blogs
       </h2>
       {posts || posts?.length > 0 ? (
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">

@@ -5,15 +5,13 @@ import HeroFeature from "../components/HeroFeatureComponent";
 import featurePNG from "../../../public/assets/backgroundImg.png";
 
 export default function Blog() {
-    return (
-        <div className="relative">
-            <div className='flex justify-center items-center'>
+  return (
+    <div className="relative">
+      <div className="flex justify-center items-center">
+        <p className="text-4xl text-primaryBlue font-bold">Blogs</p>
+      </div>
 
-                <p className='text-4xl text-primaryBlue font-bold'>Our Blogs</p>
-            </div>
-
-
-            <BlogComponent/>
-        </div>
-    );
+      <BlogComponent />
+    </div>
+  );
 }
