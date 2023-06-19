@@ -69,7 +69,7 @@ function Content({ post }: any) {
                         href="#"
                       >
                         <div className="avatar"></div>
-                        <div className="ml-2">
+                        <div className="  ">
                           <p className="text-sm font-semibold text-gray-800 capitalize">
                             {post?.author.node.firstName}
                           </p>
