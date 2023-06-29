@@ -10,17 +10,26 @@ function ContactUs(props: any) {
         <div className="">
             <div className="w-full flex items-center justify-center">
                 <div className="container 2xl:mx-auto lg:py-16 lg:px-14 md:py-12 md:px-6 py-9 px-4">
-                    <p className="font-normal text-md leading-3 text-primaryBlue hover:text-indigo-800 cursor-pointer pb-4">About
+                    <p className="font-normal text-md leading-3 text-black hover:text-indigo-800 pb-4">About
                         Us</p>
                     <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
                         <div className="w-full lg:w-6/12">
-                            <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9">We want to be
+                            <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9">
+                                A trusted partner and thought leader in IT project management and Cyber Security
+                                delivery</h2>
+                            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
+
+                                We want to be
                                 known for our ability to identify and bring on highly motivated and knowledgeable
                                 resources to our clients. We want to be
                                 a trusted partner and thought leader in IT project management and Cyber Security
                                 delivery. We want to teach SDLC with shift left security
-                                mindset.</h2>
-                            <p className="font-normal text-base leading-6 text-gray-600 mt-6">InnovationSGP holds a
+                                mindset.
+                            </p>
+                            <p className='ont-normal text-base leading-6 text-gray-600 mt-4'>
+
+
+                                InnovationSGP holds a
                                 diverse portfolio of businesses operating
                                 across four sectors; Medicaid and Public Health, Technology and Cybersecurity,
                                 and Project Management, Delivery, and Real Estate. We are
@@ -35,14 +44,18 @@ function ContactUs(props: any) {
                                 strength.
                                 We are committed to building a vibrant and diversified portfolio of companies
                                 that provide value, spur innovation, and support the long-term
-                                growth of the markets we serve.</p>
+                                growth of the markets we serve.
+                            </p>
                         </div>
                         <div className="w-full lg:w-6/12">
                             <Image src={aboutUsImage} alt={'About Us'}/>
 
                         </div>
                     </div>
-                    <HeroCTA/>
+                    <div className='py-6'>
+                        <HeroCTA/>
+
+                    </div>
                     <div className="relative mt-24">
                         <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
                             <div className="z-20 w-12 h-12 bg-gray-800 rounded-full flex justify-center items-center">
@@ -110,11 +123,15 @@ function ContactUs(props: any) {
                                 new clients and began delivering services in cybersecurity.</p>
                         </div>
                         <div className="sm:block hidden">
-                            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Offshore
-                                Opportunities</p>
-                            <p className="font-normal text-base leading-6 text-gray-600 mt-6">We identified resources
-                                spread across the globe to assist in delivering offshore capabilities to our new clients
-                                in the project and product management space</p>
+                            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">Our
+                                Mission</p>
+                            <p className="font-normal text-base leading-6 text-gray-600 mt-6">To enable businesses and
+                                governments to navigate technology policy and regulation. To align our client with
+                                changing legal and ethical frameworks governing the tech industry through knowledgeable
+                                direction and strategic. To create a future that encourages ethical innovation and
+                                advances the public interest
+
+                            </p>
                         </div>
                     </div>
                     <div className="sm:hidden block relative mt-8">
@@ -138,29 +155,8 @@ function ContactUs(props: any) {
                         </div>
                         <hr className="z-10 absolute top-2/4 w-full bg-gray-200"/>
                     </div>
-                    <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
-                        <div>
-                            <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 mt-6">400k
-                                User</p>
-                            <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established
-                                fact that a reader will be distracted by the readable content of a page when looking at
-                                its layout.</p>
-                        </div>
-                    </div>
 
-                    <div className="flex items-center justify-center lg:mt-20 mt-16">
-                        <div className="w-full lg:w-6/12">
-                            <h2 className="font-bold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800">Our
-                                Mission</h2>
-                            <p className="font-normal text-base leading-6 text-gray-600 mt-6 w-full lg:w-10/12 xl:w-9/12">
-                                To enable businesses and governments to navigate technology policy and regulation. To
-                                align our client with changing legal and ethical frameworks governing the tech
-                                industry through knowledgeable direction and strategic. To
-                                create a future that encourages ethical innovation and advances the
-                                public interest</p>
-                        </div>
 
-                    </div>
                 </div>
             </div>
 
