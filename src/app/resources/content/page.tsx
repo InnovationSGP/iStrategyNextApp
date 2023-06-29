@@ -39,7 +39,7 @@ function Content({post}: any) {
                         <div className="pb-2">
                             <section className="">
                                 <article className="p-4">
-                                    <div className="grid items-center grid-cols-1 md:grid-cols-2">
+                                    <div className="shadow-md mb-4 grid items-center grid-cols-1 md:grid-cols-2">
                                         <div className="order-2 h-64 md:order-1 md:h-full">
                                             <Image
                                                 src={post.featuredImage?.node.link}
@@ -62,7 +62,7 @@ function Content({post}: any) {
                                                 </time>
                                             </p>
                                             <h1
-                                                className="mb-5 text-3xl font-bold text-gray-900 md:leading-tight md:text-4xl capitalize"
+                                                className="mb-5 text-3xl font-bold text-gray-900 md:leading-tight md:text-4xl lg:text-6xl capitalize"
                                                 itemProp="headline"
                                                 title={post?.title}
                                             >
@@ -74,7 +74,7 @@ function Content({post}: any) {
                                             >
                                                 <div className="avatar"></div>
                                                 <div className="  ">
-                                                    <p className="text-sm font-semibold text-gray-800 capitalize">
+                                                    <p className="text-md font-semibold text-gray-800 capitalize">
                                                         {post?.author.node.firstName}
                                                     </p>
                                                 </div>
