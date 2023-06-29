@@ -5,8 +5,10 @@ import {useSearchParams} from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {BlogCarousel} from "./BlogCarousel";
-import Loading from "@/app/components/Loading";
-import {useSinglePost} from "../../../lib/gqlQueries";
+import Loading from "@/app/loading";
+import {useSinglePost} from "@/lib/gqlQueries";
+import {Feature2} from "@/app/components/FeatureSection";
+import {HeroCTA} from "@/app/components/HeroCTA";
 
 interface BlogResourceProps {
 }
@@ -80,7 +82,7 @@ function Content({post}: any) {
                                         </div>
                                     </div>
 
-                                    <section className="container-md flex flex-col relative py-4 pt-4">
+                                    <section className="container flex flex-col relative py-4 pt-4">
                                         <main className="text-black">
                                             <div
                                                 className="py-4 wordpress_content"
@@ -93,6 +95,8 @@ function Content({post}: any) {
                         </div>
                     </div>
                 </div>
+                <Feature2/>
+                <HeroCTA/>
             </div>
             <div className="shawdow ">
                 <BlogCarousel/>
