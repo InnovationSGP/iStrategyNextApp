@@ -45,8 +45,8 @@ function Content({post}: any) {
                                                 src={post.featuredImage?.node.link}
                                                 className="object-cover w-full h-full bg-center shadow-sm"
                                                 alt={`Blog Post Image`}
-                                                width={400}
-                                                height={600}
+                                                width={1200}
+                                                height={800}
                                             />
                                         </div>
                                         <div
@@ -85,7 +85,7 @@ function Content({post}: any) {
                                     <section className="container flex flex-col relative py-4 pt-4">
                                         <main className="text-black">
                                             <div
-                                                className="py-4 wordpress_content"
+                                                className="py-4 wordpress_content md:text-xl"
                                                 dangerouslySetInnerHTML={{__html: post?.content}}
                                             />
                                         </main>

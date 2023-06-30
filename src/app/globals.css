@@ -4166,9 +4166,6 @@ html :where(.is-position-sticky) {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.wordpress_content {
-  font-size: 1.2rem;
-}
 .wordpress_content > p {
   padding-bottom: 0.8rem;
 }
