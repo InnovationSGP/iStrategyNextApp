@@ -26,26 +26,23 @@
 @tailwind utilities;
 
 .wordpress_content {
-  font-size: 1.5em;
+  //font-size: 1.2rem;
+
+  > p {
+    padding-bottom: 0.8rem;
+  }
 
   h1 {
     padding-top: 3rem;
     font-size: 2.5rem;
     font-weight: bold;
 
-    p {
-      padding-top: 0.5rem;
-    }
   }
 
   h2 {
     padding-top: 2.5rem;
     font-size: 2rem;
     font-weight: bold;
-
-    p {
-      padding-top: 0.5rem;
-    }
   }
 
   h3 {
@@ -53,9 +50,6 @@
     font-size: 1.5rem;
     font-weight: bold;
 
-    p {
-      padding-top: 0.5rem;
-    }
   }
 
   ul {
