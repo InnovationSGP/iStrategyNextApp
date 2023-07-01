@@ -10,34 +10,25 @@ import { PostCarouselCard } from "./BlogCarouselCard";
 import Loading from "@/app/components/Loading";
 
 const BlogComponent = () => {
-  const { blogs, isLoading, isError } = useGetBlogs_Public();
+  // const { blogs, isLoading, isError } = useGetBlogs_Public();
   const { posts, loading } = useWordpressPosts();
 
   return (
-    <section className="px-4 pt-6 flex flex-col justify-center items-center">
-      <div className="p-6  container">
-        <p className="py-4 text-primaryBlue font-bold text-4xl ">
-          Trending Now
-        </p>
+    <section className=" container flex flex-col justify-center items-center">
+      {posts?.slice(0, 1).map((post: any) => (
+        <PostTrendingNow post={post} key={post.databaseId} />
+      ))}
 
-        {posts?.slice(0, 1).map((post: any) => (
-          <PostTrendingNow post={post} key={post.databaseId} />
-        ))}
-      </div>
-
-      <div className="px-6 pt-4 container  ">
-        <p className=" py-4 text-primaryBlue font-bold text-4xl">Blogs</p>
-        <div className="">
-          {posts || posts?.length > 0 ? (
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
-              {posts.map((post: any) => (
-                <PostSectionCard post={post} key={post.databaseId} />
-              ))}
-            </div>
-          ) : (
-            <Loading />
-          )}
-        </div>
+      <div className="px-6 mt-8 container  ">
+        {posts || posts?.length > 0 ? (
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
+            {posts?.slice(1).map((post: any) => (
+              <PostSectionCard post={post} key={post.databaseId} />
+            ))}
+          </div>
+        ) : (
+          <Loading />
+        )}
       </div>
     </section>
   );
@@ -45,54 +36,38 @@ const BlogComponent = () => {
 export default BlogComponent;
 
 function PostTrendingNow({ post }: any) {
-  // const { singlePost } = useSinglePost(post.databaseId);
-  // console.log(singlePost);
   return (
-    <section className="w-full border border-b-2 border-gray-300 p-4 shadow-sm">
-      <div>
-        <div className="w-full flex flex-col sm:flex-row justify-between items-center ">
-          <Link
-            href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
-          >
-            <Image
-              src={post.featuredImage?.node.link}
-              className="object-cover shadow-sm w-full mb-5 bg-center rounded"
-              alt={post.title}
-              loading="lazy"
-              width={800}
-              height={1200}
-            />
-          </Link>
-          <div className="py-4 sm:px-8">
-            <h2 className="mb-2 text-2xl text-primaryBlue w-3/4 font-bold leading-6">
+    <section className="">
+      <div className="container shadow border border-gray-100 p-8">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center ">
+          <div className="px-4">
+            <span className="text-blue-600">{post?.author.node.firstName}</span>
+            <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl lg:text-4xl lg:leading-tight dark:text-white">
               <Link
+                className="cursor-pointer hover:text-gray-500"
                 href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
-                className="text-primaryBlue uppercase transition-all ease-in duration-300 hover:underline hover:text-primaryPurple"
               >
                 {post.title}
-              </Link>
-            </h2>
-
-            <p className="mb-3 text-sm font-normal text-gray-500">
-              <Link
-                href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
-                className="font-medium text-primaryBlue hover:text-primaryPurple"
-              >
-                {post.author.node.firtName}
               </Link>{" "}
+            </h1>
+            <p className="mt-3 text-lg text-gray-800 dark:text-gray-400">
               {new Date(post.date).toLocaleDateString(undefined, {
                 weekday: "long",
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-              })}
+              })}{" "}
             </p>
-            <h2 className="mb-2 text-lg text-primaryBlue w-3/4 font-normal leading-6">
-              <Link
-                href={`${page_routes.resourceCenter}/content?id=${post.databaseId}`}
-                className="text-primaryBlue uppercase transition-all ease-in duration-300 hover:underline hover:text-primaryPurple "
-              ></Link>
-            </h2>
+          </div>
+
+          <div className="relative ml-4">
+            <Image
+              className="w-full rounded-md"
+              src={post.featuredImage?.node.link}
+              alt={post.title}
+              width={1200}
+              height={800}
+            />
           </div>
         </div>
       </div>
