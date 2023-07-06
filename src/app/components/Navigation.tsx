@@ -95,11 +95,11 @@ export default function Navigation() {
         },
 
         {
-            name: data?.user ? 'Logout' : 'Admin Login',
-            description: data?.user ? 'Logout' : null,
-            href: data?.user ? page_routes.secure : page_routes.secure,
-            icon: data?.user ? LockClosedIcon : LockOpenIcon,
-        },
+            name: 'Admin Login',
+            description: 'Access admin dashboard',
+            href: page_routes.secure,
+            icon: LockClosedIcon,
+        }
 
     ];
 
@@ -184,10 +184,9 @@ export default function Navigation() {
                                                             className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                                             {solutions.map((item) => (
                                                                 <Link
-                                                                    onClick={() => setShowOnHover(false)}
                                                                     key={item.name}
-                                                                    href={item.href}
                                                                     className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
+                                                                    href={item.href}
                                                                 >
                                                                     <item.icon
                                                                         className="h-6 w-6 flex-shrink-0 text-primaryBlue"
@@ -224,18 +223,7 @@ export default function Navigation() {
                   </span>
                                     </Link>
                                 </div>
-                                <div>
-                                    <Link
-                                        data-cy="contact-link"
-                                        href={page_routes.about}
-                                        className="text-xl px-6 font-bold text-gray-600 hover:text-gray-900 capitalize focus:border-primaryBlue"
-                                    >
-                  <span
-                      className="hover:border-b-2 px-6 pb-2 hover:border-b-primaryBlue hover:ease-in hover:duration-300 border-primaryBlue focus:border-b-2 focus:border-primaryBlue whitespace-nowrap">
-                    About Us
-                  </span>
-                                    </Link>
-                                </div>
+
                             </Popover.Group>
                         </div>
                     </div>
@@ -312,3 +300,27 @@ export default function Navigation() {
 //                         ? " border-b-2 border-primaryBlue transition-all duration-300"
 //                         : ""
 //                 }
+
+
+//
+// {solutions.map((item) => (
+//     <Link
+//         onClick={() => setShowOnHover(false)}
+//         key={item.name}
+//         href={item.href}
+//         className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
+//     >
+//         <item.icon
+//             className="h-6 w-6 flex-shrink-0 text-primaryBlue"
+//             aria-hidden="true"
+//         />
+//         <div className="ml-4">
+//             <p className="text-base  text-gray-900 capitalize font-bold">
+//                 {item.name}
+//             </p>
+//             <p className="mt-1 text-sm text-gray-500">
+//                 {item.description}
+//             </p>
+//         </div>
+//     </Link>
+// ))}
