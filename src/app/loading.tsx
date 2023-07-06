@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import image2 from '../../public/assets/ISGicon.png'
+import image2 from '../../public/assets/ISGiconLoader.png'
 
 function Loading() {
     return (
