@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "framer-motion": "^10.12.18",
     "fs-extra": "^11.1.0",
     "graphql": "^16.6.0",
     "jose": "^4.12.0",
