@@ -33,7 +33,7 @@
     "mongodb": "^5.0.1",
     "mongoose": "^6.9.2",
     "multer": "^1.4.5-lts.1",
-    "next": "13.1.6",
+    "next": "13.4.6",
     "next-auth": "^4.19.2",
     "next-connect": "^0.13.0",
     "pure-react-carousel": "^1.30.1",
