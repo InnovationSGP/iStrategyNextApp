@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {features, featuresHeader} from "@/content/features";
+import {features, featuresHeader, trustPartners} from "@/content/features";
 import {Bullet} from "./Bullet";
 import {page_routes} from "@/lib/pageRoutes";
 import Image from "next/image";
@@ -7,6 +7,8 @@ import React from "react";
 import image2 from "../../../public/assets/standup.png";
 import image3 from "../../../public/assets/devops.jpeg";
 import image from "../../../public/assets/launch.png";
+import stratewise from "../../../public/assets/stratewise.png";
+import isgpBW from "../../../public/assets/isgplogoBW.png";
 
 export default function Feature() {
     return (
@@ -165,22 +167,104 @@ export const Feature3 = () => {
 };
 
 
-function Feature2ListItem(props: any) {
+export function Feature4() {
     return (
-        <div className="mb-6">
-            <p className="flex items-center">
-                <svg
-                    className="w-4 h-4 mr-2 text-gray-900"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                >
-                    <path
-                        fill="currentColor"
-                        d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                    ></path>
-                </svg>
-                {props.data.feature}
-            </p>
+        <div className="bg-gray-800 h-full py-4 sm:py-8 md:py-14">
+            <div className="mx-auto max-w-7xl p-12 px-6 lg:px-8">
+                <div className="mx-auto lg:text-center">
+                    <div className="flex flex-col items-center text-white justify-center pb-2">
+                        <div
+                            className="w-auto bg-secondaryPurpleLight bg-opacity-40 rounded-lg px-8 py-2  shadow-sm">
+                            <Link href={page_routes.resourceCenter} className="text-sm">
+                                {featuresHeader.bulletText}
+                            </Link>
+                        </div>
+                    </div>
+                    <p className="mt-2 text-3xl sm:text-4xl md:text-6xl capitalize text-center text-white">
+                        {featuresHeader.header}
+                    </p>
+                    <p className="mt-6 text-lg leading-8 text-white">
+                        {featuresHeader.subHeading}
+                    </p>
+                </div>
+
+                <div className="p-8">
+                    <div>
+                        <div className="py-12">
+                            <div className="max-w-8xl mx-auto container">
+                                <div tabIndex={0} aria-label="group of cards"
+                                     className="flex flex-col md:flex-row items-center justify-between sm:justify-between">
+                                    {features.map(feature => <FeatureItem feature={feature}/>)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+            </div>
         </div>
     );
+}
+
+
+function FeatureItem({feature}: any) {
+    return (
+
+        <div
+            className="flex flex-col items-center justify-between p-8 md:py-0 p-6 w-full hover:scale-125 cursor-pointer min-h-40 ">
+            <div
+                className="text-white rounded-full border border-2 border-white p-8 flex items-center justify-center mt-2 transition-colors duration-300 ease-in-out hover:bg-gradient-to-r from-blue-600 via-green-500 to-blue-400 hover:border-none ">
+                <feature.icon
+                    className="h-10 w-10 text-white"
+                    aria-hidden="true"
+                />
+            </div>
+            <div>
+                <h4
+                    className="focus:outline-none text-lg font-medium leading-6  p-2 capitalize text-gray-800 text-center text-white pt-5">
+                    {feature.name}
+                </h4>
+            </div>
+
+
+        </div>);
+}
+
+
+export function TrustedPartners() {
+    return (
+        <div className='bg-primaryBackground '>
+            <div className="2xl:px-20 md:px-10 2xl:mx-auto 2xl:container">
+                <div className="md:py-12 py-8 px-4 ">
+                    <div className="flex flex-col items-center justify-center">
+                        <h1 className="lg:text-5xl md:text-4xl text-2xl font-bold leading-10 text-gray-800">{trustPartners.header}</h1>
+                        <p className="text-base leading-normal text-center text-gray-600 mt-4 xl:w-1/2 w-10/12">{trustPartners.subHeading}</p>
+                    </div>
+                    <div className="flex items-center justify-center mt-10">
+                        <div
+                            className="flex flex-col md:flex-row items-center justify-center">
+                            <PartnerBrand image={stratewise} altText={'stratewise logo'}/>
+                            <PartnerBrand image={isgpBW} altText={'innovation strategy logo'}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    );
+
+    function PartnerBrand({image, altText}: { image: any, altText: string }) {
+        return (
+            <div className={'p-2 w-full'}>
+                <div className="w-full px-6 h-32 bg-gray-300 flex items-center justify-center">
+                    <Image src={image} alt={altText} width={120} height={180}/>
+                </div>
+            </div>
+        );
+    }
+
 }
