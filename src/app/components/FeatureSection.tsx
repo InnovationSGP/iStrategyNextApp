@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import {features, featuresHeader, trustPartners} from "@/content/features";
 import {Bullet} from "./Bullet";
@@ -9,6 +10,8 @@ import image3 from "../../../public/assets/devops.jpeg";
 import image from "../../../public/assets/launch.png";
 import stratewise from "../../../public/assets/stratewise.png";
 import isgpBW from "../../../public/assets/isgplogoBW.png";
+import {motion} from 'framer-motion'
+import {AnimatedList} from "@/app/components/animation/animations";
 
 export default function Feature() {
     return (
@@ -194,14 +197,13 @@ export function Feature4() {
                             <div className="max-w-8xl mx-auto container">
                                 <div tabIndex={0} aria-label="group of cards"
                                      className="flex flex-col md:flex-row items-center justify-between sm:justify-between">
-                                    {features.map(feature => <FeatureItem feature={feature}/>)}
+                                    {features.map((feature, index) => <FeatureItem key={index} feature={feature}/>)}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div>
 
             </div>
@@ -212,7 +214,6 @@ export function Feature4() {
 
 function FeatureItem({feature}: any) {
     return (
-
         <div
             className="flex flex-col items-center justify-between p-8 md:py-0 p-6 w-full hover:scale-125 cursor-pointer min-h-40 ">
             <div
@@ -230,7 +231,9 @@ function FeatureItem({feature}: any) {
             </div>
 
 
-        </div>);
+        </div>
+
+    );
 }
 
 
