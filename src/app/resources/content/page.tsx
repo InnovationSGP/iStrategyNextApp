@@ -96,7 +96,7 @@ function Content({post}: any) {
                     </div>
                 </div>
                 <Feature2/>
-                <HeroCTA/>
+
             </div>
             <div className="shawdow ">
                 <BlogCarousel/>
@@ -105,16 +105,3 @@ function Content({post}: any) {
     );
 }
 
-// export async function getStaticProps({ params }: any) {
-//   const { data, loading } = useSinglePost(params.id);
-//   console.log(data);
-//   return { data, loading };
-// }
-
-// export async function getStaticPaths() {
-//   const paths: any[] = [];
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
-// }

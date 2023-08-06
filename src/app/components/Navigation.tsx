@@ -119,6 +119,7 @@ export default function Navigation() {
 
     return (
         <>
+
             <div
                 data-cy="nav-section"
                 className={`sticky top-0 z-10 bg-white shadow-sm`}
@@ -166,7 +167,7 @@ export default function Navigation() {
 
                                             <Transition
                                                 as={Fragment}
-                                                enter="transition ease-out duration-200"
+                                                enter="transition ease-out duration-300"
                                                 enterFrom="opacity-0 "
                                                 enterTo="opacity-100 "
                                                 leave="transition ease-in duration-150"
@@ -290,37 +291,7 @@ export default function Navigation() {
                     style={{scaleX}}
                 />
             </div>
+
         </>
     );
 }
-
-//
-// ${
-//                     navBarScroll
-//                         ? " border-b-2 border-primaryBlue transition-all duration-300"
-//                         : ""
-//                 }
-
-
-//
-// {solutions.map((item) => (
-//     <Link
-//         onClick={() => setShowOnHover(false)}
-//         key={item.name}
-//         href={item.href}
-//         className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
-//     >
-//         <item.icon
-//             className="h-6 w-6 flex-shrink-0 text-primaryBlue"
-//             aria-hidden="true"
-//         />
-//         <div className="ml-4">
-//             <p className="text-base  text-gray-900 capitalize font-bold">
-//                 {item.name}
-//             </p>
-//             <p className="mt-1 text-sm text-gray-500">
-//                 {item.description}
-//             </p>
-//         </div>
-//     </Link>
-// ))}

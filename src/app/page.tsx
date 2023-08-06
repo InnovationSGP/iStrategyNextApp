@@ -1,9 +1,7 @@
-import Feature, {Feature2, Feature3} from "./components/FeatureSection";
+import {Feature3, Feature4, TrustedPartners} from "./components/FeatureSection";
 import HeroComponent from "./components/HeroComponent";
 import blogPng from "./components/assets/blogPNG.png";
-import {HeroCTA} from "./components/HeroCTA";
 import {BlogCarousel} from "./resources/content/BlogCarousel";
-import {PageWrapAnimation} from "./components/animation/PageWrapAnimation";
 
 
 export default function Home() {
@@ -16,10 +14,10 @@ export default function Home() {
                                "                            resources to our subsidiary\n" +
                                "                            companies. With a long-term investment perspective, we foster\n" +
                                "                            growth, innovation, and operational excellence across our portfolio."}/>
-            <HeroCTA/>
+            <Feature4/>
 
-            <Feature3/>
-            <Feature/>
+
+            <Feature3/> <TrustedPartners/>
             <BlogCarousel/>
 
 

@@ -16,7 +16,8 @@ export const BlogCarousel = () => {
                 Recent Blogs
             </h2>
             {posts || posts?.length > 0 ? (
-                <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
+                <div
+                    className="container grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 text-primaryBlue">
                     {posts.slice(0, 3).map((post: any) => (
                         <PostCarouselCard post={post} key={post.databaseId}/>
                     ))}
