@@ -36,8 +36,8 @@ export const features = [
 
 export const trustPartners = {
     header: 'Our trust partners',
-    subHeading: 'Envision, and Deliver. Bringing projects to fruition. These are the partners we are' +
-        ' working with'
+    subHeading: 'Envision, and deliver. Bringing projects to fruition. These are the partners we are' +
+        ' currently working with'
 }
 
 export const featuresHeader = {
