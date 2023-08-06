@@ -1,5 +1,5 @@
 "use client";
-import {FunctionComponent, Suspense, useEffect, useState} from "react";
+import {FunctionComponent, Suspense} from "react";
 import {useSearchParams} from "next/navigation";
 
 import Link from "next/link";
@@ -8,14 +8,14 @@ import {BlogCarousel} from "./BlogCarousel";
 import Loading from "@/app/loading";
 import {useSinglePost} from "@/lib/gqlQueries";
 import {Feature2} from "@/app/components/FeatureSection";
-import {HeroCTA} from "@/app/components/HeroCTA";
 
 interface BlogResourceProps {
 }
 
 const BlogResource: FunctionComponent<BlogResourceProps> = () => {
-    const params = useSearchParams();
+    const params: any = useSearchParams();
     const id = params.get("id");
+
     const {data, loading} = useSinglePost(id);
     if (loading) return <Loading/>;
 
