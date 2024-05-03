@@ -7,7 +7,7 @@ import Image from "next/image";
 import {BlogCarousel} from "./BlogCarousel";
 import Loading from "@/app/loading";
 import {useSinglePost} from "@/lib/gqlQueries";
-import {Feature2} from "@/app/components/FeatureSection";
+import {Feature2} from "@/app/components/Features/Feature2";
 
 interface BlogResourceProps {
 }

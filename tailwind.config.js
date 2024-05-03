@@ -16,6 +16,7 @@ module.exports = {
                 secondaryPurpleLight: "#249BB7",
                 secondaryBackground: "#dceee0",
                 primaryBackground: "#e2e2e2",
+                brightBackground: "#FFFAFE"
             },
             fontFamily: {
                 sans: ["Source Sans Pro"],

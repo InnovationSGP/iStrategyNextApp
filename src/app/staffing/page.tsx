@@ -6,8 +6,8 @@ import HeroComponent from "../components/HeroComponent";
 import CardComponent from "../components/Card";
 import {PrimaryCTA} from "../components/HeroCTA";
 import {BlogCarousel} from "../resources/content/BlogCarousel";
-import {Feature2} from "../components/FeatureSection";
 import HeroComponent2 from "../components/HeroComponentSecondary";
+import {Feature2} from "@/app/components/Features/Feature2";
 
 export default function Staffing() {
     return (

@@ -6,7 +6,7 @@ import heroImage3 from "../../../public/assets/techdelivery.png"
 import ImageFunction from "../../utils/ImageFunction";
 import {HeroCTA} from "../components/HeroCTA";
 import {BlogCarousel} from "../resources/content/BlogCarousel";
-import {Feature2} from "../components/FeatureSection";
+import {Feature2} from "@/app/components/Features/Feature2";
 
 export default function Delivery() {
     return (
