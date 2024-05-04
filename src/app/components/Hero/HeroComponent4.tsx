@@ -6,9 +6,10 @@ import image2 from "../../../../public/assets/standup.png";
 import image3 from "../../../../public/assets/staffing.png";
 
 export default function HeroComponent4(props: {
-    catchPhrase: any;
-    headerText: any;
-    bullet: any;
+    catchPhrase: string;
+    headerText: string;
+    bullet: string;
+    headerParagraph: string
 }) {
     return (
         <>
