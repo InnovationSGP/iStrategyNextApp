@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function NewsArticle() {
-    return <div className>
+    return <div className=''>
         <div className="relative h-96">
             <img
                 className="absolute inset-0 object-cover object-center w-full h-full"
