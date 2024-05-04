@@ -109,7 +109,7 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
                                         </div>
                                         <div className="p-2">
                                             {headerIcon}
-                                            <p className="px-2 text-xl text-gray-800 font-semibold leading-5 mt-6">
+                                            <p className="px-2 text-2xl text-gray-800 font-semibold leading-5 mt-6">
                                                 {header}
                                             </p>
                                         </div>
@@ -118,7 +118,7 @@ export const LearnMoreModal = (props: CustomModalTypes) => {
                                     {/* //Content Section */}
 
                                     <div className="p-2">
-                                        <div className="text-sm text-black">{content}</div>
+                                        <div className="text-lg text-black">{content}</div>
                                         <div className="py-6 px-2">
                                             <Link
                                                 href={page_routes.contactUs}

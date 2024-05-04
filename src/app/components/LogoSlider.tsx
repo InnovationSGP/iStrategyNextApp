@@ -1,13 +1,6 @@
 'use client'
 import {Autoplay} from "swiper/modules"
-import {Swiper, SwiperSlide} from "swiper/react"
-import kdads from "/public/assets/logo21.png"
-import brand1 from "/public/assets/logo22.png"
-import brand2 from "/public/assets/logo23.png"
-import brand3 from "/public/assets/logo24.png"
-import {motion} from "framer-motion"
 
-import Image from "next/image";
 
 const swiperOptions = {
     modules: [Autoplay],

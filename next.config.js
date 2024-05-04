@@ -2,7 +2,7 @@
 const nextConfig = {
     env: {
         NEXTAUTH_URL: "https://www.innovationsgp.com",
-        NEXTAUTH_SECRET: "USEREXPERIENCE"
+        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
     },
 
     images: {
