@@ -21,4 +21,4 @@ jobs:
         with:
           build: npm run build
           start: npm run start
-          wait-on: "https://www.innovationsgp.com"
+          wait-on: "http://localhost:3000"
