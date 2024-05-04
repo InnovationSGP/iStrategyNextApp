@@ -10,7 +10,8 @@
     "lint": "next lint",
     "cypress": "cypress open",
     "cypress:run": "cypress run --browser chrome",
-    "test": "cypress run -- -- record --spec cypress/e2e/homepage.cy.js"
+    "test": "cypress run -- -- record --spec cypress/e2e/homepage.cy.js",
+    "push": "git add . -A && git commit -m 'auto' && git push"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
