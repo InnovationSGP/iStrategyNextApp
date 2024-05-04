@@ -3,16 +3,10 @@ import React, {forwardRef} from "react";
 import {Fragment, useState, useEffect} from "react";
 import {Popover, Transition} from "@headlessui/react";
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartBarIcon,
-    ShieldCheckIcon,
-    Squares2X2Icon,
+
     XMarkIcon,
-    LockOpenIcon,
-    InboxArrowDownIcon,
-    LockClosedIcon,
-    PresentationChartBarIcon, QuestionMarkCircleIcon
+
 } from "@heroicons/react/24/outline";
 import {LogoBrand} from "@/utils/Logo";
 import {signOut, useSession} from "next-auth/react";
@@ -115,7 +109,7 @@ export default function Navigation() {
                                             >
                       <span
                           className="hover:border-b-2 capitalize hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
-                        Services
+                        Consulting
                       </span>
                                             </Popover.Button>
 

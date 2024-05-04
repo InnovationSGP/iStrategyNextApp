@@ -50,27 +50,7 @@ const swiperOptions = {
 export default function LogoSlider() {
     return (
         <>
-            {/*<Swiper {...swiperOptions} className="logos logos2 owl-carousel">*/}
-            {/*    <SwiperSlide className="single-logo">*/}
-            {/*        <Image src={kdads} alt=""/>*/}
-            {/*    </SwiperSlide>*/}
-            {/*    <SwiperSlide className="single-logo">*/}
-            {/*        <Image src={brand1} alt=""/>*/}
-            {/*    </SwiperSlide>*/}
-            {/*    <SwiperSlide className="single-logo">*/}
-            {/*        <Image src={brand2} alt=""/>*/}
-            {/*    </SwiperSlide>*/}
-            {/*    <SwiperSlide className="single-logo">*/}
-            {/*        <Image src={brand3} alt=""/>*/}
-            {/*    </SwiperSlide>*/}
-            {/*</Swiper>*/}
 
-            {/*<motion.img*/}
-            {/*    initial={{x: - 100}}*/}
-            {/*    animate={{x: 0}}*/}
-            {/*>*/}
-            {/*    <Image src={kdads} alt=""/>*/}
-            {/*</motion.img>*/}
         </>
     )
 }

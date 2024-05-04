@@ -1,9 +1,6 @@
 import HeroComponent from "./components/HeroComponent";
 import blogPng from "./components/assets/HeroImage.png";
 import {BlogCarousel} from "./resources/content/BlogCarousel";
-import 'swiper/css';
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import {homePageContent} from "@/content/homepage";
 import {Feature3} from "@/app/components/Features/Feature3";
 import {Feature4} from "@/app/components/Features/Feature4";
@@ -25,3 +22,6 @@ export default function Home() {
         </main>
     );
 }
+
+
+// "react-quill": "^2.0.0",
