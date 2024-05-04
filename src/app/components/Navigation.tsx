@@ -3,16 +3,10 @@ import React, {forwardRef} from "react";
 import {Fragment, useState, useEffect} from "react";
 import {Popover, Transition} from "@headlessui/react";
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartBarIcon,
-    ShieldCheckIcon,
-    Squares2X2Icon,
+
     XMarkIcon,
-    LockOpenIcon,
-    InboxArrowDownIcon,
-    LockClosedIcon,
-    PresentationChartBarIcon, QuestionMarkCircleIcon
+
 } from "@heroicons/react/24/outline";
 import {LogoBrand} from "@/utils/Logo";
 import {signOut, useSession} from "next-auth/react";
@@ -21,11 +15,18 @@ import {useRouter} from "next/navigation";
 import Link from "next/link";
 import {page_routes} from "@/lib/pageRoutes";
 import {motion, useScroll, useSpring} from "framer-motion";
+import {navigationItems} from "@/content/navContent"
 
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
+
+const variants = {
+    open: {opacity: 1, x: 0},
+    closed: {opacity: 0, x: "-100%"},
+}
+
 
 export default function Navigation() {
     const session = useSession();
@@ -48,60 +49,6 @@ export default function Navigation() {
     const {scrollYProgress} = useScroll()
     const scaleX = useSpring(scrollYProgress)
 
-    const solutions = [
-        {
-            name: "Delivery",
-            description: "Get work done, and done fast",
-            href: page_routes.Delivery,
-            icon: ChartBarIcon,
-        },
-        {
-            name: "Offshore",
-            description: "Build strategic workstreams to drive your growth",
-            href: page_routes.Offshore,
-            icon: ArrowPathIcon,
-        },
-        {
-            name: "IT Security",
-            description: "Your customers' data will be safe and secure.",
-            href: page_routes.ITSecurity,
-            icon: ShieldCheckIcon,
-        },
-        {
-            name: "Staffing",
-            description: "Leverage our offshore resources",
-            href: page_routes.staffing,
-            icon: PresentationChartBarIcon,
-        },
-        {
-            name: "Resources",
-            description: "View blogs, news, articles and other resources",
-            href: page_routes.resourceCenter,
-            icon: Squares2X2Icon,
-        },
-
-        {
-            name: "Contact us",
-            description: "Let's get you some help",
-            href: page_routes.contactUs,
-            icon: InboxArrowDownIcon,
-        },
-
-        {
-            name: "About us",
-            description: "Learn more about out services",
-            href: page_routes.about,
-            icon: QuestionMarkCircleIcon,
-        },
-
-        {
-            name: 'Admin Login',
-            description: 'Access admin dashboard',
-            href: page_routes.secure,
-            icon: LockClosedIcon,
-        }
-
-    ];
 
     function getLogout() {
         return async function logout() {
@@ -116,6 +63,7 @@ export default function Navigation() {
         if (data) return getLogout()
         else return () => router.push(item.href);
     }
+
 
     return (
         <>
@@ -161,7 +109,7 @@ export default function Navigation() {
                                             >
                       <span
                           className="hover:border-b-2 capitalize hover:border-b-primaryBlue hover:ease-in hover:duration-300 px-6 pb-2">
-                        Services
+                        Consulting
                       </span>
                                             </Popover.Button>
 
@@ -177,16 +125,16 @@ export default function Navigation() {
                                             >
                                                 <Popover.Panel
                                                     data-cy="consulting-panel"
-                                                    className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
+                                                    className="absolute z-10 -ml-4 mt-3 w-screen max-w-xl transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
                                                 >
                                                     <div
                                                         className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                                         <div
                                                             className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                                            {solutions.map((item) => (
+                                                            {navigationItems.map((item) => (
                                                                 <Link
                                                                     key={item.name}
-                                                                    className="-m-3 flex normal-case items-start rounded-lg p-3 hover:bg-gray-50"
+                                                                    className="-m-3 flex normal-case items-start rounded-lg p-6 hover:bg-gray-50"
                                                                     href={item.href}
                                                                 >
                                                                     <item.icon
@@ -194,7 +142,7 @@ export default function Navigation() {
                                                                         aria-hidden="true"
                                                                     />
                                                                     <div className="ml-4">
-                                                                        <p className="text-base  text-gray-900 capitalize font-bold">
+                                                                        <p className="text-2xl  text-gray-900 capitalize font-bold">
                                                                             {item.name}
                                                                         </p>
                                                                         <p className="mt-1 text-sm text-gray-500">
@@ -238,6 +186,8 @@ export default function Navigation() {
                         leaveFrom="opacity-100 "
                         leaveTo="opacity-0"
                     >
+
+
                         {/* MOBILE */}
                         <Popover.Panel
                             focus
@@ -260,18 +210,19 @@ export default function Navigation() {
                                         </div>
                                     </div>
                                     <div className="mt-12">
-                                        <nav className="grid gap-y-8">
-                                            {solutions.map((item) => (
+                                        <nav className="grid gap-y-8 p-8">
+                                            {navigationItems.map((item) => (
                                                 <Popover.Button
                                                     onClick={navItemClickFunction(item)}
                                                     key={item.name}
-                                                    className="-m-3 flex font-bold items-center rounded-md p-3 hover:bg-gray-50"
+                                                    className="-m-3 flex font-bold items-center rounded-md p-3"
                                                 >
-                                                    <item.icon
-                                                        className="h-6 w-6 flex-shrink-0 text-primaryBlue"
-                                                        aria-hidden="true"
-                                                    />
-                                                    <span className="ml-3 text-base text-gray-900">
+                                                    {/*<item.icon*/}
+                                                    {/*    className="h-6 w-6 flex-shrink-0 text-primaryBlue"*/}
+                                                    {/*    aria-hidden="true"*/}
+                                                    {/*/>*/}
+                                                    <span
+                                                        className="ml-3 text-3xl p-2 rounded-xl hover:underline underline-offset-8 text-primaryBlue">
                           {item.name}
                         </span>
                                                 </Popover.Button>
@@ -295,3 +246,9 @@ export default function Navigation() {
         </>
     );
 }
+
+
+// export function NewNavigation() {
+//
+// }
+

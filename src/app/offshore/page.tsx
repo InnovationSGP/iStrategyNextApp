@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Feature from "../components/FeatureSection";
+import Feature from "../components/Features/FeatureSection";
 import {BlogCarousel} from "../resources/content/BlogCarousel";
 import {PrimaryCTA} from "../components/HeroCTA";
 import {Testimonial} from "../components/Testimonial";
