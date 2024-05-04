@@ -16,7 +16,6 @@ export default function Home() {
                            headerText={pageContents.homePage.headerParagraph}/>
             <TrustedPartners/>
             <Feature4/>
-            <Feature3/>
             <BlogCarousel/>
 
 
