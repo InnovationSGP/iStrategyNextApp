@@ -6,12 +6,12 @@ import heroImage3 from "../../../public/assets/techdelivery.png"
 import ImageFunction from "../../utils/ImageFunction";
 import {HeroCTA} from "../components/HeroCTA";
 import {BlogCarousel} from "../resources/content/BlogCarousel";
-import {Feature2} from "../components/FeatureSection";
+import {Feature2} from "@/app/components/Features/Feature2";
 
 export default function Delivery() {
     return (
         <div>
-            <HeroComponent heroImg={heroImage3} headerText={"Gain a competitive advantage"} heroTxt={"Enhancing" +
+            <HeroComponent heroImg={heroImage3} header={"Gain a competitive advantage"} headerText={"Enhancing" +
                 " customer experiences,\n" +
                 "                improving talent development, and adjusting day-to-day\n" +
                 "                operations to gain a competitive advantage for our clients"}/>

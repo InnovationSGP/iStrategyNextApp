@@ -7,7 +7,7 @@ import {
 
 export const features = [
     {
-        name: "Deploy fast",
+        name: "Deploy fast and safe",
         description:
             "Use Continuous Integration and Continuous Deployment (CI/CD) tools, automate your testing, optimize your code, monitor your deployment, have viable rollback plans, use a cloud-based platform ",
         icon: CloudArrowUpIcon,
@@ -21,7 +21,7 @@ export const features = [
         icon: LockClosedIcon,
     },
     {
-        name: "Agile lifecycles",
+        name: "Agile Product Delivery",
         description:
             "Discover the work, identify the minimum viable product (MVP), breakdown the epics into SMART user stories, backlog the work, refine the backlog, play the stories, demo the work, inspect and adapt via retros, accept,  deploy, and release the work. Rinse and Repeat",
         icon: ArrowPathIcon,
@@ -34,12 +34,19 @@ export const features = [
     },
 ];
 
+export const trustPartners = {
+    header: 'Our trust partners',
+    subHeading: 'Envision and deliver. Bring projects to fruition. These are the partners we are' +
+        ' currently working with'
+}
+
 export const featuresHeader = {
-    bulletText: 'Stratewise is opening soon',
+    bulletText: 'Services',
     headerBanner: "Agile Transformation | Quality Delivery",
-    header: " Our Services that help you grow faster",
+    header: "Deliver efficiently and connect professional talents",
     subHeading:
-        " Successful completion of your project with a high degree of excellence in its scope, timeline, budget, and expected outcomes. ",
+        "Choosing InnovatinSGP means partnering with a trusted platform that has your project's success at heart. Our" +
+        " services are tailored to transform your ideas and visions into impactful results. Here is why you should choose us: ",
 };
 
 export const features2list = [

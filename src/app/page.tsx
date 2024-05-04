@@ -1,22 +1,25 @@
-import Feature, {Feature2} from "./components/FeatureSection";
+'use client'
 import HeroComponent from "./components/HeroComponent";
-import blogPng from "./components/assets/blogPNG.png";
-import {HeroCTA} from "./components/HeroCTA";
+import blogPng from "./components/assets/HeroImage.png";
 import {BlogCarousel} from "./resources/content/BlogCarousel";
+import {homePageContent} from "@/content/homepage";
+import {Feature3} from "@/app/components/Features/Feature3";
+import {Feature4} from "@/app/components/Features/Feature4";
+import {TrustedPartners} from "@/app/components/TrustedPartners";
 
 
 export default function Home() {
     return (
         <main>
-            <HeroComponent heroImg={blogPng} headerText={"What we do"} heroTxt={"We are a strategic hub, providing\n" +
-                "                            support, guidance, and\n" +
-                "                            resources to our subsidiary\n" +
-                "                            companies. With a long-term investment perspective, we foster\n" +
-                "                            growth, innovation, and operational excellence across our portfolio."}/>
-            <HeroCTA/>
-            <Feature/>
-            <Feature2/>
+
+            <HeroComponent heroImg={blogPng} header={homePageContent.heroSection.headerText}
+                           headerText={homePageContent.heroSection.headerParagraph}/>
+            <TrustedPartners/>
+            <Feature4/>
+            <Feature3/>
             <BlogCarousel/>
+
+
         </main>
     );
 }
