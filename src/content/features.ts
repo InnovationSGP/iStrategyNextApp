@@ -4,6 +4,7 @@ import {
     FingerPrintIcon,
     LockClosedIcon,
 } from "@heroicons/react/24/outline";
+import {descriptions} from "jest-config";
 
 export const features = [
     {
@@ -25,21 +26,72 @@ export const features = [
         description:
             "Discover the work, identify the minimum viable product (MVP), breakdown the epics into SMART user stories, backlog the work, refine the backlog, play the stories, demo the work, inspect and adapt via retros, accept,  deploy, and release the work. Rinse and Repeat",
         icon: ArrowPathIcon,
+    }
+];
+export const GRCFeatures = [
+    {
+
+        name: "GRC/Risk Manager",
+        description: "Help develop and implement a comprehensive GRC program framework. Conduct risk assessments and" +
+            " workshops to identify and prioritize organizational risks. Assist in selecting and implementing GRC" +
+            " technology solutions."
     },
     {
-        name: "User inteface and User experience",
-        description:
-            "Collaborate with value stream contributors to identify needs of the target audience and address needs using a user-centered design approach",
-        icon: FingerPrintIcon,
+        name: "Senior Executives",
+        description: "Provide strategic guidance on GRC best practices and industry trends." +
+            " Develop and deliver GRC awareness training for senior leadership."
     },
-];
 
+    {
+        name: "Information Security Professionals",
+
+        description: "Conduct penetration testing and vulnerability assessments to identify security weaknesses.\n" +
+            "    Recommend and implement security controls and incident response plans.\n" +
+            "    Help develop and maintain a Security Information and Event Management (SIEM) system."
+    },
+
+    {
+        name: "Data Protection",
+        description: "Assist in developing and implementing a data privacy program. Provide guidance on data subject rights" +
+            " and breach notification procedures."
+    },
+
+
+    {
+        name: "Internal Auditors",
+        description: "Perform compliance audits and identify control gaps. Develop and implement internal audit" +
+            " methodologies tailored to GRC objectives."
+    },
+
+
+    {
+        name: "GRC Specialists",
+        description: "Consulting firms can provide additional specialists to manage specific GRC tasks, like gap assessments" +
+            " or regulatory reporting. The consulting firm itself can act as an extension of the internal GRC team, providing ongoing support and expertise."
+    },
+    {
+        name: "Governance",
+        description:
+            "We can help you to establish a framework for decision-making by setting clear policies and" +
+            " procedures."
+    },
+    {
+        name: "Risk Management",
+        description:
+            "Identifies potential threats to the organization, such as financial risks, operational risks, or" +
+            " security risks and Develops plans to mitigate or avoid these risks, including risk reduction, risk transference, or risk acceptance."
+    },
+    {
+        name: "Compliance",
+        description:
+            "Ensures that your organization adheres to all relevant laws and regulations, both internal and external"
+    }
+];
 export const trustPartners = {
     header: 'Our trust partners',
     subHeading: 'Envision and deliver. Bring projects to fruition. These are the partners we are' +
         ' currently working with'
 }
-
 export const featuresHeader = {
     bulletText: 'Services',
     headerBanner: "Agile Transformation | Quality Delivery",
@@ -48,11 +100,3 @@ export const featuresHeader = {
         "Choosing InnovatinSGP means partnering with a trusted platform that has your project's success at heart. Our" +
         " services are tailored to transform your ideas and visions into impactful results. Here is why you should choose us: ",
 };
-
-export const features2list = [
-    {id: 1, feature: "Offshore project management"},
-    {id: 2, feature: "24/7 resource availability"},
-    {id: 3, feature: "Business continuity at the highest level"},
-    {id: 4, feature: "Best practices in UI/UX"},
-    {id: 5, feature: "Agile Transformation and Delivery"},
-];
