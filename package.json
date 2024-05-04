@@ -11,7 +11,7 @@
     "cypress": "cypress open",
     "cypress:run": "cypress run --browser chrome",
     "test": "cypress run -- -- record --spec cypress/e2e/homepage.cy.js",
-    "push": "git add . -A && git commit -m 'auto' && git push"
+    "push": "git add . -A && git commit -m 'auto signed by brutus segun' && git push"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",

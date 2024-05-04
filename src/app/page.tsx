@@ -1,3 +1,4 @@
+'use client'
 import HeroComponent from "./components/HeroComponent";
 import blogPng from "./components/assets/HeroImage.png";
 import {BlogCarousel} from "./resources/content/BlogCarousel";
@@ -22,6 +23,3 @@ export default function Home() {
         </main>
     );
 }
-
-
-// "react-quill": "^2.0.0",
