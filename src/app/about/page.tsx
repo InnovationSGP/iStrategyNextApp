@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import aboutUsImage from '../../../public/assets/pm.jpeg'
 import Image from "next/image";
-import {HeroCTA} from "@/app/components/HeroCTA";
+import {HeroCTA} from "@/app/components/Hero/HeroCTA";
 
 function ContactUs(props: any) {
 

@@ -9,7 +9,6 @@ export function Feature2() {
         <div
             className=" p-2 py-8 sm:p-4 bg-primaryBlue overflow-hidden shadow-sm shadow-blue-500 flex items-center justify-center">
 
-
             <div className="flex flex-col sm:flex-row items-center justify-between">
                 <div className=" ">
                     <div
@@ -47,18 +46,6 @@ export function Feature2() {
                         </div>
                     </div>
 
-                    {/*<div className="flex justify-center items-center ">*/}
-                    {/*    <div className="border drop-shadow-xl rounded-lg">*/}
-                    {/*        <Image*/}
-                    {/*            src={image3}*/}
-                    {/*            className="object-cover w-full h-64 bg-gray-100 md:h-full"*/}
-                    {/*            loading="lazy"*/}
-                    {/*            width={400}*/}
-                    {/*            height={600}*/}
-                    {/*            alt="hero image"*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </div>
