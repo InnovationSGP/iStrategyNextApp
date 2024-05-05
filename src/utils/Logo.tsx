@@ -23,7 +23,7 @@ export const LogoBrand = (props: any) => {
                 <Link
                     data-cy="logo"
                     href={"/"}
-                    className={`bg-white flex items-center justify-center p-2 cursor-pointer border-0`}
+                    className={`flex items-center justify-center p-2 cursor-pointer `}
                 >
                     <Image src={navLog} width={200} height={400} alt="mobile logo"/>
                 </Link>

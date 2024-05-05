@@ -5,6 +5,9 @@ import {
     LockClosedIcon,
 } from "@heroicons/react/24/outline";
 import {descriptions} from "jest-config";
+import stratewise from "../../public/assets/stratewise.png";
+import isgpBW from "../../public/assets/isgplogoBW.png";
+import kdadsLogo from "../../public/assets/kdadsLogo.png";
 
 export const features = [
     {
@@ -88,9 +91,13 @@ export const GRCFeatures = [
     }
 ];
 export const trustPartners = {
-    header: 'Our trust partners',
-    subHeading: 'Envision and deliver. Bring projects to fruition. These are the partners we are' +
-        ' currently working with'
+    header: 'Our partners',
+    subHeading: 'Envision and deliver. Bring projects to fruition.',
+    partners: [
+        {name: "Stratewise LLC", description: "Partner consulting services", logo: stratewise},
+        {name: "KDADS", description: "Kansas Department for Aging and Disability Services", logo: kdadsLogo},
+        {name: "InnovationSGP", description: "Partner Consulting", logo: isgpBW},
+    ]
 }
 export const featuresHeader = {
     bulletText: 'Services',

@@ -194,7 +194,7 @@ export default function Navigation() {
                             className={`absolute z-40 inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden`}
                         >
                             <div
-                                className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                                className="divide-y-2 divide-gray-50 rounded-lg bg-gray-200 shadow-lg ring-1 ring-black ring-opacity-5">
                                 <div className="px-5 pt-5 pb-6">
                                     <div className="flex items-center justify-between">
                                         <div className="p-2 cursor-pointer">
@@ -222,7 +222,7 @@ export default function Navigation() {
                                                     {/*    aria-hidden="true"*/}
                                                     {/*/>*/}
                                                     <span
-                                                        className="ml-3 text-3xl p-2 rounded-xl hover:underline underline-offset-8 text-primaryBlue">
+                                                        className="ml-3 sm:text-xl md:text-2xl  lg:text-3xl p-2 rounded-xl hover:underline underline-offset-8 text-primaryBlue">
                           {item.name}
                         </span>
                                                 </Popover.Button>
