@@ -8,16 +8,15 @@ import BlogComponent from "@/app/resources/content/BlogComponent";
 import {BlogCarousel} from "@/app/resources/content/BlogCarousel";
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 function ContactUs() {
-
     return (
-        <>
+        <div className="">
             <ContactUsForm/>
             <BlogCarousel/>
-        </>
+        </div>
     );
 }
+
 
 export default ContactUs;
 
@@ -27,7 +26,7 @@ function ContactUsForm() {
     const [show, setShow] = useState(false);
     const {register, handleSubmit, formState: errors, reset}: any = useForm();
     const [captchaIsDone, setCaptchaIsDone] = useState(false);
-    const siteKey: any = process.env.GOOGLE_RECAPTCHA
+    const siteKey: any = '6Lf3i9EpAAAAAAgYBG-GFyWdIBJ3RFMvkYkxiHv9'
 
     function onChange() {
         console.log('captcha works')
@@ -63,8 +62,6 @@ function ContactUsForm() {
 
     return <div className="w-full h-[80vh] bg-gray-100 flex items-center justify-center py-4">
         <div className="relative bg-white drop-shadow-md rounded lg:px-28 px-8">
-
-
             <div className="container mx-auto p-16">
                 <div className="lg:flex">
                     <div
@@ -198,9 +195,10 @@ function ContactUsForm() {
                                     policy on contacting you via your email or phone number (if
                                     provided).
                                 </p>
+
                                 <div className='py-2'>
                                     <ReCAPTCHA
-                                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                                        sitekey={siteKey}
                                         onChange={onChange}
                                     />
                                 </div>
@@ -223,36 +221,3 @@ function ContactUsForm() {
         </div>
     </div>;
 }
-
-function Captcha() {
-    // useEffect(() => {
-    //     if (!window.gr) {
-    //         const script = document.createElement('script');
-    //         script.src = 'https://'
-    //     }
-    // }, [])
-    return (
-        <div>
-
-        </div>
-    )
-}
-
-
-//
-// <script>
-//     function onClick(e) {
-//     e.preventDefault();
-//     grecaptcha.enterprise.ready(async () => {
-//     const token = await grecaptcha.enterprise.execute('6Lf3i9EpAAAAAAgYBG-GFyWdIBJ3RFMvkYkxiHv9', {action: 'LOGIN'});
-// });
-// }
-// </script>
-//
-// {
-//     "event": {
-//     "token": "TOKEN",
-//         "expectedAction": "USER_ACTION",
-//         "siteKey": "6Lf3i9EpAAAAAAgYBG-GFyWdIBJ3RFMvkYkxiHv9",
-// }
-// }

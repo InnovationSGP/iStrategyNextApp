@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        NEXTAUTH_URL: "https://www.innovationsgp.com",
+        NEXTAUTH_URL: process.env.NEXTAUTH_URL || process.env.NEXTAUTH_PROD || process.env.NEXTAUTH_URL_STAGING,
         NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
     },
 
