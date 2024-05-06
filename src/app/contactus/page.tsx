@@ -26,7 +26,7 @@ function ContactUsForm() {
     const [show, setShow] = useState(false);
     const {register, handleSubmit, formState: errors, reset}: any = useForm();
     const [captchaIsDone, setCaptchaIsDone] = useState(false);
-    const siteKey: any = '6Ldxm9EpAAAAAJ5Cxb-mhMnnCtUpybGv9GHRE8EM'
+    const siteKey: any = '6LchC9MpAAAAAN9yw6UE3MdhEppIU3y0OQZkgljG'
 
     function onChange() {
         console.log('captcha works')
