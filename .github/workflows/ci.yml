@@ -12,10 +12,13 @@ jobs:
           MONGO_URI: ${{ secrets.MONGO_URI }}
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+          NEXTAUTH_URL_PROD: ${{ secrets.NEXTAUTH_URL_PROD }}
+          NEXTAUTH_URL_STAGING: ${{ secrets.NEXTAUTH_URL_STAGING }}
           JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
           JWT_EXPIRY: ${{ secrets.JWT_EXPIRY }}
           CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
           SECRET: ${{ secrets.SECRET }}
+          GOOGLE_RECAPTCHA: ${{ secrets.GOOGLE_RECAPTCHA }}
 
         uses: cypress-io/github-action@v5
         with:
