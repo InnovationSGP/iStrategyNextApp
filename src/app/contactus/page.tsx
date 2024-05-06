@@ -44,7 +44,7 @@ function ContactUsForm() {
                 });
 
                 console.log("payload sent to db");
-                toast.success("Message Sent, we will get back to you shortly", {
+                toast.success("Thank you for the message. We will reach out to you shortly", {
                     duration: 4000,
                     position: "top-center",
                 });
