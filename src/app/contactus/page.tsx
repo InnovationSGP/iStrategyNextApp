@@ -4,7 +4,6 @@ import {useForm} from "react-hook-form";
 import toast from "react-hot-toast";
 import {routes} from "@/pages/api/routes/messagesRoutes";
 import {IncomingContactMessages} from "@/lib/types";
-import BlogComponent from "@/app/resources/content/BlogComponent";
 import {BlogCarousel} from "@/app/resources/content/BlogCarousel";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -26,16 +25,14 @@ function ContactUsForm() {
     const [show, setShow] = useState(false);
     const {register, handleSubmit, formState: errors, reset}: any = useForm();
     const [captchaIsDone, setCaptchaIsDone] = useState(false);
-    const siteKey: any = '6Ldxm9EpAAAAAJ5Cxb-mhMnnCtUpybGv9GHRE8EM'
+    const siteKey: string = "6Ld_QNMpAAAAAKDLhdPZL9tls13saV7s1FZIWMRW"
 
-    function onChange() {
-        console.log('captcha works')
-        setCaptchaIsDone(true)
-    }
+    const onChange = () => setCaptchaIsDone(true)
 
     const formSubmit = async (payload: IncomingContactMessages) => {
         try {
             const {POST_MESSAGE} = routes();
+
             if (captchaIsDone) {
                 await POST_MESSAGE(payload);
                 await reset({
@@ -201,6 +198,7 @@ function ContactUsForm() {
                                         sitekey={siteKey}
                                         onChange={onChange}
                                     />
+
                                 </div>
                                 <div className='py-4'>
                                     <button type="submit"
