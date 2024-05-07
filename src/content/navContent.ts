@@ -48,11 +48,11 @@ export const navigationItems = [
     //     icon: QuestionMarkCircleIcon,
     // },
 
-    {
-        name: 'Admin Login',
-        description: 'Access admin dashboard',
-        href: page_routes.secure,
-        icon: LockClosedIcon,
-    }
+    // {
+    //     name: 'Admin Login',
+    //     description: 'Access admin dashboard',
+    //     href: page_routes.secure,
+    //     icon: LockClosedIcon,
+    // }
 
 ];
