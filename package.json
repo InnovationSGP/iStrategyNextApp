@@ -23,7 +23,7 @@
     "@wordpress/block-library": "^8.12.0",
     "axios": "^1.3.3",
     "bcryptjs": "^2.4.3",
-    "eslint": "8.33.0",
+    "eslint": "8.57.0",
     "eslint-config-next": "13.4.6",
     "framer-motion": "^10.18.0",
     "fs-extra": "^11.1.0",
